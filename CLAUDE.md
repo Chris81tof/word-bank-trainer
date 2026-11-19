@@ -1,0 +1,56 @@
+# Word Bank Trainer – Projektregeln
+
+Lern-App für die Cambridge C2 Proficiency (CPE), Teil Use of English: Collocations, Phrasal Verbs, Word Formation, Idioms. Läuft als Web-App auf GitHub Pages, vor allem auf dem iPhone (Home-Bildschirm, offline).
+
+Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-trainer.html` (ein Claude-Artefakt). Sie dient nur als Quelle und wird nicht verändert.
+
+## Zusammenarbeit
+
+- Antworten und Erklärungen auf Deutsch. Der Nutzer lernt Claude Code: Jeden Schritt kurz erklären (was und warum), ohne lange Vorträge.
+- In kleinen Schritten arbeiten, ein Commit pro Schritt, mit deutscher Commit-Nachricht („Schritt 3: Übungen Stufe 1 bis 4“).
+- Vor dem ersten Push, dem Anlegen des GitHub-Repositorys und jeder Veröffentlichung ausdrücklich nachfragen.
+- Rückfragen gebündelt stellen, mit Vorschlag.
+
+## Technik
+
+- Kein Build-Schritt und keine Laufzeit-Abhängigkeiten: reines HTML, CSS und JavaScript als ES-Module.
+- **Keine KI im Code:** kein API-Schlüssel, kein Aufruf von `window.claude`. Wo Claude helfen soll, erzeugt die App einen Prompt zum Kopieren. Die Antwort fügt der Nutzer wieder in die App ein.
+- **Daten getrennt vom Code:**
+  - `data/cards.json`: alle Karten.
+  - `data/texts.json`: Lückentexte für Stufe 5.
+  - `data/tasks.json`: Sprech- und Schreibaufgaben.
+- Die Karten-IDs (`s01`, `g12`, `p03` …) ändern sich nie, denn der Lernstand hängt daran. Neue Karten bekommen neue IDs, und keine ID wird wiederverwendet.
+- Der Lernstand liegt im `localStorage` unter dem Schlüssel `word-bank-trainer-v2`. Er enthält nur den Fortschritt je Karten-ID, eigene Karten, importierte Texte und die Einstellungen, nicht die Karten aus `data/`.
+- Der Import liest das neue Format und das alte Format (`"app": "word-bank-trainer"`, `"format": 1`, Schlüssel `kollokations-trainer-v1`).
+- Offline-Betrieb über `sw.js`. Bei jeder Änderung an ausgelieferten Dateien die Versionsnummer in `sw.js` erhöhen.
+- Schriften und Icons liegen im Projekt, es werden keine externen Ressourcen geladen.
+
+## Lernlogik (nicht ohne Rückfrage ändern)
+
+- 6 Stufen mit den Abständen `INTERVALS = [0, 1, 3, 7, 14, 30, 60]` Tage. Ab Stufe 4 gilt eine Karte als „Mastered“.
+- Obergrenzen je Übung:
+  - Bedeutung und Auswahl: höchstens Stufe 1.
+  - Karteikarten und Erklären: höchstens Stufe 2.
+  - Alle anderen Übungen: bis Stufe 6.
+- Wenn eine Karte richtig beantwortet wird, ihre Stufe aber schon an der Grenze der Übung liegt, wird sie nach dem Abstand ihrer aktuellen Stufe wieder fällig.
+- Fehler: Die Karte fällt auf Stufe 0 zurück und ist heute wieder fällig. Bei Bedeutung und Auswahl fällt sie nur um eine Stufe.
+- Nur aktive Übungen verändern den Lernstand, der Passiv-Durchlauf nicht.
+
+## Inhalte
+
+- Englische Inhalte in britischem Englisch (Cambridge), die Oberfläche auf Deutsch.
+- Jede Karte braucht:
+  - `id`, `cat`, `term`, `de`,
+  - `prompt` (englische Erklärung),
+  - `sentence` mit genau einer Lücke `____`,
+  - `answer` (mehrere Lösungen mit `|` getrennt),
+  - `wrong` (3 falsche Optionen), `plain` (schlichte Fassung des Satzes), `reg` (`i`/`n`/`f`).
+  - `note` ist optional.
+- Lückentexte: Platzhalter `{1}` bis `{n}` im Text, dazu `gaps` mit `[kartenId, lösung]` in derselben Reihenfolge. Jede Karten-ID muss existieren.
+- Nach jeder Datenänderung die Tests laufen lassen, denn sie prüfen genau diese Regeln.
+
+## Tests
+
+- `node --test` startet alle Tests in `tests/`, ohne zusätzliche Pakete.
+- Die Tests decken die Lernlogik, den Import alter Lernstände und die Prüfung der Daten ab.
+- GitHub Actions führt die Tests bei jedem Push aus. Veröffentlicht wird nur, wenn sie bestehen.
