@@ -1143,7 +1143,8 @@
     "wrong": ["wash", "sweep", "dust"],
     "plain": "I need to refresh my French before the trip.",
     "reg": "n",
-    "note": "brush up on your English, your skills."
+    "note": "brush up on your English, your skills.",
+    "alt": ["brush up on"]
   },
   {
     "id": "t03",
@@ -1234,7 +1235,8 @@
     "wrong": ["take", "pull", "turn"],
     "plain": "We need to eat less sugar.",
     "reg": "n",
-    "note": "cut back on spending, costs, sugar."
+    "note": "cut back on spending, costs, sugar.",
+    "alt": ["cut back on"]
   },
   {
     "id": "t10",
@@ -1298,7 +1300,8 @@
     "wrong": ["went", "got", "woke"],
     "plain": "He regained consciousness a few minutes after the fall.",
     "reg": "n",
-    "note": "Britisch: come round. Auch: come to."
+    "note": "Britisch: come round. Auch: come to.",
+    "alt": ["come to", "come round", "come around"]
   },
   {
     "id": "t15",
@@ -1389,7 +1392,8 @@
     "wrong": ["caused", "struck", "lit"],
     "plain": "The comment started a heated debate.",
     "reg": "n",
-    "note": "trigger kann auch ohne off stehen."
+    "note": "trigger kann auch ohne off stehen.",
+    "alt": ["trigger off"]
   },
   {
     "id": "t22",
@@ -1464,7 +1468,8 @@
     "wrong": ["split", "hurt", "pulled"],
     "plain": "She was very upset about the news.",
     "reg": "i",
-    "note": "Britisch, umgangssprachlich."
+    "note": "Britisch, umgangssprachlich.",
+    "alt": ["be cut up about", "be cut up"]
   },
   {
     "id": "t28",
@@ -1542,7 +1547,8 @@
     "wrong": ["arrived", "raised", "won"],
     "plain": "The negotiations got into serious difficulty when both sides walked out.",
     "reg": "n",
-    "note": "Deutsche Bedeutung von mir ergänzt (in deiner Liste fehlte sie). Üblich ist auch: reach crisis point."
+    "note": "Deutsche Bedeutung von mir ergänzt (in deiner Liste fehlte sie). Üblich ist auch: reach crisis point.",
+    "alt": ["reach crisis point"]
   },
   {
     "id": "t34",
@@ -1619,7 +1625,8 @@
     "wrong": ["spoilt", "spoiled", "rotting"],
     "plain": "He came into the room wanting to start a fight.",
     "reg": "n",
-    "note": "Fast nur in der Verlaufsform: be spoiling for a fight."
+    "note": "Fast nur in der Verlaufsform: be spoiling for a fight.",
+    "alt": ["be spoiling for a fight", "be spoiling for an argument", "spoil for a fight", "spoil for an argument"]
   },
   {
     "id": "t40",
@@ -1632,7 +1639,8 @@
     "wrong": ["stoop", "stew", "stove"],
     "plain": "A boy tried to travel secretly on a cargo ship without a ticket.",
     "reg": "n",
-    "note": "Die Person: a stowaway."
+    "note": "Die Person: a stowaway.",
+    "alt": ["stow away on"]
   },
   {
     "id": "t41",
@@ -1670,7 +1678,8 @@
     "answer": "juts",
     "wrong": ["jumps", "jolts", "jerks"],
     "plain": "A narrow pier extends out into the sea.",
-    "reg": "n"
+    "reg": "n",
+    "alt": ["jut out from"]
   },
   {
     "id": "t44",
@@ -1709,7 +1718,8 @@
     "wrong": ["hatching", "nesting", "sitting"],
     "plain": "There's no use worrying again and again about what happened.",
     "reg": "n",
-    "note": "Auch: brood on sth."
+    "note": "Auch: brood on sth.",
+    "alt": ["brood on", "brood over"]
   },
   {
     "id": "f01",
@@ -1761,7 +1771,8 @@
     "wrong": ["quick", "speedy", "rapid"],
     "plain": "Could you move the cassette quickly forward to the next song please?",
     "reg": "n",
-    "note": "Auch als Verb mit Bindestrich: fast-forward. Gegenteil: rewind."
+    "note": "Auch als Verb mit Bindestrich: fast-forward. Gegenteil: rewind.",
+    "alt": ["fast-forward"]
   },
   {
     "id": "f05",
@@ -1774,7 +1785,8 @@
     "wrong": ["base", "ground", "rate"],
     "plain": "Karen goes swimming regularly as she likes to keep fit.",
     "reg": "n",
-    "note": "Weitere Sätze: On what ____ are you claiming the company has made progress? / He is going to return to work on a part-time ____ until he is fully recovered. Plural: bases."
+    "note": "Weitere Sätze: On what ____ are you claiming the company has made progress? / He is going to return to work on a part-time ____ until he is fully recovered. Plural: bases.",
+    "alt": ["on a part-time basis", "on what basis", "basis"]
   },
   {
     "id": "f06",
@@ -1956,7 +1968,8 @@
     "wrong": ["long", "lengthier", "length"],
     "plain": "I'm sorry, I have no more time to wait. I'll come back later.",
     "reg": "n",
-    "note": "can't wait any longer = nicht länger warten können. Vor dem Verb steht no longer (I no longer work here). Auch: not ... any more."
+    "note": "can't wait any longer = nicht länger warten können. Vor dem Verb steht no longer (I no longer work here). Auch: not ... any more.",
+    "alt": ["no longer", "not any longer"]
   },
   {
     "id": "f20",
@@ -2008,7 +2021,8 @@
     "wrong": ["adjusts", "adjusting", "adjustable"],
     "plain": "I need to make one or two small changes to the mechanism before it's finished.",
     "reg": "n",
-    "note": "make adjustments to sth. = etwas nachstellen, nachjustieren. Auch: a period of adjustment = Eingewöhnungszeit. Verwandt: adjust, adjustable."
+    "note": "make adjustments to sth. = etwas nachstellen, nachjustieren. Auch: a period of adjustment = Eingewöhnungszeit. Verwandt: adjust, adjustable.",
+    "alt": ["adjustment"]
   },
   {
     "id": "f24",
@@ -2034,7 +2048,8 @@
     "wrong": ["adjusted", "adjustable", "adjustment"],
     "plain": "I found it very difficult to get used to life in another country.",
     "reg": "n",
-    "note": "adjust to sth. = sich an etwas gewöhnen, sich auf etwas einstellen. Danach Nomen oder -ing: adjust to life abroad, adjust to living alone."
+    "note": "adjust to sth. = sich an etwas gewöhnen, sich auf etwas einstellen. Danach Nomen oder -ing: adjust to life abroad, adjust to living alone.",
+    "alt": ["adjusting"]
   },
   {
     "id": "f26",
@@ -2047,7 +2062,8 @@
     "wrong": ["for", "on", "to"],
     "plain": "All those who support the new proposals, please vote now.",
     "reg": "n",
-    "note": "in favour of + Nomen oder -ing: in favour of the plan, in favour of staying. Amerikanisch: favor. Gegenteil: be against. Auch: vote in favour of, come out in favour of."
+    "note": "in favour of + Nomen oder -ing: in favour of the plan, in favour of staying. Amerikanisch: favor. Gegenteil: be against. Auch: vote in favour of, come out in favour of.",
+    "alt": ["in favour of", "in favor of", "be in favor of"]
   },
   {
     "id": "f27",
@@ -2086,7 +2102,8 @@
     "wrong": ["save", "lose", "keep"],
     "plain": "I'm afraid I haven't got any free time at present as I'm really busy.",
     "reg": "n",
-    "note": "Meist verneint oder als Frage: I can't spare the time. Can you spare a minute? Auch: time to spare = übrige Zeit."
+    "note": "Meist verneint oder als Frage: I can't spare the time. Can you spare a minute? Auch: time to spare = übrige Zeit.",
+    "alt": ["spare some time", "spare time", "spare a moment"]
   },
   {
     "id": "f30",
@@ -2333,7 +2350,8 @@
     "wrong": ["make", "set", "take"],
     "plain": "Demonstrators hope the Government will stop animal experimentation.",
     "reg": "n",
-    "note": "put an end to + Nomen oder -ing: put an end to the rumours, to smoking. Ähnlich: put a stop to sth. Nicht verwechseln: come to an end = enden (ohne Objekt), bring sth. to an end = etwas zu Ende bringen."
+    "note": "put an end to + Nomen oder -ing: put an end to the rumours, to smoking. Ähnlich: put a stop to sth. Nicht verwechseln: come to an end = enden (ohne Objekt), bring sth. to an end = etwas zu Ende bringen.",
+    "alt": ["put a stop to"]
   },
   {
     "id": "g03",
@@ -2398,7 +2416,8 @@
     "wrong": ["aim", "point", "lay"],
     "plain": "I'd like you all now to concentrate on the arguments against the proposal.",
     "reg": "n",
-    "note": "focus (one's) attention on sth. oder kurz focus on sth. Ähnlich: draw attention to sth. = Aufmerksamkeit lenken auf, pay attention to sth. = beachten. Auch: in focus / out of focus."
+    "note": "focus (one's) attention on sth. oder kurz focus on sth. Ähnlich: draw attention to sth. = Aufmerksamkeit lenken auf, pay attention to sth. = beachten. Auch: in focus / out of focus.",
+    "alt": ["focus your attention on", "focus our attention on", "focus the attention on"]
   },
   {
     "id": "g08",
@@ -2463,7 +2482,8 @@
     "wrong": ["upright", "upper", "uplifted"],
     "plain": "She tilted her head and gazed up at the stars.",
     "reg": "n",
-    "note": "-wards bildet Richtungsadverbien: upwards, downwards, forwards, backwards (amerikanisch oft ohne -s: upward). Nicht verwechseln: upright = aufrecht (Adjektiv). Als Adjektiv: an upward trend."
+    "note": "-wards bildet Richtungsadverbien: upwards, downwards, forwards, backwards (amerikanisch oft ohne -s: upward). Nicht verwechseln: upright = aufrecht (Adjektiv). Als Adjektiv: an upward trend.",
+    "alt": ["upward"]
   },
   {
     "id": "g13",
@@ -2502,7 +2522,8 @@
     "wrong": ["over", "below", "beneath"],
     "plain": "I'm feeling a bit unwell today, so I'll stay in bed.",
     "reg": "i",
-    "note": "Meist leichte Beschwerden (Erkältung, Müdigkeit), nichts Ernstes; nicht wörtlich zu verstehen. Ähnlich: be off colour, be run down. Gleiches Bild im Französischen und Russischen: FR ne pas être dans son assiette, RU не в своей тарелке (ne v svojéj tarélke), wörtlich „nicht in seinem Teller“."
+    "note": "Meist leichte Beschwerden (Erkältung, Müdigkeit), nichts Ernstes; nicht wörtlich zu verstehen. Ähnlich: be off colour, be run down. Gleiches Bild im Französischen und Russischen: FR ne pas être dans son assiette, RU не в своей тарелке (ne v svojéj tarélke), wörtlich „nicht in seinem Teller“.",
+    "alt": ["feel under the weather", "under the weather"]
   },
   {
     "id": "g16",
@@ -2515,7 +2536,8 @@
     "wrong": ["best", "worse", "else"],
     "plain": "The hotel is right on the beach and also costs very little.",
     "reg": "n",
-    "note": "what's more / what is more leitet eine zusätzliche, oft stärkere Information ein. Nicht: what's best. Ähnlich: moreover (formeller), besides, on top of that. DE außerdem, ES es más, IT per di più, FR qui plus est, PT além disso."
+    "note": "what's more / what is more leitet eine zusätzliche, oft stärkere Information ein. Nicht: what's best. Ähnlich: moreover (formeller), besides, on top of that. DE außerdem, ES es más, IT per di più, FR qui plus est, PT além disso.",
+    "alt": ["what is more"]
   },
   {
     "id": "g17",
@@ -2528,7 +2550,8 @@
     "wrong": ["close", "tight", "short"],
     "plain": "The team lost the match by just one goal.",
     "reg": "n",
-    "note": "narrow passt zu defeat, victory, win, escape und margin; close passt zu contest, race, call und match. Romanisch: ES derrota por la mínima, IT sconfitta di misura, FR défaite de justesse, PT derrota por pouco."
+    "note": "narrow passt zu defeat, victory, win, escape und margin; close passt zu contest, race, call und match. Romanisch: ES derrota por la mínima, IT sconfitta di misura, FR défaite de justesse, PT derrota por pouco.",
+    "alt": ["narrow defeat"]
   },
   {
     "id": "g18",
@@ -2541,7 +2564,8 @@
     "wrong": ["in", "on", "out"],
     "plain": "The two companies have formally agreed to work together to develop the new engine.",
     "reg": "f",
-    "note": "Formell. Typisch: enter into an agreement / a contract / negotiations / a partnership. Nicht: enter in. Gegenüber enter a room (ohne into). DE eine Vereinbarung eingehen, FR conclure un accord, IT stipulare un accordo, ES suscribir un acuerdo."
+    "note": "Formell. Typisch: enter into an agreement / a contract / negotiations / a partnership. Nicht: enter in. Gegenüber enter a room (ohne into). DE eine Vereinbarung eingehen, FR conclure un accord, IT stipulare un accordo, ES suscribir un acuerdo.",
+    "alt": ["enter into"]
   },
   {
     "id": "g19",
@@ -2554,7 +2578,8 @@
     "wrong": ["living", "bearing", "making"],
     "plain": "It is time you accepted that you cannot please everyone.",
     "reg": "n",
-    "note": "Oft: face up to the fact that / to reality / to your responsibilities. Romanisch gleicher Aufbau im Französischen: faire face à. Sonst ES afrontar, IT affrontare, PT enfrentar, DE sich stellen."
+    "note": "Oft: face up to the fact that / to reality / to your responsibilities. Romanisch gleicher Aufbau im Französischen: faire face à. Sonst ES afrontar, IT affrontare, PT enfrentar, DE sich stellen.",
+    "alt": ["face up to"]
   },
   {
     "id": "g20",
@@ -2580,7 +2605,8 @@
     "wrong": ["passing", "passage", "passive"],
     "plain": "Lost in the old town, we asked someone walking past for the way to the station.",
     "reg": "n",
-    "note": "Person = -er: passer-by, Plural passers-by (das -s steht an passer). passing = vorbeigehend, flüchtig (a passing remark). DE Passant, FR passant, IT passante, ES und PT transeúnte / transeunte."
+    "note": "Person = -er: passer-by, Plural passers-by (das -s steht an passer). passing = vorbeigehend, flüchtig (a passing remark). DE Passant, FR passant, IT passante, ES und PT transeúnte / transeunte.",
+    "alt": ["passerby", "passers-by"]
   },
   {
     "id": "g22",
@@ -2593,7 +2619,8 @@
     "wrong": ["head", "mind", "body"],
     "plain": "She spent a whole summer partying so that she would no longer want to before starting work.",
     "reg": "i",
-    "note": "Informell. Einem Drang nachgeben, damit er verschwindet (Reiselust, Partys, Wut). Nicht verwechseln: get it out of your head = es sich aus dem Kopf schlagen. Ähnlich: let off steam. FR se défouler, IT sfogarsi, ES desfogarse, DE sich austoben."
+    "note": "Informell. Einem Drang nachgeben, damit er verschwindet (Reiselust, Partys, Wut). Nicht verwechseln: get it out of your head = es sich aus dem Kopf schlagen. Ähnlich: let off steam. FR se défouler, IT sfogarsi, ES desfogarse, DE sich austoben.",
+    "alt": ["get it out of your system", "get it out of his system", "get it out of her system", "out of your system", "out of one's system"]
   },
   {
     "id": "g23",
@@ -2645,7 +2672,8 @@
     "wrong": ["that", "them", "been"],
     "plain": "People say that the old cinema will be turned into a supermarket.",
     "reg": "n",
-    "note": "Rumour has it that + vollständiger Satz (nicht that-Satz mit Infinitiv). AmE: rumor has it. Ähnlich: word has it that. DE es heißt, ES corre el rumor de que, IT corre voce che, FR le bruit court que, PT corre o boato de que."
+    "note": "Rumour has it that + vollständiger Satz (nicht that-Satz mit Infinitiv). AmE: rumor has it. Ähnlich: word has it that. DE es heißt, ES corre el rumor de que, IT corre voce che, FR le bruit court que, PT corre o boato de que.",
+    "alt": ["rumour has it that", "rumor has it", "rumor has it that"]
   },
   {
     "id": "g27",
@@ -2658,7 +2686,8 @@
     "wrong": ["to", "for", "in"],
     "plain": "After months of talks the two countries are very close to signing a treaty.",
     "reg": "n",
-    "note": "on the verge of + Nomen oder -ing: on the verge of tears, of collapse, of becoming. Nicht: on the verge that oder on the verge to. Ähnlich: on the brink of, about to. FR être sur le point de, ES estar a punto de, IT essere sul punto di, PT estar prestes a."
+    "note": "on the verge of + Nomen oder -ing: on the verge of tears, of collapse, of becoming. Nicht: on the verge that oder on the verge to. Ähnlich: on the brink of, about to. FR être sur le point de, ES estar a punto de, IT essere sul punto di, PT estar prestes a.",
+    "alt": ["on the verge of", "be on the verge of"]
   },
   {
     "id": "g28",
@@ -2671,7 +2700,8 @@
     "wrong": ["back", "aside", "away"],
     "plain": "I was very surprised by her sudden anger.",
     "reg": "n",
-    "note": "Meist im Passiv: be taken aback (by sth.). aback gibt es praktisch nur in dieser Wendung. Nicht: taken back (= zurückgebracht). Ähnlich: be thrown, be stunned. DE verblüfft, ES desconcertar, IT spiazzare, FR décontenancer, PT surpreender."
+    "note": "Meist im Passiv: be taken aback (by sth.). aback gibt es praktisch nur in dieser Wendung. Nicht: taken back (= zurückgebracht). Ähnlich: be thrown, be stunned. DE verblüfft, ES desconcertar, IT spiazzare, FR décontenancer, PT surpreender.",
+    "alt": ["be taken aback", "taken aback", "take aback"]
   },
   {
     "id": "g29",
@@ -2684,7 +2714,8 @@
     "wrong": ["shade", "blind", "black"],
     "plain": "Parents were not told about the changes to the timetable.",
     "reg": "n",
-    "note": "Auch: be in the dark about sth. = nichts darüber wissen. Gegenteil: keep sb. in the loop / posted. DE im Dunkeln lassen, ES tener a alguien a oscuras, IT tenere all'oscuro, FR tenir dans l'ignorance."
+    "note": "Auch: be in the dark about sth. = nichts darüber wissen. Gegenteil: keep sb. in the loop / posted. DE im Dunkeln lassen, ES tener a alguien a oscuras, IT tenere all'oscuro, FR tenir dans l'ignorance.",
+    "alt": ["be kept in the dark", "in the dark about", "keep in the dark", "in the dark"]
   },
   {
     "id": "g30",
@@ -2710,7 +2741,8 @@
     "wrong": ["event", "moment", "case"],
     "plain": "He still visits his old school sometimes, usually in December.",
     "reg": "n",
-    "note": "on occasion = gelegentlich. Nicht verwechseln: in the event of = im Falle von; on the occasion of = anlässlich. ES en ocasiones, IT in alcune occasioni, FR à l'occasion, PT por vezes."
+    "note": "on occasion = gelegentlich. Nicht verwechseln: in the event of = im Falle von; on the occasion of = anlässlich. ES en ocasiones, IT in alcune occasioni, FR à l'occasion, PT por vezes.",
+    "alt": ["on occasions"]
   },
   {
     "id": "g32",
@@ -2723,7 +2755,8 @@
     "wrong": ["bone", "blood", "flesh"],
     "plain": "Mountain rescuers put themselves in great danger to reach injured climbers.",
     "reg": "i",
-    "note": "Feste Paarformel: life and limb (limb = Gliedmaße). Nicht: life and bone. Andere Paare: flesh and blood, skin and bone. DE Leib und Leben, ES arriesgar la vida, IT rischiare la vita, FR risquer sa vie, PT arriscar a vida."
+    "note": "Feste Paarformel: life and limb (limb = Gliedmaße). Nicht: life and bone. Andere Paare: flesh and blood, skin and bone. DE Leib und Leben, ES arriesgar la vida, IT rischiare la vita, FR risquer sa vie, PT arriscar a vida.",
+    "alt": ["life and limb"]
   },
   {
     "id": "g33",
@@ -2736,7 +2769,8 @@
     "wrong": ["scale", "extent", "scope"],
     "plain": "The new system caused many different problems for the staff.",
     "reg": "n",
-    "note": "a host of + Plural, oft a whole host of. Nicht verwechseln mit host = Gastgeber. Nicht: a whole scale of. Ähnlich: a whole range / raft / series of. DE eine Vielzahl von, ES una multitud de, IT una miriade di, FR une foule de, PT uma série de."
+    "note": "a host of + Plural, oft a whole host of. Nicht verwechseln mit host = Gastgeber. Nicht: a whole scale of. Ähnlich: a whole range / raft / series of. DE eine Vielzahl von, ES una multitud de, IT una miriade di, FR une foule de, PT uma série de.",
+    "alt": ["a whole host of", "a host of", "host of"]
   },
   {
     "id": "g34",
@@ -2749,7 +2783,8 @@
     "wrong": ["thanks", "gratefulness", "kindness"],
     "plain": "We are deeply grateful to our teachers for all their help.",
     "reg": "f",
-    "note": "Meist: a huge / great / deep debt of gratitude; eher formell. Gleiche Struktur in vielen Sprachen: DE Dankesschuld, ES deuda de gratitud, IT debito di gratitudine, FR dette de reconnaissance, PT dívida de gratidão."
+    "note": "Meist: a huge / great / deep debt of gratitude; eher formell. Gleiche Struktur in vielen Sprachen: DE Dankesschuld, ES deuda de gratitud, IT debito di gratitudine, FR dette de reconnaissance, PT dívida de gratidão.",
+    "alt": ["debt of gratitude", "owe a debt of gratitude", "a debt of gratitude"]
   },
   {
     "id": "g35",
@@ -2762,7 +2797,8 @@
     "wrong": ["strong", "heavy", "serious"],
     "plain": "Clean water is extremely important for the health of the whole village.",
     "reg": "n",
-    "note": "of vital importance (to sb./sth.). Ähnlich: of great / utmost / paramount importance. Nicht: of strong importance. DE von entscheidender Bedeutung, ES de vital importancia, IT di vitale importanza, FR d'une importance vitale, PT de importância vital."
+    "note": "of vital importance (to sb./sth.). Ähnlich: of great / utmost / paramount importance. Nicht: of strong importance. DE von entscheidender Bedeutung, ES de vital importancia, IT di vitale importanza, FR d'une importance vitale, PT de importância vital.",
+    "alt": ["vital importance"]
   },
   {
     "id": "g36",
@@ -2775,7 +2811,8 @@
     "wrong": ["of", "from", "with"],
     "plain": "Without your advice, I would have made a terrible mistake.",
     "reg": "n",
-    "note": "3. Konditionalsatz (Vergangenheit): if it hadn't been for + Nomen, … would have + Partizip. Gegenwart: if it weren't for (nicht wasn't). Formell: had it not been for. DE wäre … nicht gewesen, ES de no haber sido por, IT se non fosse stato per, FR sans, PT se não fosse por."
+    "note": "3. Konditionalsatz (Vergangenheit): if it hadn't been for + Nomen, … would have + Partizip. Gegenwart: if it weren't for (nicht wasn't). Formell: had it not been for. DE wäre … nicht gewesen, ES de no haber sido por, IT se non fosse stato per, FR sans, PT se não fosse por.",
+    "alt": ["had it not been for", "if it had not been for"]
   },
   {
     "id": "g37",
@@ -2788,7 +2825,8 @@
     "wrong": ["in", "at", "by"],
     "plain": "We get on very well with our neighbours.",
     "reg": "n",
-    "note": "be on good / bad / friendly terms with sb.; auch be on first-name terms. Nicht: in good terms (Interferenz aus ES en buenos términos und FR en bons termes). Ähnlich: get on well with sb. IT essere in buoni rapporti con."
+    "note": "be on good / bad / friendly terms with sb.; auch be on first-name terms. Nicht: in good terms (Interferenz aus ES en buenos términos und FR en bons termes). Ähnlich: get on well with sb. IT essere in buoni rapporti con.",
+    "alt": ["on good terms with", "on good terms", "be on very good terms with"]
   },
   {
     "id": "g38",
@@ -2801,7 +2839,8 @@
     "wrong": ["was", "has", "made"],
     "plain": "Someone snatched Sue's bag at the concert.",
     "reg": "n",
-    "note": "have sth. done: etwas passiert jdm. (oft Unangenehmes) oder wird für jdn. erledigt. Person = robbed (Sue was robbed), Sache = stolen oder snatched. Informell auch: get your bag snatched. FR se faire voler son sac, IT farsi rubare la borsa, ES le robaron el bolso."
+    "note": "have sth. done: etwas passiert jdm. (oft Unangenehmes) oder wird für jdn. erledigt. Person = robbed (Sue was robbed), Sache = stolen oder snatched. Informell auch: get your bag snatched. FR se faire voler son sac, IT farsi rubare la borsa, ES le robaron el bolso.",
+    "alt": ["have her bag snatched", "had her bag snatched", "have sth. snatched", "have sth. stolen"]
   },
   {
     "id": "g39",
@@ -2827,7 +2866,8 @@
     "wrong": ["of", "by", "with"],
     "plain": "A few weeks' holiday would be very good for you.",
     "reg": "n",
-    "note": "benefit from sth.; Nomen: the benefit of sth. / benefit to sb. Ähnlich: profit from. DE profitieren von, ES beneficiarse de, IT beneficiare di, FR bénéficier de, PT beneficiar de."
+    "note": "benefit from sth.; Nomen: the benefit of sth. / benefit to sb. Ähnlich: profit from. DE profitieren von, ES beneficiarse de, IT beneficiare di, FR bénéficier de, PT beneficiar de.",
+    "alt": ["benefit from"]
   },
   {
     "id": "g41",
@@ -2892,7 +2932,8 @@
     "wrong": ["eloquent", "eloquentally", "eloquencely"],
     "plain": "The mayor spoke so well and persuasively that the whole hall fell silent.",
     "reg": "n",
-    "note": "eloquence, eloquent, eloquently: -ent wird zu -ently (nicht nur -ly). Aussprache [ˈeləkwənt]. ES elocuentemente, IT eloquentemente, FR avec éloquence, PT eloquentemente."
+    "note": "eloquence, eloquent, eloquently: -ent wird zu -ently (nicht nur -ly). Aussprache [ˈeləkwənt]. ES elocuentemente, IT eloquentemente, FR avec éloquence, PT eloquentemente.",
+    "alt": ["eloquently"]
   },
   {
     "id": "g46",
@@ -2905,7 +2946,8 @@
     "wrong": ["incorporation", "incorporeal", "encorporated"],
     "plain": "Most newspapers have now included blogging in their news services.",
     "reg": "n",
-    "note": "incorporate sth. into sth. Nomen: incorporation. Nicht: corporate (Adjektiv: Unternehmens-). ES incorporar, IT incorporare, FR incorporer, PT incorporar, DE einbinden oder integrieren."
+    "note": "incorporate sth. into sth. Nomen: incorporation. Nicht: corporate (Adjektiv: Unternehmens-). ES incorporar, IT incorporare, FR incorporer, PT incorporar, DE einbinden oder integrieren.",
+    "alt": ["incorporate into", "incorporate"]
   },
   {
     "id": "g47",
@@ -2918,7 +2960,8 @@
     "wrong": ["back", "out", "through"],
     "plain": "The minister acted quickly to prevent a possible strike from happening.",
     "reg": "n",
-    "note": "head off sth. / head sb. off = abfangen, bevor es passiert: head off criticism, a crisis, trouble. Nicht: head back (= zurückfahren) und nicht head for (= Kurs nehmen auf). DE abwenden oder zuvorkommen, ES atajar, IT prevenire, FR parer à."
+    "note": "head off sth. / head sb. off = abfangen, bevor es passiert: head off criticism, a crisis, trouble. Nicht: head back (= zurückfahren) und nicht head for (= Kurs nehmen auf). DE abwenden oder zuvorkommen, ES atajar, IT prevenire, FR parer à.",
+    "alt": ["head off", "heading off", "headed off"]
   },
   {
     "id": "g48",
@@ -2931,7 +2974,8 @@
     "wrong": ["lay", "give", "make"],
     "plain": "The test results will stop her from worrying.",
     "reg": "n",
-    "note": "put sb.'s mind at rest (auch: at ease). Nicht: lay. lay sth. to rest beendet ein Gerücht oder einen Zweifel (lay a fear to rest). Auch set sb.'s mind at rest kommt in Wörterbüchern vor (allgemeines Wissen, nicht geprüft). DE jdn. beruhigen, ES tranquilizar a alguien, IT tranquillizzare qualcuno, FR rassurer."
+    "note": "put sb.'s mind at rest (auch: at ease). Nicht: lay. lay sth. to rest beendet ein Gerücht oder einen Zweifel (lay a fear to rest). Auch set sb.'s mind at rest kommt in Wörterbüchern vor (allgemeines Wissen, nicht geprüft). DE jdn. beruhigen, ES tranquilizar a alguien, IT tranquillizzare qualcuno, FR rassurer.",
+    "alt": ["put your mind at rest", "put her mind at rest", "put his mind at rest", "put my mind at rest", "put their minds at rest"]
   },
   {
     "id": "g49",
@@ -2944,7 +2988,8 @@
     "wrong": ["juggling", "tinkering", "messing"],
     "plain": "Governments are still struggling hard to deal with the problem of how to reduce traffic in city centres.",
     "reg": "n",
-    "note": "grapple with a problem, an issue, a question, difficulties. Wörtlich: ringen, im Nahkampf kämpfen. Nicht: juggle (= mehrere Aufgaben unter einen Hut bringen: juggle work and family) und nicht tinker with (= herumbasteln). ES lidiar con oder bregar con, IT essere alle prese con, FR se débattre avec, DE sich herumschlagen mit."
+    "note": "grapple with a problem, an issue, a question, difficulties. Wörtlich: ringen, im Nahkampf kämpfen. Nicht: juggle (= mehrere Aufgaben unter einen Hut bringen: juggle work and family) und nicht tinker with (= herumbasteln). ES lidiar con oder bregar con, IT essere alle prese con, FR se débattre avec, DE sich herumschlagen mit.",
+    "alt": ["grapple with", "grappling with", "grappled with"]
   },
   {
     "id": "g50",
@@ -2957,7 +3002,8 @@
     "wrong": ["sustainable", "sustaining", "sustenance"],
     "plain": "The village was attacked again and again for three days without a break.",
     "reg": "n",
-    "note": "sustained = tatsächlich lange anhaltend: sustained attack, effort, growth, pressure, period. sustainable = fortsetzbar, tragfähig, nachhaltig: sustainable growth, development. Nomen: sustainability. Verb sustain = aufrechterhalten, tragen, erleiden (sustain injuries). Bei flo-joe: see sustained economic growth. ES sostenido, IT prolungato, FR soutenu."
+    "note": "sustained = tatsächlich lange anhaltend: sustained attack, effort, growth, pressure, period. sustainable = fortsetzbar, tragfähig, nachhaltig: sustainable growth, development. Nomen: sustainability. Verb sustain = aufrechterhalten, tragen, erleiden (sustain injuries). Bei flo-joe: see sustained economic growth. ES sostenido, IT prolungato, FR soutenu.",
+    "alt": ["sustain"]
   },
   {
     "id": "g51",
@@ -2970,7 +3016,8 @@
     "wrong": ["respecting", "respectful", "respective"],
     "plain": "She finished the marathon in a quite good time, given that she had hardly trained.",
     "reg": "n",
-    "note": "respect + -able. respectable = ordentlich, ansehnlich (a respectable score), auch gesellschaftlich anständig. respectful = respektvoll (Verhalten). respected = angesehen (Person). respective = jeweilig. Nicht: respecting. ES respetable, IT rispettabile, FR respectable, DE respektabel."
+    "note": "respect + -able. respectable = ordentlich, ansehnlich (a respectable score), auch gesellschaftlich anständig. respectful = respektvoll (Verhalten). respected = angesehen (Person). respective = jeweilig. Nicht: respecting. ES respetable, IT rispettabile, FR respectable, DE respektabel.",
+    "alt": ["respect"]
   },
   {
     "id": "g52",
@@ -2983,7 +3030,8 @@
     "wrong": ["struck", "got", "had"],
     "plain": "After weeks of trying, she finally found a solution to the problem by chance.",
     "reg": "n",
-    "note": "hit on (auch gehobener: hit upon) a solution, an idea, a way of doing sth. Nicht: strike. Mit strike ist die Idee das Subjekt: An idea struck me. It struck me that … (strike on/upon kommt in Wörterbüchern vor, ist aber selten; nicht geprüft). DE auf etwas kommen, ES dar con, FR tomber sur, IT trovare per caso."
+    "note": "hit on (auch gehobener: hit upon) a solution, an idea, a way of doing sth. Nicht: strike. Mit strike ist die Idee das Subjekt: An idea struck me. It struck me that … (strike on/upon kommt in Wörterbüchern vor, ist aber selten; nicht geprüft). DE auf etwas kommen, ES dar con, FR tomber sur, IT trovare per caso.",
+    "alt": ["hit on", "hit upon", "hitting on", "hit on a"]
   },
   {
     "id": "g53",
@@ -2996,7 +3044,8 @@
     "wrong": ["secret", "secrecy", "secretly"],
     "plain": "She was always unwilling to tell people about her private life and never told us anything.",
     "reg": "n",
-    "note": "secretive beschreibt eine Person (be secretive about sth.), secret die Sache (geheim), secrecy = Geheimhaltung, secretly = heimlich. Endung -ive für eine Eigenschaft. ES reservado, IT riservato, FR cachottier (umgangssprachlich)."
+    "note": "secretive beschreibt eine Person (be secretive about sth.), secret die Sache (geheim), secrecy = Geheimhaltung, secretly = heimlich. Endung -ive für eine Eigenschaft. ES reservado, IT riservato, FR cachottier (umgangssprachlich).",
+    "alt": ["secret", "secrecy", "secretly"]
   },
   {
     "id": "g54",
@@ -3009,7 +3058,8 @@
     "wrong": ["differences", "differentials", "differentiating"],
     "plain": "A key skill in mixed-ability classes is giving each pupil tasks at the right level.",
     "reg": "n",
-    "note": "differentiate (between A and B) = unterscheiden; differentiation = Unterscheidung und im Unterricht Differenzierung (Binnendifferenzierung). Nicht: difference (= Unterschied). Aussprache [ˌdɪfəˌrenʃiˈeɪʃn]. ES diferenciación, IT differenziazione, FR différenciation."
+    "note": "differentiate (between A and B) = unterscheiden; differentiation = Unterscheidung und im Unterricht Differenzierung (Binnendifferenzierung). Nicht: difference (= Unterschied). Aussprache [ˌdɪfəˌrenʃiˈeɪʃn]. ES diferenciación, IT differenziazione, FR différenciation.",
+    "alt": ["differentiate", "differentiating"]
   },
   {
     "id": "g55",
@@ -3022,7 +3072,8 @@
     "wrong": ["difference", "differences", "differing"],
     "plain": "The union is fighting to reduce the differences in pay between workers in different industries.",
     "reg": "n",
-    "note": "pay/wage/price/interest-rate differentials: Fachwort der Wirtschaft, meist Plural. difference ist allgemeiner. Ähnlich: pay gap. ES diferencial salarial, IT differenziale salariale, FR écart salarial."
+    "note": "pay/wage/price/interest-rate differentials: Fachwort der Wirtschaft, meist Plural. difference ist allgemeiner. Ähnlich: pay gap. ES diferencial salarial, IT differenziale salariale, FR écart salarial.",
+    "alt": ["differentials", "pay differential", "wage differentials"]
   },
   {
     "id": "g56",
@@ -3035,7 +3086,8 @@
     "wrong": ["set", "put", "lay"],
     "plain": "I admit I made a mistake, but please don't think badly of me for it.",
     "reg": "n",
-    "note": "Oft verneint: Don't hold it against me. Niveau laut Oxford Learner's Dictionaries: C2. Ähnlich: bear/hold a grudge (Groll hegen). Nicht: hold sth. over sb. (jdn. mit etwas unter Druck setzen). DE jdm. etwas nachtragen, FR en vouloir à qn, ES no me lo tengas en cuenta, IT non avercela con me."
+    "note": "Oft verneint: Don't hold it against me. Niveau laut Oxford Learner's Dictionaries: C2. Ähnlich: bear/hold a grudge (Groll hegen). Nicht: hold sth. over sb. (jdn. mit etwas unter Druck setzen). DE jdm. etwas nachtragen, FR en vouloir à qn, ES no me lo tengas en cuenta, IT non avercela con me.",
+    "alt": ["hold it against", "hold against", "holding it against", "hold it against me", "hold it against you"]
   },
   {
     "id": "g57",
@@ -3048,7 +3100,8 @@
     "wrong": ["wiped", "wasted", "wondered"],
     "plain": "We had a few hours before the train arrived, so we passed the time reading and chatting.",
     "reg": "n",
-    "note": "while away the time / the hours / an afternoon, meist mit -ing: whiled away the hours reading. Das Verb while gibt es praktisch nur in dieser Wendung. Nicht: waste (= verschwenden, abwertend). DE sich die Zeit vertreiben, ES pasar el rato oder matar el tiempo, IT ingannare il tempo, FR tuer le temps."
+    "note": "while away the time / the hours / an afternoon, meist mit -ing: whiled away the hours reading. Das Verb while gibt es praktisch nur in dieser Wendung. Nicht: waste (= verschwenden, abwertend). DE sich die Zeit vertreiben, ES pasar el rato oder matar el tiempo, IT ingannare il tempo, FR tuer le temps.",
+    "alt": ["while away the time", "whiled away", "whiling away", "while away"]
   },
   {
     "id": "g58",
@@ -3061,7 +3114,8 @@
     "wrong": ["file", "paper", "note"],
     "plain": "The Prime Minister has publicly said that unemployment will fall this year.",
     "reg": "f",
-    "note": "be on record as saying + Nebensatz oder -ing; go on record = sich öffentlich festlegen. Unterschied: on the record = offiziell und zitierbar, off the record = inoffiziell, nicht zitierbar. Aussprache: das Nomen record [ˈrekɔːd]. DE offiziell festgehalten, ES dejar constancia, FR officiellement."
+    "note": "be on record as saying + Nebensatz oder -ing; go on record = sich öffentlich festlegen. Unterschied: on the record = offiziell und zitierbar, off the record = inoffiziell, nicht zitierbar. Aussprache: das Nomen record [ˈrekɔːd]. DE offiziell festgehalten, ES dejar constancia, FR officiellement.",
+    "alt": ["on record", "on the record", "be on record as saying", "is on record as saying", "go on record"]
   },
   {
     "id": "g59",
@@ -3074,7 +3128,8 @@
     "wrong": ["credit", "credulity", "credibleness"],
     "plain": "She lost the trust of her colleagues when they found out she had stolen other people's ideas.",
     "reg": "n",
-    "note": "credible = glaubwürdig, plausibel; credibility = Glaubwürdigkeit (lose, gain, damage credibility); incredible = unglaublich. Nicht: credit (= Kredit, Anerkennung), credulity (= Leichtgläubigkeit), incredulous (= ungläubig, Person). ES credibilidad, IT credibilità, FR crédibilité."
+    "note": "credible = glaubwürdig, plausibel; credibility = Glaubwürdigkeit (lose, gain, damage credibility); incredible = unglaublich. Nicht: credit (= Kredit, Anerkennung), credulity (= Leichtgläubigkeit), incredulous (= ungläubig, Person). ES credibilidad, IT credibilità, FR crédibilité.",
+    "alt": ["credible", "incredible", "credibly"]
   },
   {
     "id": "g60",
@@ -3087,7 +3142,8 @@
     "wrong": ["preparative", "preparing", "preparational"],
     "plain": "The two leaders held a meeting to get ready for the summit.",
     "reg": "f",
-    "note": "preparatory + Nomen: meeting, talks, work, course, stage. Formal. Endung -ory (wie compulsory). Aussprache BrE [prɪˈpærətri]. preparatory to + Nomen oder -ing = vor, als Vorbereitung auf (sehr formal). preparative gibt es nur als Fachwort (Chemie). Niveau: B2 bis C1, die Quellen sind uneinheitlich. ES preparatorio, IT preparatorio, FR préparatoire."
+    "note": "preparatory + Nomen: meeting, talks, work, course, stage. Formal. Endung -ory (wie compulsory). Aussprache BrE [prɪˈpærətri]. preparatory to + Nomen oder -ing = vor, als Vorbereitung auf (sehr formal). preparative gibt es nur als Fachwort (Chemie). Niveau: B2 bis C1, die Quellen sind uneinheitlich. ES preparatorio, IT preparatorio, FR préparatoire.",
+    "alt": ["prepare", "preparation", "preparative"]
   },
   {
     "id": "g61",
@@ -3100,7 +3156,8 @@
     "wrong": ["protected", "protecting", "protection"],
     "plain": "Workers on the building site must wear clothing that gives them protection, and a helmet.",
     "reg": "n",
-    "note": "protective clothing/equipment = Schutzkleidung; protective towards sb. = beschützend, fürsorglich; overprotective = überfürsorglich. Nomen protection, Partizip protected (a protected species = geschützte Art). ES protector, IT protettivo, FR protecteur."
+    "note": "protective clothing/equipment = Schutzkleidung; protective towards sb. = beschützend, fürsorglich; overprotective = überfürsorglich. Nomen protection, Partizip protected (a protected species = geschützte Art). ES protector, IT protettivo, FR protecteur.",
+    "alt": ["protect", "protection", "protected", "overprotective"]
   },
   {
     "id": "g62",
@@ -3113,7 +3170,8 @@
     "wrong": ["court", "jury", "verdict"],
     "plain": "He will go to court, accused of fraud and corruption.",
     "reg": "n",
-    "note": "stand trial (for sth.), be on trial, put sb. on trial. Dasselbe Wort passt auch in trial period (Probezeit) und trial and error (Versuch und Irrtum). Nicht: process (= Vorgang). ES ser juzgado, IT essere processato, FR être jugé."
+    "note": "stand trial (for sth.), be on trial, put sb. on trial. Dasselbe Wort passt auch in trial period (Probezeit) und trial and error (Versuch und Irrtum). Nicht: process (= Vorgang). ES ser juzgado, IT essere processato, FR être jugé.",
+    "alt": ["stand trial", "stood trial", "standing trial", "on trial"]
   },
   {
     "id": "g63",
@@ -3126,7 +3184,8 @@
     "wrong": ["gets", "makes", "takes"],
     "plain": "The modern monarchy looks even less like the original pattern.",
     "reg": "f",
-    "note": "bear (a) resemblance to; meist mit little/no/some/a striking: bears little resemblance to. Vergangenheit: bore. Nicht: get oder make. FR présenter une ressemblance avec, ES guardar parecido con, IT avere somiglianza con."
+    "note": "bear (a) resemblance to; meist mit little/no/some/a striking: bears little resemblance to. Vergangenheit: bore. Nicht: get oder make. FR présenter une ressemblance avec, ES guardar parecido con, IT avere somiglianza con.",
+    "alt": ["bear a resemblance", "bears a resemblance", "bore a resemblance", "bears little resemblance", "bore little resemblance", "bear resemblance"]
   },
   {
     "id": "g64",
@@ -3139,7 +3198,8 @@
     "wrong": ["from", "by", "of"],
     "plain": "Periods of heavy rain follow long dry spells, again and again.",
     "reg": "n",
-    "note": "A alternates with B = A und B wechseln sich ab. Auch alternate between A and B. Nicht: from oder by. FR alterner avec, ES alternar con, IT alternarsi con. Achtung: alternate ist auch ein Adjektiv (alternate days = jeden zweiten Tag)."
+    "note": "A alternates with B = A und B wechseln sich ab. Auch alternate between A and B. Nicht: from oder by. FR alterner avec, ES alternar con, IT alternarsi con. Achtung: alternate ist auch ein Adjektiv (alternate days = jeden zweiten Tag).",
+    "alt": ["alternate with", "alternates with", "alternated with", "alternating with"]
   },
   {
     "id": "g65",
@@ -3152,7 +3212,8 @@
     "wrong": ["by", "of", "in"],
     "plain": "The cathedral is worth noticing because of its stunning Gothic architecture.",
     "reg": "n",
-    "note": "remarkable for + Nomen/-ing (Grund, wofür etwas auffällt). Nicht: by oder of. FR remarquable par, ES notable por, IT notevole per. Falle: Im Deutschen sagt man oft durch."
+    "note": "remarkable for + Nomen/-ing (Grund, wofür etwas auffällt). Nicht: by oder of. FR remarquable par, ES notable por, IT notevole per. Falle: Im Deutschen sagt man oft durch.",
+    "alt": ["remarkable for", "remarkably", "remarkable as"]
   },
   {
     "id": "g66",
@@ -3165,7 +3226,8 @@
     "wrong": ["space", "scope", "margin"],
     "plain": "In a negotiation you should always keep some freedom to change your plans.",
     "reg": "n",
-    "note": "room for manoeuvre = Spielraum (BrE manoeuvre, AmE maneuver). Auch: little/no/plenty of room for manoeuvre, limited room for manoeuvre. Nicht: space oder scope. FR marge de manœuvre, ES margen de maniobra, IT margine di manovra."
+    "note": "room for manoeuvre = Spielraum (BrE manoeuvre, AmE maneuver). Auch: little/no/plenty of room for manoeuvre, limited room for manoeuvre. Nicht: space oder scope. FR marge de manœuvre, ES margen de maniobra, IT margine di manovra.",
+    "alt": ["room for manoeuvre", "room to manoeuvre", "room for maneuver", "some room for manoeuvre"]
   },
   {
     "id": "g67",
@@ -3178,7 +3240,8 @@
     "wrong": ["inaction", "activity", "reaction"],
     "plain": "A long period of doing nothing on the bulletin board led the company to think the website had few visitors.",
     "reg": "n",
-    "note": "in- verneint: active, inactive; activity, inactivity. Nicht: inaction (= Nichthandeln, bewusstes Nichtstun) und nicht activity (Gegenteil). FR inactivité, ES inactividad, IT inattività."
+    "note": "in- verneint: active, inactive; activity, inactivity. Nicht: inaction (= Nichthandeln, bewusstes Nichtstun) und nicht activity (Gegenteil). FR inactivité, ES inactividad, IT inattività.",
+    "alt": ["inactive", "inaction", "activity"]
   },
   {
     "id": "g68",
@@ -3191,7 +3254,8 @@
     "wrong": ["reactive", "active", "interacting"],
     "plain": "We have bought a fantastic TV that lets you take part in live competitions.",
     "reg": "n",
-    "note": "inter- = zwischen, miteinander: interact, interaction, interactive. Nicht: reactive (reagierend) oder active. FR interactif, ES interactivo, IT interattivo."
+    "note": "inter- = zwischen, miteinander: interact, interaction, interactive. Nicht: reactive (reagierend) oder active. FR interactif, ES interactivo, IT interattivo.",
+    "alt": ["interact", "interaction", "interactively"]
   },
   {
     "id": "g69",
@@ -3204,7 +3268,8 @@
     "wrong": ["activating", "activist", "reactivated"],
     "plain": "When we have confirmation that your payment has arrived, we will switch your account on.",
     "reg": "n",
-    "note": "activate = aktivieren, freischalten; passiv: will be activated. reactivate nur, wenn es vorher schon aktiv war. Verbendung -ate. FR activé, ES activado, IT attivato."
+    "note": "activate = aktivieren, freischalten; passiv: will be activated. reactivate nur, wenn es vorher schon aktiv war. Verbendung -ate. FR activé, ES activado, IT attivato.",
+    "alt": ["activate", "activation", "reactivate"]
   },
   {
     "id": "g70",
@@ -3217,7 +3282,8 @@
     "wrong": ["received", "owned", "earned"],
     "plain": "A distant cousin of mine was left a fortune when his father died.",
     "reg": "n",
-    "note": "inherit a fortune / a house / a problem / a talent / a trait. Nomen inheritance = Erbe, Erbschaft. Nicht: heir (= Erbe, Person). Vergleich: DE erben, FR hériter, ES heredar, IT ereditare."
+    "note": "inherit a fortune / a house / a problem / a talent / a trait. Nomen inheritance = Erbe, Erbschaft. Nicht: heir (= Erbe, Person). Vergleich: DE erben, FR hériter, ES heredar, IT ereditare.",
+    "alt": ["inherit", "inherited", "inherits", "inheriting"]
   },
   {
     "id": "g71",
@@ -3230,7 +3296,8 @@
     "wrong": ["pay", "go", "hand"],
     "plain": "Many nurses have to spend huge chunks of their income on rent.",
     "reg": "i",
-    "note": "fork out (for/on sth.), informell. Oft mit huge chunks / a fortune / a lot. Ähnlich: shell out, cough up. FR casquer, ES soltar la pasta, IT sborsare."
+    "note": "fork out (for/on sth.), informell. Oft mit huge chunks / a fortune / a lot. Ähnlich: shell out, cough up. FR casquer, ES soltar la pasta, IT sborsare.",
+    "alt": ["fork out", "forked out", "forking out", "fork out for"]
   },
   {
     "id": "g72",
@@ -3243,7 +3310,8 @@
     "wrong": ["means", "sums", "bills"],
     "plain": "Many families struggle to get by on their wages.",
     "reg": "n",
-    "note": "make ends meet, auch make both ends meet (BrE). Oft mit struggle/find it hard to. Nicht: make means. FR joindre les deux bouts, ES llegar a fin de mes, IT sbarcare il lunario."
+    "note": "make ends meet, auch make both ends meet (BrE). Oft mit struggle/find it hard to. Nicht: make means. FR joindre les deux bouts, ES llegar a fin de mes, IT sbarcare il lunario.",
+    "alt": ["make ends meet", "make both ends meet", "makes ends meet"]
   },
   {
     "id": "g73",
@@ -3256,7 +3324,8 @@
     "wrong": ["stairs", "path", "bridge"],
     "plain": "Young people find it hard to buy their first home.",
     "reg": "n",
-    "note": "get a foot on the housing/property ladder. Beide Varianten sind üblich, im Text steht housing ladder. FR mettre un pied sur l'échelle immobilière, ES acceder a la vivienda en propiedad, IT comprare la prima casa."
+    "note": "get a foot on the housing/property ladder. Beide Varianten sind üblich, im Text steht housing ladder. FR mettre un pied sur l'échelle immobilière, ES acceder a la vivienda en propiedad, IT comprare la prima casa.",
+    "alt": ["get a foot on the housing ladder", "get a foot on the property ladder", "foot on the housing ladder", "foot on the property ladder"]
   },
   {
     "id": "g74",
@@ -3269,7 +3338,8 @@
     "wrong": ["paid", "cost", "valued"],
     "plain": "Many residents can no longer afford the more desirable areas.",
     "reg": "n",
-    "note": "be priced out of + Ort/Markt, meist Passiv. Aktiv: rising rents price people out of the area. Nicht: paid out. DE verdrängt werden (durch Preise)."
+    "note": "be priced out of + Ort/Markt, meist Passiv. Aktiv: rising rents price people out of the area. Nicht: paid out. DE verdrängt werden (durch Preise).",
+    "alt": ["be priced out of", "priced out of", "price out", "being priced out"]
   },
   {
     "id": "g75",
@@ -3282,7 +3352,8 @@
     "wrong": ["take", "carry", "move"],
     "plain": "Wealthy foreign buyers make property prices rise.",
     "reg": "n",
-    "note": "drive up prices/costs/demand, Gegenteil: bring down. Das Muster ist drive + Nomen + up oder drive up + Nomen. Auch möglich: push up. FR faire grimper, ES disparar, IT far salire."
+    "note": "drive up prices/costs/demand, Gegenteil: bring down. Das Muster ist drive + Nomen + up oder drive up + Nomen. Auch möglich: push up. FR faire grimper, ES disparar, IT far salire.",
+    "alt": ["drive up", "drives up", "drove up", "driving up"]
   },
   {
     "id": "g76",
@@ -3295,7 +3366,8 @@
     "wrong": ["speed", "tempo", "rate"],
     "plain": "Wages have not risen as fast as house prices.",
     "reg": "n",
-    "note": "keep pace with sb./sth. (meist verneint oder mit struggle to). Nicht: keep speed. Ähnlich: keep up with. FR suivre le rythme de, ES seguir el ritmo de, IT stare al passo con."
+    "note": "keep pace with sb./sth. (meist verneint oder mit struggle to). Nicht: keep speed. Ähnlich: keep up with. FR suivre le rythme de, ES seguir el ritmo de, IT stare al passo con.",
+    "alt": ["keep pace with", "kept pace with", "keeping pace with", "keeps pace with"]
   },
   {
     "id": "g77",
@@ -3308,7 +3380,8 @@
     "wrong": ["take", "carry", "lay"],
     "plain": "We should remember that not all migrants are wealthy.",
     "reg": "n",
-    "note": "bear sth. in mind / bear in mind that. Auch bearing in mind that = angesichts der Tatsache, dass. Nicht: take in mind. Ähnlich: keep in mind. FR garder à l'esprit, ES tener en cuenta, IT tenere a mente."
+    "note": "bear sth. in mind / bear in mind that. Auch bearing in mind that = angesichts der Tatsache, dass. Nicht: take in mind. Ähnlich: keep in mind. FR garder à l'esprit, ES tener en cuenta, IT tenere a mente.",
+    "alt": ["bear in mind", "bears in mind", "bearing in mind", "bore in mind"]
   },
   {
     "id": "g78",
@@ -3321,7 +3394,8 @@
     "wrong": ["hit", "push", "bump"],
     "plain": "Delayed independence has further consequences for birth rates.",
     "reg": "n",
-    "note": "knock-on effect/implications/consequences. Adjektiv, immer mit Bindestrich vor dem Nomen. Nicht: follow-on. FR effet domino, ES efecto dominó, IT effetto a catena."
+    "note": "knock-on effect/implications/consequences. Adjektiv, immer mit Bindestrich vor dem Nomen. Nicht: follow-on. FR effet domino, ES efecto dominó, IT effetto a catena.",
+    "alt": ["knock-on", "knock on effect", "knock-on effect", "knock-on implications"]
   },
   {
     "id": "g79",
@@ -3334,7 +3408,8 @@
     "wrong": ["excited", "exaggerated", "expanded"],
     "plain": "The shortage is made worse by the arrival of newcomers.",
     "reg": "f",
-    "note": "exacerbate a problem/situation/tensions; oft im Passiv: exacerbated by. Formell. Nicht: exaggerate (= übertreiben). FR aggraver, ES agravar, IT esacerbare."
+    "note": "exacerbate a problem/situation/tensions; oft im Passiv: exacerbated by. Formell. Nicht: exaggerate (= übertreiben). FR aggraver, ES agravar, IT esacerbare.",
+    "alt": ["exacerbate", "exacerbated", "exacerbates", "exacerbating"]
   },
   {
     "id": "g80",
@@ -3347,7 +3422,8 @@
     "wrong": ["overbid", "outdo", "outpay"],
     "plain": "Wealthy foreign buyers are able to offer more money than local residents.",
     "reg": "f",
-    "note": "outbid sb. (for sth.). Unregelmäßig: outbid, outbid, outbid. Gegenstück: underbid. Nicht: overbid (= zu viel bieten). FR surenchérir, ES pujar más que, IT superare l'offerta di."
+    "note": "outbid sb. (for sth.). Unregelmäßig: outbid, outbid, outbid. Gegenstück: underbid. Nicht: overbid (= zu viel bieten). FR surenchérir, ES pujar más que, IT superare l'offerta di.",
+    "alt": ["outbid", "outbids", "outbidding", "outbid sb."]
   },
   {
     "id": "g81",
@@ -3360,7 +3436,8 @@
     "wrong": ["telling", "doubt", "question"],
     "plain": "It is obvious that more people need more housing.",
     "reg": "n",
-    "note": "it goes without saying that + Satz. Formell bis neutral. Nicht: goes without telling. FR cela va sans dire, ES ni que decir tiene, IT va da sé."
+    "note": "it goes without saying that + Satz. Formell bis neutral. Nicht: goes without telling. FR cela va sans dire, ES ni que decir tiene, IT va da sé.",
+    "alt": ["it goes without saying", "goes without saying", "go without saying"]
   },
   {
     "id": "g82",
@@ -3373,7 +3450,8 @@
     "wrong": ["goes", "runs", "falls"],
     "plain": "The crisis develops differently from country to country.",
     "reg": "n",
-    "note": "play out = (sich) entwickeln; oft mit differently/in different ways. Nicht: work out (= klappen, ausrechnen). FR se dérouler, ES desarrollarse, IT svolgersi."
+    "note": "play out = (sich) entwickeln; oft mit differently/in different ways. Nicht: work out (= klappen, ausrechnen). FR se dérouler, ES desarrollarse, IT svolgersi.",
+    "alt": ["play out", "plays out", "played out", "playing out"]
   },
   {
     "id": "g83",
@@ -3386,7 +3464,8 @@
     "wrong": ["head", "brain", "heart"],
     "plain": "A long walk helped her stop thinking about the exam results.",
     "reg": "n",
-    "note": "take your/her/his mind off sth.; oft mit help/try to. Nicht: take your thoughts off. FR se changer les idées, ES distraerse, IT distrarsi."
+    "note": "take your/her/his mind off sth.; oft mit help/try to. Nicht: take your thoughts off. FR se changer les idées, ES distraerse, IT distrarsi.",
+    "alt": ["take your mind off", "take her mind off", "take his mind off", "take my mind off", "took my mind off", "took her mind off"]
   },
   {
     "id": "g84",
@@ -3399,7 +3478,8 @@
     "wrong": ["morals", "measures", "values"],
     "plain": "The company has been accused of applying two different sets of rules to men and women.",
     "reg": "n",
-    "note": "double standards (meist Plural), auch a double standard. Nicht: double morals. FR deux poids, deux mesures, ES doble rasero, IT doppio standard (auch doppia morale)."
+    "note": "double standards (meist Plural), auch a double standard. Nicht: double morals. FR deux poids, deux mesures, ES doble rasero, IT doppio standard (auch doppia morale).",
+    "alt": ["double standards", "a double standard", "double standard"]
   },
   {
     "id": "g85",
@@ -3412,7 +3492,8 @@
     "wrong": ["inaccustomed", "disaccustomed", "nonaccustomed"],
     "plain": "I am not used to speaking in public, so I felt very nervous.",
     "reg": "f",
-    "note": "be unaccustomed to + -ing / Nomen; Gegenteil: be accustomed to. Das Präfix ist un-, nicht in-. Auch: unaccustomed (= ungewohnt) in an unaccustomed silence. FR inhabituel, ES desacostumbrado, IT non abituato."
+    "note": "be unaccustomed to + -ing / Nomen; Gegenteil: be accustomed to. Das Präfix ist un-, nicht in-. Auch: unaccustomed (= ungewohnt) in an unaccustomed silence. FR inhabituel, ES desacostumbrado, IT non abituato.",
+    "alt": ["unaccustomed", "accustomed", "accustom"]
   },
   {
     "id": "g86",
@@ -3425,7 +3506,8 @@
     "wrong": ["customer", "custom", "customised"],
     "plain": "It is normal to bring a small gift when you are invited to dinner.",
     "reg": "f",
-    "note": "customary = üblich; it is customary to + Verb. Verwandt: custom (Brauch), customs (Zoll), customer (Kunde), accustomed (gewohnt). Nicht: costume (Kostüm). Formell. FR coutumier, ES habitual, IT consueto."
+    "note": "customary = üblich; it is customary to + Verb. Verwandt: custom (Brauch), customs (Zoll), customer (Kunde), accustomed (gewohnt). Nicht: costume (Kostüm). Formell. FR coutumier, ES habitual, IT consueto.",
+    "alt": ["customary", "custom", "customs", "customer"]
   },
   {
     "id": "g87",
@@ -3438,7 +3520,8 @@
     "wrong": ["habitual", "inhabited", "habited"],
     "plain": "The old farmhouse was barely fit to live in after the storm.",
     "reg": "n",
-    "note": "habitable = bewohnbar; uninhabitable = unbewohnbar; inhabited = bewohnt. Endung -able = kann. Nicht: habitual (= gewohnheitsmäßig). FR habitable, ES habitable, IT abitabile."
+    "note": "habitable = bewohnbar; uninhabitable = unbewohnbar; inhabited = bewohnt. Endung -able = kann. Nicht: habitual (= gewohnheitsmäßig). FR habitable, ES habitable, IT abitabile.",
+    "alt": ["habitable", "inhabitable", "uninhabitable", "inhabit", "inhabited"]
   },
   {
     "id": "g88",
@@ -3451,7 +3534,8 @@
     "wrong": ["momentous", "momentarily", "momentive"],
     "plain": "A very brief lapse in concentration cost him the match.",
     "reg": "n",
-    "note": "momentary = kurz, flüchtig (momentary lapse/pause/silence). Nicht: momentous (= bedeutsam). Endung -ary. ES momentáneo, IT momentaneo, FR momentané."
+    "note": "momentary = kurz, flüchtig (momentary lapse/pause/silence). Nicht: momentous (= bedeutsam). Endung -ary. ES momentáneo, IT momentaneo, FR momentané.",
+    "alt": ["momentary", "momentarily", "moment"]
   },
   {
     "id": "g89",
@@ -3464,7 +3548,8 @@
     "wrong": ["momentary", "momentum", "momentive"],
     "plain": "It was a very important decision with wide-ranging consequences for the whole town.",
     "reg": "n",
-    "note": "momentous = bedeutsam (momentous decision/occasion/event). Endung -ous. Nicht: momentary (= kurz). ES trascendental, IT di grande importanza, FR capital."
+    "note": "momentous = bedeutsam (momentous decision/occasion/event). Endung -ous. Nicht: momentary (= kurz). ES trascendental, IT di grande importanza, FR capital.",
+    "alt": ["momentous", "momentously", "moment"]
   },
   {
     "id": "g90",
@@ -3477,7 +3562,8 @@
     "wrong": ["momently", "momentously", "momentary"],
     "plain": "For a short moment he was lost for words when she walked in.",
     "reg": "n",
-    "note": "momentarily = einen Augenblick lang (momentarily distracted/speechless). AmE auch: in einem Moment, gleich. Nicht: momently (veraltet). ES momentáneamente, IT momentaneamente, FR momentanément."
+    "note": "momentarily = einen Augenblick lang (momentarily distracted/speechless). AmE auch: in einem Moment, gleich. Nicht: momently (veraltet). ES momentáneamente, IT momentaneamente, FR momentanément.",
+    "alt": ["momentarily", "momentary", "momentous"]
   },
   {
     "id": "g91",
@@ -3490,7 +3576,8 @@
     "wrong": ["observing", "observed", "observational"],
     "plain": "Few people notice as much as she does; she sees every detail.",
     "reg": "n",
-    "note": "observant = aufmerksam (Adjektiv auf -ant). observer = Beobachter (Person, -er), observation = Beobachtung. Nicht: observing. ES observador, IT attento, FR observateur."
+    "note": "observant = aufmerksam (Adjektiv auf -ant). observer = Beobachter (Person, -er), observation = Beobachtung. Nicht: observing. ES observador, IT attento, FR observateur.",
+    "alt": ["observant", "observantly", "observer", "observation"]
   },
   {
     "id": "g92",
@@ -3503,7 +3590,8 @@
     "wrong": ["removing", "remover", "removable"],
     "plain": "We hired a firm to take our furniture to the new house.",
     "reg": "n",
-    "note": "removal = Entfernung; BrE removal company/van = Umzugsfirma (AmE moving company). Nomen auf -al aus Verben auf -ve: remove, approve, arrive. ES mudanza, IT trasloco, FR déménagement."
+    "note": "removal = Entfernung; BrE removal company/van = Umzugsfirma (AmE moving company). Nomen auf -al aus Verben auf -ve: remove, approve, arrive. ES mudanza, IT trasloco, FR déménagement.",
+    "alt": ["removal", "removals", "remove", "removal company"]
   },
   {
     "id": "g93",
@@ -3516,7 +3604,8 @@
     "wrong": ["drew", "set", "put"],
     "plain": "They celebrated the occasion with a party in her honour.",
     "reg": "n",
-    "note": "mark the occasion (den Anlass feiern); mark the end of an era (das Ende kennzeichnen); mark a surface (Flecken machen). Ein Verb, drei Bedeutungen. Nicht: draw. FR marquer, ES marcar, IT segnare."
+    "note": "mark the occasion (den Anlass feiern); mark the end of an era (das Ende kennzeichnen); mark a surface (Flecken machen). Ein Verb, drei Bedeutungen. Nicht: draw. FR marquer, ES marcar, IT segnare.",
+    "alt": ["mark", "marked", "marks", "marking"]
   },
   {
     "id": "g94",
@@ -3529,7 +3618,8 @@
     "wrong": ["ways", "costs", "ends"],
     "plain": "If you need help getting to the airport, please do call me.",
     "reg": "n",
-    "note": "by all means = aber gern, ja bitte (Zustimmung). Nicht verwechseln: by no means (= keineswegs), by any means (= irgendwie). ES por supuesto, IT prego, FR bien sûr."
+    "note": "by all means = aber gern, ja bitte (Zustimmung). Nicht verwechseln: by no means (= keineswegs), by any means (= irgendwie). ES por supuesto, IT prego, FR bien sûr.",
+    "alt": ["by all means", "by any means", "by no means"]
   },
   {
     "id": "g95",
@@ -3542,7 +3632,8 @@
     "wrong": ["unadvisable", "disadvisable", "nonadvisable"],
     "plain": "It is not a good idea to eat a heavy meal before taking exercise.",
     "reg": "n",
-    "note": "inadvisable (nicht: unadvisable). in- bei lateinisch geprägten Adjektiven auf -able/-ible: inadvisable, inaccessible, inevitable. un- bei germanischen Stämmen: unhappy, unfinished. DE unratsam, ES desaconsejable, IT sconsigliabile, FR déconseillé."
+    "note": "inadvisable (nicht: unadvisable). in- bei lateinisch geprägten Adjektiven auf -able/-ible: inadvisable, inaccessible, inevitable. un- bei germanischen Stämmen: unhappy, unfinished. DE unratsam, ES desaconsejable, IT sconsigliabile, FR déconseillé.",
+    "alt": ["inadvisable", "inadvisably"]
   },
   {
     "id": "g96",
@@ -3555,7 +3646,8 @@
     "wrong": ["advised", "advisable", "advice"],
     "plain": "I work as an adviser to the local Chamber of Commerce.",
     "reg": "n",
-    "note": "in an advisory capacity = in beratender Funktion; advisory board/role. Person: advisor oder adviser (beides korrekt, AmE eher advisor). ES asesor/consultivo, IT consultivo, FR consultatif."
+    "note": "in an advisory capacity = in beratender Funktion; advisory board/role. Person: advisor oder adviser (beides korrekt, AmE eher advisor). ES asesor/consultivo, IT consultivo, FR consultatif.",
+    "alt": ["advisory", "advisor", "adviser", "advisers"]
   },
   {
     "id": "g97",
@@ -3568,7 +3660,8 @@
     "wrong": ["fallen", "broken", "backed"],
     "plain": "The game was cancelled as many players had caught influenza.",
     "reg": "n",
-    "note": "go down with + Krankheit (BrE); auch come down with, in AmE häufiger. Nicht: fall down with. ES caer enfermo de, IT prendersi, FR attraper."
+    "note": "go down with + Krankheit (BrE); auch come down with, in AmE häufiger. Nicht: fall down with. ES caer enfermo de, IT prendersi, FR attraper.",
+    "alt": ["go down with", "goes down with", "went down with", "gone down with", "come down with"]
   },
   {
     "id": "g98",
@@ -3581,7 +3674,8 @@
     "wrong": ["away", "out", "back"],
     "plain": "The family announced they would sell some of their art collection to the highest bidder.",
     "reg": "n",
-    "note": "auction off sth. / auction sth. off (trennbar); off betont das Weggeben/Verkaufen. Auch: sell off. ES subastar, IT mettere all'asta, FR vendre aux enchères."
+    "note": "auction off sth. / auction sth. off (trennbar); off betont das Weggeben/Verkaufen. Auch: sell off. ES subastar, IT mettere all'asta, FR vendre aux enchères.",
+    "alt": ["auction off", "auctions off", "auctioned off", "auctioning off"]
   },
   {
     "id": "g99",
@@ -3594,6 +3688,7 @@
     "wrong": ["shared", "joined", "held"],
     "plain": "They are a very well suited couple.",
     "reg": "n",
-    "note": "match = (1) übereinstimmen: The blood matched that found at the scene. (2) gleichkommen: Profits matched those of our rivals. (3) well matched couple = gut zusammenpassend. ES coincidir/igualar, IT corrispondere, FR correspondre."
+    "note": "match = (1) übereinstimmen: The blood matched that found at the scene. (2) gleichkommen: Profits matched those of our rivals. (3) well matched couple = gut zusammenpassend. ES coincidir/igualar, IT corrispondere, FR correspondre.",
+    "alt": ["match", "matched", "matches", "matching"]
   }
 ]

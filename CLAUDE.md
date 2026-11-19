@@ -45,7 +45,8 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
   - `sentence` mit genau einer Lücke `____`,
   - `answer` (mehrere Lösungen mit `|` getrennt),
   - `wrong` (3 falsche Optionen), `plain` (schlichte Fassung des Satzes), `reg` (`i`/`n`/`f`).
-  - `note` ist optional.
+  - `note` und `alt` (Liste weiterer Schreibweisen der Wendung, damit sie in Texten erkannt wird) sind optional.
+  - Eigene Karten aus der App haben IDs `u01`, `u02` …; sie brauchen `wrong`, `plain` und `reg` nicht, dann entfallen Auswahl, Fehlersuche und Umformulieren für sie.
 - Lückentexte: Platzhalter `{1}` bis `{n}` im Text, dazu `gaps` mit `[kartenId, lösung]` in derselben Reihenfolge. Jede Karten-ID muss existieren.
 - Nach jeder Datenänderung die Tests laufen lassen, denn sie prüfen genau diese Regeln.
 

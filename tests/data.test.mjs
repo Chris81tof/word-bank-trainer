@@ -12,6 +12,7 @@ const ids = new Set(cards.map((c) => c.id));
 
 const CATS = ["Phrasal verb", "Collocation", "Word formation", "Idiom", "Verb + preposition", "Adjective + preposition", "Sonstiges"];
 const TEXT_FIELDS = ["id", "cat", "term", "de", "sentence", "answer", "plain"];
+const KNOWN = [...TEXT_FIELDS, "prompt", "wrong", "reg", "note", "alt"];
 
 test("Karten-IDs sind eindeutig und gut geformt", () => {
   assert.equal(ids.size, cards.length, "doppelte IDs");
@@ -28,6 +29,9 @@ test("jede Karte hat alle Pflichtfelder", () => {
     assert.ok(["i", "n", "f"].includes(c.reg), `${c.id}: Register ${c.reg}`);
     assert.equal(typeof c.prompt, "string", `${c.id}: prompt muss Text sein (darf leer sein)`);
     if ("note" in c) assert.equal(typeof c.note, "string", `${c.id}: note`);
+    if ("alt" in c) assert.ok(Array.isArray(c.alt) && c.alt.every((a) => typeof a === "string" && a.trim()), `${c.id}: alt`);
+    const extra = Object.keys(c).filter((k) => !KNOWN.includes(k));
+    assert.deepEqual(extra, [], `${c.id}: unbekannte Felder`);
   }
 });
 

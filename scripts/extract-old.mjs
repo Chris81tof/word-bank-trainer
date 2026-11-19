@@ -27,6 +27,11 @@ const cards = SEED.map((c) => {
     wrong: x[0].split("|"), plain: x[1], reg: x[2]
   };
   if (c.note) card.note = c.note;
+  // Varianten der Wendung, mit | getrennt. "basis" für f05 stand in der alten App als Sonderfall im Code.
+  const alt = (c.alt ? c.alt.split("|") : []).concat(c.id === "f05" ? ["basis"] : []);
+  if (alt.length) card.alt = alt;
+  const unknown = Object.keys(c).filter((k) => !["id", "cat", "term", "de", "prompt", "sentence", "answer", "note", "alt"].includes(k));
+  if (unknown.length) throw new Error(`${c.id}: unbekannte Felder ${unknown}`);
   return card;
 });
 
