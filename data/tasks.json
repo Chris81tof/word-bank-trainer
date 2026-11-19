@@ -1,0 +1,126 @@
+{
+  "speak": [
+    {
+      "topic": "Gesellschaft",
+      "q": "Some people argue that social media has made society less tolerant. How far do you agree?"
+    },
+    {
+      "topic": "Gesellschaft",
+      "q": "Is it fair to say that today's young people have more opportunities than their parents had?"
+    },
+    {
+      "topic": "Bildung",
+      "q": "Should schools spend more time teaching practical life skills rather than academic subjects?"
+    },
+    {
+      "topic": "Bildung",
+      "q": "What are the advantages and disadvantages of competition between students?"
+    },
+    {
+      "topic": "Technologie",
+      "q": "Will artificial intelligence do more harm than good in the workplace?"
+    },
+    {
+      "topic": "Technologie",
+      "q": "To what extent should governments regulate the use of personal data?"
+    },
+    {
+      "topic": "Umwelt",
+      "q": "Can individuals really make a difference to climate change, or is it a matter for governments and industry?"
+    },
+    {
+      "topic": "Umwelt",
+      "q": "Should cheap flights be taxed more heavily?"
+    },
+    {
+      "topic": "Arbeit",
+      "q": "Is a four-day working week a realistic idea for most employers?"
+    },
+    {
+      "topic": "Arbeit",
+      "q": "How important is it to enjoy your job, compared with earning a good salary?"
+    },
+    {
+      "topic": "Medien",
+      "q": "Do news organisations have a duty to protect the public from misleading information?"
+    },
+    {
+      "topic": "Kultur",
+      "q": "Is it important to preserve traditions in a rapidly changing world?"
+    },
+    {
+      "topic": "Gesundheit",
+      "q": "Who should be responsible for people's health: the individual or the state?"
+    },
+    {
+      "topic": "Globalisierung",
+      "q": "Has globalisation brought more benefits than drawbacks for ordinary people?"
+    },
+    {
+      "topic": "Ethik",
+      "q": "Is it ever acceptable to break a promise?"
+    },
+    {
+      "topic": "Reisen",
+      "q": "Does travelling really broaden the mind, or is that a cliché?"
+    }
+  ],
+  "write": [
+    {
+      "type": "Formal email",
+      "task": "Write an email to the headteacher of your local school proposing a mentoring scheme in which older students support younger ones."
+    },
+    {
+      "type": "Formal email",
+      "task": "Write a complaint to a hotel manager about a stay that did not match the description on the website."
+    },
+    {
+      "type": "Essay",
+      "task": "Some people think that university education should be free for everyone. Discuss, giving reasons for your opinion."
+    },
+    {
+      "type": "Essay",
+      "task": "To what extent are traditional newspapers still important in the age of online news?"
+    },
+    {
+      "type": "Article",
+      "task": "Write an article for a magazine on how adults can learn a language more effectively."
+    },
+    {
+      "type": "Article",
+      "task": "Write an article for a travel magazine about a place that surprised you."
+    },
+    {
+      "type": "Report",
+      "task": "Write a report for your employer on how working from home has affected team communication, with recommendations."
+    },
+    {
+      "type": "Report",
+      "task": "Write a report for a local council on facilities for young people in your area, with suggestions for improvement."
+    },
+    {
+      "type": "Review",
+      "task": "Write a review of a book, film or series that you think more people should know about."
+    },
+    {
+      "type": "Review",
+      "task": "Write a review of a restaurant, concert or exhibition that disappointed you."
+    },
+    {
+      "type": "Opinion piece",
+      "task": "Write an opinion piece arguing that cities should ban private cars from their centres."
+    },
+    {
+      "type": "Opinion piece",
+      "task": "Write an opinion piece on whether homework does more harm than good."
+    },
+    {
+      "type": "Speech",
+      "task": "Write a short speech for a colleague who is retiring after thirty years at your school."
+    },
+    {
+      "type": "Speech",
+      "task": "Write a speech for a school leavers' ceremony on what makes a successful life."
+    }
+  ]
+}

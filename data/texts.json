@@ -1,0 +1,255 @@
+[
+  {
+    "id": "c1",
+    "kind": "Zeitungsartikel · Wirtschaft",
+    "title": "Local firm back in the black",
+    "text": "The company, which had been {1} behind its competitors for years, has finally {2} back much of the market share it lost. After weeks of talks, the board {3} out a recovery plan, and all profits will be {4} back into new machinery. Critics who had {5} into the previous management agree that the new team has not {6} over the real problems.",
+    "gaps": [
+      ["p17", "lagging"],
+      ["p03", "clawed"],
+      ["p15", "hammered"],
+      ["p16", "ploughed"],
+      ["p14", "torn"],
+      ["p19", "glossed"]
+    ]
+  },
+  {
+    "id": "c2",
+    "kind": "Essay · Bildung",
+    "title": "Exam preparation rarely goes smoothly",
+    "text": "Revision rarely goes to plan. Work tends to {1} up during the term, and a few weeks before the exams many students {2} down and try to {3} up on everything at once. Some {4} through without much effort, but others only just {5} through, and it is usually those who {6} around for the best revision methods early who cope best.",
+    "gaps": [
+      ["r27", "pile"],
+      ["r45", "knuckle"],
+      ["r47", "swot"],
+      ["r29", "sail"],
+      ["p13", "scrape"],
+      ["p11", "shop"]
+    ]
+  },
+  {
+    "id": "c3",
+    "kind": "Interview · Familie",
+    "title": "After the family row",
+    "text": "Interviewer: Was the family row ever resolved? Guest: Honestly, I assumed it would simply {1} over. Instead, old problems kept {2} up, and I was rather {3} out that nobody would speak to me. Eventually I decided to {4} clean about what had happened. My mother {5} me off, of course, but she also {6} for me when the neighbours started talking.",
+    "gaps": [
+      ["t01", "blow"],
+      ["r42", "cropping"],
+      ["r02", "put"],
+      ["r25", "come"],
+      ["r39", "told"],
+      ["t17", "vouched"]
+    ]
+  },
+  {
+    "id": "c4",
+    "kind": "Reiseblog · Urlaub",
+    "title": "A week by the river",
+    "text": "The hotel was {1} up for the whole summer, so we were lucky to get a room. We spent the first afternoon {2} away the hours by the pool and then {3} out on a lavish dinner. The next day the river had {4} up completely, so the boat trip was cancelled. Instead we {5} up on our Spanish and {6} up painting on the terrace.",
+    "gaps": [
+      ["r12", "booked"],
+      ["p08", "whiling"],
+      ["r37", "splashed"],
+      ["r07", "dried"],
+      ["t02", "brushed"],
+      ["r10", "took"]
+    ]
+  },
+  {
+    "id": "c5",
+    "kind": "Filmkritik · Review",
+    "title": "A small film with a big heart",
+    "text": "Since opening, the film has {1} in millions, and reviewers have {2} out praise by the bucketful. I was completely {3} over by the opening scene, and the lead actor's quiet charm {4} on you as the story unfolds. While most studios {5} out predictable sequels, this small film {6} off a warmth that is rare these days.",
+    "gaps": [
+      ["t20", "raked"],
+      ["r44", "dished"],
+      ["t22", "bowled"],
+      ["t08", "grows"],
+      ["t31", "churn"],
+      ["r28", "gives"]
+    ]
+  },
+  {
+    "id": "c6",
+    "kind": "Formaler Bericht · Verwaltung",
+    "title": "Report to the finance committee",
+    "text": "The committee has {1} up a new budget, and members have {2} forward several proposals. We cannot {3} out further cuts, since we have {4} up a large deficit and may need to {5} back on spending. We would also like to {6} down on late payments, so that nobody can {7} out of their obligations.",
+    "gaps": [
+      ["r14", "drawn"],
+      ["r13", "put"],
+      ["t29", "rule"],
+      ["r32", "run"],
+      ["t09", "cut"],
+      ["t28", "crack"],
+      ["r22", "duck"]
+    ]
+  },
+  {
+    "id": "c7",
+    "kind": "Zeitungsartikel · Politik",
+    "title": "Questions over the new tram line",
+    "text": "Rumour {1} it that the council is on the {2} of scrapping the new tram line. The mayor is on {3} as saying that the project will go ahead, but critics say the latest figures {4} doubt on that promise. Residents have been {5} in the dark about the real costs, and if it {6} been for the protests, nobody would even have asked.",
+    "gaps": [
+      ["g26", "has"],
+      ["g27", "verge"],
+      ["g58", "record"],
+      ["g40", "cast|throw"],
+      ["g29", "kept"],
+      ["g36", "hadn't|had not"]
+    ]
+  },
+  {
+    "id": "c8",
+    "kind": "Reiseblog · Wetter",
+    "title": "Trapped by the storm",
+    "text": "The storm was the third in {1} that month, and the mountain pass was {2} for two days. The hotel owner, who is on good {3} with everyone in the village, found us a room. A {4}-by even offered us a lift to the station. What took me {5} was how calm everybody stayed. On our last night we decided to {6} no expense and ordered the best wine in the house.",
+    "gaps": [
+      ["g25", "succession"],
+      ["g20", "impassable"],
+      ["g37", "terms"],
+      ["g21", "passer"],
+      ["g28", "aback"],
+      ["f30", "spare"]
+    ]
+  },
+  {
+    "id": "c9",
+    "kind": "Sicherheitsinformation · Betrieb",
+    "title": "Workshop safety briefing",
+    "text": "All visitors must wear {1} clothing in the workshop. A {2} meeting on Monday will explain the new rules. Anyone who ignores them risks losing all {3} with the management and may face a {4} hearing. Every {5} danger has been listed in the handbook, because the issue is of {6} importance.",
+    "gaps": [
+      ["g61", "protective"],
+      ["g60", "preparatory"],
+      ["g59", "credibility"],
+      ["f10", "disciplinary"],
+      ["g44", "conceivable"],
+      ["g35", "vital"]
+    ]
+  },
+  {
+    "id": "c10",
+    "kind": "Wissenschaftsbericht · Klima",
+    "title": "The shrinking glacier",
+    "text": "For years, scientists have {1} with the question of why the glacier is shrinking so fast. Some tried to {2} the popular theory, but none could show that it was wrong. Then one team {3} on a simple explanation. Their paper was read by a whole {4} of reviewers, and a {5} study over ten years has now confirmed it. The team also found a clear {6} between old and new ice.",
+    "gaps": [
+      ["g49", "grappled"],
+      ["g42", "disprove|refute|discredit"],
+      ["g52", "hit|stumbled"],
+      ["g33", "host"],
+      ["g50", "sustained"],
+      ["g54", "differentiation|distinction"]
+    ]
+  },
+  {
+    "id": "c11",
+    "kind": "Interview · Gericht",
+    "title": "The banker before the trial",
+    "text": "The banker will {1} trial next week on charges of fraud. In an interview he said: 'I don't {2} it against the press, they were only doing their job.' Long meetings with lawyers {3} with long silences at home. His story, he claims, {4} little resemblance to the one printed in the papers. Friends describe him as remarkable {5} his generosity, and one colleague says she owes him a {6} of gratitude.",
+    "gaps": [
+      ["g62", "stand"],
+      ["g56", "hold"],
+      ["g64", "alternate"],
+      ["g63", "bears"],
+      ["g65", "for"],
+      ["g34", "debt"]
+    ]
+  },
+  {
+    "id": "c12",
+    "kind": "Ratgeber · Städtereise",
+    "title": "Staying safe in the city",
+    "text": "Pickpockets are active in the city centre, so keep your bag closed. Nobody wants to have a bag {1} on a crowded tram. {2} no account should you hand your passport to a stranger. At {3} time are tourists in real danger, but on {4} someone does lose a phone. A quick call to your hotel will put your mind at {5}. And never {6} life and limb for a phone.",
+    "gaps": [
+      ["g38", "snatched"],
+      ["g30", "on"],
+      ["g39", "no"],
+      ["g31", "occasion"],
+      ["g48", "rest"],
+      ["g32", "risk"]
+    ]
+  },
+  {
+    "id": "c13",
+    "kind": "Zeitungsartikel · Schule",
+    "title": "A school cracks down",
+    "text": "The school has {1} down on phones in lessons, and pupils who {2} up to breaking the rule are let off lightly. Teachers say too many students {3} off lessons completely. Some parents {4} on at the head to relax the rules, while others {5} out in favour of a total ban. Funding was {6} back last year, so the school cannot afford extra staff.",
+    "gaps": [
+      ["t28", "cracked"],
+      ["r36", "own"],
+      ["s01", "bunk"],
+      ["t23", "keep"],
+      ["r17", "come"],
+      ["t09", "cut"]
+    ]
+  },
+  {
+    "id": "c14",
+    "kind": "Blog · Gesundheit",
+    "title": "A slow Sunday",
+    "text": "On Sundays I like to {1} in until ten. Last week it {2} down all morning and our run was {3} off, so I stayed at home. At night I often struggle to {4} off, so I {5} down with a book. Before any workout I {6} up for ten minutes.",
+    "gaps": [
+      ["r18", "lie"],
+      ["r19", "poured|pelted"],
+      ["r16", "rained"],
+      ["f36", "nod"],
+      ["t16", "wind"],
+      ["t34", "limber"]
+    ]
+  },
+  {
+    "id": "c15",
+    "kind": "E-Mail · Geschäft",
+    "title": "Changes to the contract",
+    "text": "We have {1} up a new contract and would like to {2} forward two changes. Last year we had to {3} off a large debt, and investors have since {4} money into the firm. Please {5} up with the accountant by Friday, and nobody should {6} out of the meeting.",
+    "gaps": [
+      ["r14", "drawn"],
+      ["r13", "put"],
+      ["r38", "write"],
+      ["r23", "pumped"],
+      ["r40", "settle"],
+      ["r22", "duck"]
+    ]
+  },
+  {
+    "id": "c16",
+    "kind": "Erzählung · Dorffest",
+    "title": "The village fair",
+    "text": "Everybody had to {1} in to build the stage. The heat was so strong that one man nearly {2} over. When he {3} round, a thief had {4} away with his wallet. Two boys who had {5} away on the ferry were found a day later, and the comedian {6} up the mayor in his speech.",
+    "gaps": [
+      ["t26", "pitch"],
+      ["t12", "keeled"],
+      ["t14", "came"],
+      ["t24", "made"],
+      ["t40", "stowed"],
+      ["t19", "sent"]
+    ]
+  },
+  {
+    "id": "c17",
+    "kind": "Meinungsbeitrag · Führung",
+    "title": "Speaking your mind at work",
+    "text": "I have always tried to {1} my mind, even when colleagues were {2} for an argument. When a manager made an offensive joke, I wished to {3} myself from it publicly. Some managers {4} on their staff too hard, but good leaders {5} on their own experience and do not {6} over old mistakes.",
+    "gaps": [
+      ["t05", "speak"],
+      ["t39", "spoiling"],
+      ["t45", "dissociate"],
+      ["t38", "lean"],
+      ["t42", "draw"],
+      ["t46", "brood|dwell"]
+    ]
+  },
+  {
+    "id": "c18",
+    "kind": "Ratgeber · Wohnen",
+    "title": "Moving into a new flat",
+    "text": "The {1} paperwork took weeks, but the flat is perfect. It is small, and within its {2} a family of four lives comfortably. The desk lamp is {3}, so I can set it exactly where I want. I only made minor {4} to the shelves. The neighbours are only {5} noisy, and the {6} are all there: a bed, a table and a sofa.",
+    "gaps": [
+      ["f18", "lengthy"],
+      ["f21", "confines"],
+      ["f24", "adjustable"],
+      ["f23", "adjustments"],
+      ["f42", "infrequently"],
+      ["f38", "essentials"]
+    ]
+  }
+]

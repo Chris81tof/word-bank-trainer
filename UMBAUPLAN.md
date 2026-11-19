@@ -97,7 +97,7 @@ Import des alten Formats (`format: 1`):
 ## Schritte (je ein Commit)
 
 0. Projektregeln, Plan, Git ✔
-1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests.
+1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests. ✔
 2. **Kern:** state, srs (6 Stufen), backup (Import alt und neu), match, mit Tests.
 3. **Grundgerüst und Navigation:** Reiter, Tagesplan, Übungen der Stufen 1 bis 4.
 4. **Stufe 5:** Umformulieren, Satz schreiben, Texte mit Auswahl nach Lernstand, Prompt und Import.
@@ -109,6 +109,8 @@ Import des alten Formats (`format: 1`):
 10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage.
 
 ## Offene Punkte
+
+- 112 Karten (p01–p19, r01–r47, t01–t46) haben keine englische Erklärung (`prompt`). Sie könnten zusammen mit Schritt 9 ergänzt werden.
 
 - Node.js für die Tests: Homebrew ist nicht installiert. Eine Lösung steht noch aus.
 - Die Schriften müssen heruntergeladen werden, zum Beispiel Source Serif 4 oder Newsreader von Google Fonts (SIL Open Font License). Das geschieht erst nach Zustimmung.

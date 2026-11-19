@@ -41,7 +41,7 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
 - Englische Inhalte in britischem Englisch (Cambridge), die Oberfläche auf Deutsch.
 - Jede Karte braucht:
   - `id`, `cat`, `term`, `de`,
-  - `prompt` (englische Erklärung),
+  - `prompt` (englische Erklärung; darf vorerst leer sein, bei 112 alten Karten fehlt sie noch),
   - `sentence` mit genau einer Lücke `____`,
   - `answer` (mehrere Lösungen mit `|` getrennt),
   - `wrong` (3 falsche Optionen), `plain` (schlichte Fassung des Satzes), `reg` (`i`/`n`/`f`).
