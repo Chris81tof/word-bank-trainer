@@ -103,7 +103,7 @@ Import des alten Formats (`format: 1`):
 4. **Stufe 5:** Umformulieren, Satz schreiben, Texte mit Auswahl nach Lernstand, Prompt und Import. ✔
 5. **Weitere Bereiche:** Transfer, Passiv, Statistik, Sammlung mit Formular und Karten-Prompt. ✔
 6. **Sprachausgabe** mit automatischer Stimmenwahl und Auswahl. ✔
-7. **Design** „Wörterbuch“, iPhone-Feinschliff.
+7. **Design** „Wörterbuch“, iPhone-Feinschliff. ✔
 8. **Offline:** Web-App, Icons, Schriften.
 9. **Textvorrat:** rund 45 neue Lückentexte, geprüft durch die Datentests.
 10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage.

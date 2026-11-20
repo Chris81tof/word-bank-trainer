@@ -189,7 +189,7 @@ function renderSession(root, app) {
     ? `<button type="button" class="small toggle iconbtn" id="spk" aria-pressed="${prefs.speak}" aria-label="Englisch vorlesen">${icon("passive")}</button>`
     : "";
   root.innerHTML = `<div class="sessionbar"><h1 class="withicon">${icon(s.mode)}${esc(M.label)}</h1>` +
-    `<div class="acts">${speakBtn}<button type="button" class="small" id="stop">Runde beenden</button></div></div><div id="study" aria-live="polite"></div>`;
+    `<div class="acts">${speakBtn}<button type="button" class="small" id="stop">Beenden</button></div></div><div id="study" aria-live="polite"></div>`;
   root.querySelector("#stop").addEventListener("click", () => { session = null; leave(); render(root, app); });
   root.querySelector("#spk")?.addEventListener("click", () => {
     prefs.speak = !prefs.speak;

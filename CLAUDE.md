@@ -53,5 +53,6 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
 ## Tests
 
 - `node --test` startet alle Tests in `tests/`, ohne zusätzliche Pakete.
+- Lokal ansehen: `node scripts/serve.mjs` (Port 8123, verbietet dem Browser das Zwischenspeichern).
 - Die Tests decken die Lernlogik, den Import alter Lernstände und die Prüfung der Daten ab.
 - GitHub Actions führt die Tests bei jedem Push aus. Veröffentlicht wird nur, wenn sie bestehen.
