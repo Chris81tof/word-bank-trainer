@@ -49,9 +49,12 @@ async function boot() {
     `<a href="#${t.id}" data-tab="${t.id}">${icon(t.id)}<span>${esc(t.label)}</span></a>`
   ).join("");
 
+  let current = null;
   function show() {
     const id = location.hash.slice(1);
     const tab = TABS.find((t) => t.id === id) || TABS[0];
+    if (current && current !== tab) current.view?.leave?.();
+    current = tab;
     nav.querySelectorAll("a").forEach((a) => {
       if (a.dataset.tab === tab.id) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");

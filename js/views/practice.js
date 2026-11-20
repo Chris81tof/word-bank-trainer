@@ -16,6 +16,7 @@ import * as error from "../exercises/error.js";
 import * as rewrite from "../exercises/rewrite.js";
 import * as produce from "../exercises/produce.js";
 import * as cloze from "../exercises/cloze.js";
+import * as passive from "./passive.js";
 
 const EX = { meaning, cards, explain, choice, gap, translate, error, rewrite, produce };
 const SCOPES = { due: "Heute fällig", open: "Alle nicht gemeisterten", problem: "Nur problematische", all: "Alle Karten" };
@@ -74,19 +75,34 @@ function begin(app, ids, avail) {
 export function render(root, app) {
   if (session) renderSession(root, app);
   else if (pick.mode === "cloze" && cloze.isOpen()) cloze.renderText(root, app, () => render(root, app));
+  else if (pick.mode === "passive" && passive.isRunning()) passive.render(root, app, () => render(root, app));
   else renderPicker(root, app);
 }
 
+// Beim Wechsel des Reiters: Vorlesen anhalten
+export function leave() {
+  passive.stop();
+}
+
+const modeBtn = (m, label) =>
+  `<button type="button" class="mode${m === pick.mode ? " on" : ""}" data-mode="${m}" aria-pressed="${m === pick.mode}">${icon(m)}<span>${esc(label)}</span></button>`;
+
 function renderPicker(root, app) {
   const cats = [...new Set(app.cards().map((c) => c.cat))];
-  const isText = !!MODES[pick.mode].text;
-  const n = isText ? 0 : eligible(app).length;
+  const isPassive = pick.mode === "passive";
+  const isText = !isPassive && !!MODES[pick.mode].text;
+  const n = isText || isPassive ? 0 : eligible(app).length;
   let h = '<h1>Üben</h1>';
   for (const lv of [1, 2, 3, 4, 5]) {
     const ms = Object.entries(MODES).filter(([, M]) => M.lv === lv);
-    h += `<h2 class="lvl">${esc(LEVELS[lv])}</h2><div class="modes">` + ms.map(([m, M]) =>
-      `<button type="button" class="mode${m === pick.mode ? " on" : ""}" data-mode="${m}" aria-pressed="${m === pick.mode}">${icon(m)}<span>${esc(M.label)}</span></button>`
-    ).join("") + "</div>";
+    h += `<h2 class="lvl">${esc(LEVELS[lv])}</h2><div class="modes">` + ms.map(([m, M]) => modeBtn(m, M.label)).join("") + "</div>";
+  }
+  h += '<h2 class="lvl">Ohne Wertung</h2><div class="modes">' + modeBtn("passive", "Passiv-Durchlauf") + "</div>";
+  if (isPassive) {
+    root.innerHTML = h + '<div id="passiveArea"></div>';
+    bindModes(root, app);
+    passive.renderSetup(root.querySelector("#passiveArea"), app, () => render(root, app));
+    return;
   }
   h += `<p class="hint">${esc(MODES[pick.mode].desc)}</p>`;
   if (isText) {
@@ -173,9 +189,10 @@ function renderSummary(box, root, app) {
 
 // Tastatur: 1–4 wählt eine Option, Pfeile bewerten Karteikarten
 export function onKey(e) {
-  if (!session) return;
   const t = e.target;
   if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT")) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (!session) { passive.onKey(e); return; }
   const study = document.getElementById("study");
   if (!study) return;
   const click = (sel) => { const b = study.querySelector(sel); if (b && !b.disabled) { e.preventDefault(); b.click(); } };

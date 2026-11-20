@@ -164,3 +164,5 @@ ul.ex select { margin-left: auto; min-height: 36px; font: 14px var(--sans); padd
 details.d { margin-top: 12px; font: 14px/1.5 var(--sans); color: var(--ink-2); }
 details.d summary { cursor: pointer; min-height: var(--tap); display: flex; align-items: center; }
 pre.pre { white-space: pre-wrap; font: 14px/1.5 var(--sans); background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; max-height: 320px; overflow: auto; }
+label.check { display: flex; align-items: center; gap: 10px; min-height: var(--tap); font: 15px var(--sans); }
+label.check input { width: 20px; height: 20px; accent-color: var(--accent); }
