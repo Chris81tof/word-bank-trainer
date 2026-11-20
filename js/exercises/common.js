@@ -101,6 +101,12 @@ export function bindAnswer(box, s, check) {
   inp.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); run(); } });
 }
 
+// Prüfzeile mit ✓ oder ✗, optional mit dem geprüften Text darunter
+export function checkLine(ok, text, quote) {
+  return `<p class="chk ${ok ? "good" : "bad"}"><b aria-hidden="true">${ok ? "✓" : "✗"}</b> ${esc(text)}` +
+    (quote !== undefined ? `<br><span class="own">${esc(quote) || "–"}</span>` : "") + "</p>";
+}
+
 export function expectedHtml(s, expected) {
   const r = s.result;
   return `<div class="feedback ${r.ok ? "good" : "bad"}" role="status">` +

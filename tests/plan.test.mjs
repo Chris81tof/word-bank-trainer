@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { buildPlan, recMode } from "../js/core/plan.js";
+import { buildPlan, recMode, planMode } from "../js/core/plan.js";
 import { createState } from "../js/core/state.js";
 import { newProgress } from "../js/core/srs.js";
 
@@ -64,4 +64,11 @@ test("problematische Karten kommen zuerst, nicht fällige gar nicht", () => {
   s.progress[cards[2].id] = seen(3, { due: D + 4 });
   const ids = allIds(buildPlan(cards, s, D));
   assert.deepEqual(ids, [cards[1].id]);
+});
+
+test("gemeisterte Karten werden angewendet: Umformulieren und Satz schreiben im Wechsel", () => {
+  const c = cards.find((x) => x.plain);
+  assert.equal(planMode(c, seen(4), cards), "rewrite");
+  assert.equal(planMode(c, seen(4, { seen: 3 }), cards), "produce");
+  assert.equal(planMode(c, seen(3), cards), recMode(c, seen(3), cards), "unter Stufe 4 noch nicht");
 });

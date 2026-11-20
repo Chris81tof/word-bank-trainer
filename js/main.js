@@ -20,9 +20,9 @@ function placeholder(root, tab) {
 async function boot() {
   const view = $("view");
   let base;
+  let baseTexts;
   try {
-    const res = await fetch("data/cards.json");
-    base = await res.json();
+    [base, baseTexts] = await Promise.all(["data/cards.json", "data/texts.json"].map((f) => fetch(f).then((r) => r.json())));
   } catch {
     view.innerHTML = '<p class="msg err">Die Karten konnten nicht geladen werden.</p>';
     return;
@@ -30,9 +30,11 @@ async function boot() {
 
   const app = {
     base,
+    baseTexts,
     state: load(localStorage),
     plan: null,
     cards: () => allCards(app.base, app.state),
+    texts: () => [...app.baseTexts, ...app.state.texts],
     save: () => save(localStorage, app.state),
     invalidatePlan: () => { app.plan = null; },
     go: (id) => {

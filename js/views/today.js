@@ -6,7 +6,8 @@ import { categoryOf, STATUS } from "../core/srs.js";
 import { today } from "../core/dates.js";
 import { icon } from "../core/icons.js";
 import { ART } from "../core/art.js";
-import { start } from "./practice.js";
+import { suggestTexts } from "../core/texts.js";
+import { start, startText } from "./practice.js";
 
 const BUDGETS = [20, 30, 40, 60, 90];
 const NEW_PER_DAY = [5, 10, 15, 20, 30];
@@ -47,6 +48,14 @@ export function render(root, app) {
     h += '<p class="hint">Die Reihenfolge geht von leicht zu schwer. Welche Übungsart eine Karte bekommt, hängt von ihrer Stufe ab: neue Karten starten mit Bedeutung, sichere Karten werden getippt, geprüft und angewendet.</p>';
   }
 
+  // Stufe 5: die drei Texte, die am besten zum Lernstand passen
+  const known = new Set(cards.map((c) => c.id));
+  h += '<h2>Texte</h2><p class="prompt">Ein Lückentext übt mehrere Wendungen im Zusammenhang (ca. 6 Minuten).</p>';
+  for (const { t } of suggestTexts(app.texts(), state, day, known, 3)) {
+    h += `<div class="block">${icon("cloze")}<div class="meta"><strong>${esc(t.title)}</strong><span>${esc(t.kind)} · ${t.gaps.length} Lücken</span></div>` +
+      `<button type="button" class="small" data-text="${esc(t.id)}">Öffnen</button></div>`;
+  }
+
   const by = { new: 0, developing: 0, problem: 0, mastered: 0 };
   for (const c of cards) by[categoryOf(prog(c.id))]++;
   h += '<h2>Lernstand</h2><div class="tiles">' +
@@ -59,6 +68,7 @@ export function render(root, app) {
     const open = b.ids.filter((id) => !prog(id) || prog(id).last !== day);
     start(app, b.mode, open.length ? open : b.ids);
   }));
+  root.querySelectorAll("button[data-text]").forEach((btn) => btn.addEventListener("click", () => startText(app, btn.dataset.text)));
   root.querySelector("#bdSel").addEventListener("change", (e) => { state.prefs.budget = Number(e.target.value); app.save(); render(root, app); });
   root.querySelector("#npSel").addEventListener("change", (e) => { state.prefs.newPerDay = Number(e.target.value); app.save(); render(root, app); });
   root.querySelector("#rePlan").addEventListener("click", () => { app.invalidatePlan(); render(root, app); });

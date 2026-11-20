@@ -43,6 +43,22 @@ export const MODES = {
     label: "Fehlersuche", lv: 4, est: 0.8,
     need: (c) => hasGap(c) && hasWrong(c),
     desc: "Stufe 4 · Part 5: Ist der Satz korrekt? Wenn nicht, tippst du die Korrektur ein."
+  },
+  rewrite: {
+    label: "Umformulieren", lv: 5, est: 2,
+    need: (c) => hasGap(c) && !!c.plain,
+    desc: "Stufe 5 · Part 7: Formuliere den schlichten Satz mit dem Ausdruck auf C2-Niveau um. Selbstbewertung."
+  },
+  produce: {
+    label: "Satz schreiben", lv: 5, est: 3,
+    need: (c) => !!c.term,
+    desc: "Stufe 5 · Part 3: Definition auf Englisch und drei eigene Beispielsätze (Alltag, Beruf, abstrakte Diskussion)."
+  },
+  // Texte arbeiten nicht mit einer Kartenrunde, sondern mit ganzen Lückentexten (exercises/cloze.js).
+  cloze: {
+    label: "Texte", lv: 5, est: 6, text: true,
+    need: () => false,
+    desc: "Stufe 5 · Part 6: Zeitung, Essay, Interview und mehr mit mehreren Lücken. Vorgeschlagen werden die Texte, die zu deinem Lernstand passen."
   }
 };
 

@@ -13,8 +13,11 @@ import * as choice from "../exercises/choice.js";
 import * as gap from "../exercises/gap.js";
 import * as translate from "../exercises/translate.js";
 import * as error from "../exercises/error.js";
+import * as rewrite from "../exercises/rewrite.js";
+import * as produce from "../exercises/produce.js";
+import * as cloze from "../exercises/cloze.js";
 
-const EX = { meaning, cards, explain, choice, gap, translate, error };
+const EX = { meaning, cards, explain, choice, gap, translate, error, rewrite, produce };
 const SCOPES = { due: "Heute fällig", open: "Alle nicht gemeisterten", problem: "Nur problematische", all: "Alle Karten" };
 const SIZES = [10, 20, 50, 0];
 
@@ -27,6 +30,14 @@ export function start(app, mode, ids) {
   pick.mode = mode;
   const byId = new Map(app.cards().map((c) => [c.id, c]));
   begin(app, ids.filter((id) => byId.has(id)), ids.length);
+  app.go("practice");
+}
+
+// Einen Lückentext öffnen (vom Tagesplan aus)
+export function startText(app, id) {
+  pick.mode = "cloze";
+  session = null;
+  cloze.openText(app, id);
   app.go("practice");
 }
 
@@ -62,21 +73,28 @@ function begin(app, ids, avail) {
 
 export function render(root, app) {
   if (session) renderSession(root, app);
+  else if (pick.mode === "cloze" && cloze.isOpen()) cloze.renderText(root, app, () => render(root, app));
   else renderPicker(root, app);
 }
 
 function renderPicker(root, app) {
   const cats = [...new Set(app.cards().map((c) => c.cat))];
-  const n = eligible(app).length;
+  const isText = !!MODES[pick.mode].text;
+  const n = isText ? 0 : eligible(app).length;
   let h = '<h1>Üben</h1>';
-  for (const lv of [1, 2, 3, 4]) {
+  for (const lv of [1, 2, 3, 4, 5]) {
     const ms = Object.entries(MODES).filter(([, M]) => M.lv === lv);
     h += `<h2 class="lvl">${esc(LEVELS[lv])}</h2><div class="modes">` + ms.map(([m, M]) =>
       `<button type="button" class="mode${m === pick.mode ? " on" : ""}" data-mode="${m}" aria-pressed="${m === pick.mode}">${icon(m)}<span>${esc(M.label)}</span></button>`
     ).join("") + "</div>";
   }
   h += `<p class="hint">${esc(MODES[pick.mode].desc)}</p>`;
-  h += '<p class="hint">Stufe 5 (Umformulieren, Satz schreiben, Texte) und der Passiv-Durchlauf folgen.</p>';
+  if (isText) {
+    root.innerHTML = h + '<div id="clozeArea"></div>';
+    bindModes(root, app);
+    cloze.renderList(root.querySelector("#clozeArea"), app, () => render(root, app));
+    return;
+  }
   h += '<div class="controls">' +
     '<label>Kategorie <select id="catSel"><option value="all">Alle</option>' +
     cats.map((c) => `<option value="${esc(c)}"${c === pick.cat ? " selected" : ""}>${esc(c)}</option>`).join("") + "</select></label>" +
@@ -88,11 +106,15 @@ function renderPicker(root, app) {
     `<p class="hint">${n} passende Karten.</p>`;
   root.innerHTML = h;
 
-  root.querySelectorAll("button.mode").forEach((b) => b.addEventListener("click", () => { pick.mode = b.dataset.mode; render(root, app); }));
+  bindModes(root, app);
   root.querySelector("#catSel").addEventListener("change", (e) => { pick.cat = e.target.value; render(root, app); });
   root.querySelector("#scopeSel").addEventListener("change", (e) => { pick.scope = e.target.value; render(root, app); });
   root.querySelector("#sizeSel").addEventListener("change", (e) => { pick.size = Number(e.target.value); render(root, app); });
   root.querySelector("#go").addEventListener("click", () => { queueFromPick(app); render(root, app); });
+}
+
+function bindModes(root, app) {
+  root.querySelectorAll("button.mode").forEach((b) => b.addEventListener("click", () => { pick.mode = b.dataset.mode; render(root, app); }));
 }
 
 function renderSession(root, app) {
