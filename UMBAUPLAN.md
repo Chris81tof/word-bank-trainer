@@ -96,7 +96,7 @@ Import des alten Formats (`format: 1`):
 
 ## Schritte (je ein Commit)
 
-**Als Nächstes: Schritt 10 (Veröffentlichung).** Schritte 0 bis 9 sind fertig. Vor dem Anlegen des Repositorys und vor dem ersten Push nachfragen.
+**Alle Schritte 0 bis 10 sind fertig.** Die App ist veröffentlicht.
 
 0. Projektregeln, Plan, Git ✔
 1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests. ✔
@@ -108,7 +108,7 @@ Import des alten Formats (`format: 1`):
 7. **Design** „Wörterbuch“, iPhone-Feinschliff. ✔
 8. **Offline:** Web-App, Icons, Schriften. ✔
 9. **Textvorrat:** rund 45 neue Lückentexte, geprüft durch die Datentests. ✔ (45 neue, zusammen 63; jede Karte kommt vor)
-10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage. (Workflow `.github/workflows/pages.yml` ist angelegt; Repository und Push stehen noch aus.)
+10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage. (Workflow `.github/workflows/pages.yml` ist angelegt; veröffentlicht unter https://chris81tof.github.io/word-bank-trainer/.)
 
 ## Offene Punkte
 
