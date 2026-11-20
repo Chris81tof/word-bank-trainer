@@ -1,18 +1,12 @@
 // Stufe 5 · Texte: Auswahl nach Lernstand, Prompt für neue Texte und Import der Antwort.
-import { categoryOf } from "./srs.js";
 import { ans0 } from "./modes.js";
+import { cardWeight, weightedSample } from "./pick.js";
+
+export { cardWeight };
 
 export const RECENT_DAYS = 14;
 export const SUGGEST = 6;
 export const KINDS = ["Zeitungsartikel", "Essay", "Interview", "Bericht", "Rezension", "Brief", "Rede", "Blogbeitrag"];
-
-// Gewicht einer Karte: problematisch 5, in Arbeit 3, neu 1,5, gemeistert 1, fällig +2
-export function cardWeight(p, day) {
-  const k = categoryOf(p);
-  let w = k === "problem" ? 5 : k === "developing" ? 3 : k === "new" ? 1.5 : 1;
-  if (p && p.seen && p.due <= day) w += 2;
-  return w;
-}
 
 // Punktzahl eines Textes: Summe der Gewichte seiner Lücken, abzüglich eines Abzugs,
 // der vom Tag der Bearbeitung über 14 Tage auf null sinkt. Fehlende Karten zählen nicht.
@@ -41,17 +35,7 @@ export function coverage(texts) {
 // Karten für einen neuen Text: nach Gewicht gezogen; Karten ohne Text bekommen +3.
 export function pickCards(cards, state, texts, day, n, rand = Math.random) {
   const cov = coverage(texts);
-  const pool = cards.filter((c) => c.term && c.answer).map((c) => ({
-    c, w: cardWeight(state.progress[c.id], day) + (cov.get(c.id) ? 0 : 3)
-  }));
-  const out = [];
-  while (out.length < n && pool.length) {
-    let r = rand() * pool.reduce((s, x) => s + x.w, 0);
-    let i = 0;
-    while (i < pool.length - 1 && (r -= pool[i].w) > 0) i++;
-    out.push(pool.splice(i, 1)[0].c);
-  }
-  return out;
+  return weightedSample(cards.filter((c) => c.term && c.answer), (c) => cardWeight(state.progress[c.id], day) + (cov.get(c.id) ? 0 : 3), n, rand);
 }
 
 export function textPrompt(cards, { kind, words }) {

@@ -33,6 +33,7 @@ const P = {
     fine("M5.3 9c1.8-.3 3.4-.2 4.6.3M5.3 11.5c1.8-.3 3.4-.2 4.6.3M5.3 14c1.8-.3 3.4-.2 4.6.3M14.1 9.3c1.2-.5 2.8-.6 4.6-.3M14.1 11.8c1.2-.5 2.8-.6 4.6-.3"),
   speak: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4M9 21h6"/>' + fine("M10.5 6.5h3M10.5 8.5h3M10.5 10.5h3"),
   write: '<path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v4h4"/>' + fine("M9 11h7M9 13.5h7M9 16h7M9 18.5h4"),
+  claude: '<rect x="5" y="4.5" width="14" height="16.5" rx="1"/><path d="M9 4.5V3.5h6v1M9 4.5v1.5h6V4.5"/>' + fine("M8 10h8M8 12.5h8M8 15h8M8 17.5h5"),
 
   // Kategorien
   phrasal: '<rect x="3" y="10" width="8.5" height="5.5" rx=".5"/><path d="M13.5 12.8h2.5a3 3 0 0 0 3-3V5M16.5 7.5 19 5l2.5 2.5"/>' + fine("M5 12.8h4.5"),

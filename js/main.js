@@ -4,11 +4,12 @@ import { load, save, allCards } from "./core/state.js";
 import { icon } from "./core/icons.js";
 import * as todayView from "./views/today.js";
 import * as practiceView from "./views/practice.js";
+import * as transferView from "./views/transfer.js";
 
 const TABS = [
   { id: "today", label: "Heute", view: todayView },
   { id: "practice", label: "Üben", view: practiceView },
-  { id: "transfer", label: "Transfer" },
+  { id: "transfer", label: "Transfer", view: transferView },
   { id: "stats", label: "Statistik" },
   { id: "library", label: "Sammlung" }
 ];

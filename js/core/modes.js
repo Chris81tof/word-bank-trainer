@@ -62,5 +62,8 @@ export const MODES = {
   }
 };
 
+// Transfer-Aufgaben verbuchen ebenfalls Ergebnisse (bis Stufe 6), sind aber keine Kartenrunde.
+export const TRANSFER = { story: "Geschichte", speak: "Sprechen", write: "Schreiben" };
+
 // Reihenfolge im Tagesplan: von leicht zu schwer
 export const ORDER = ["meaning", "choice", "gap", "translate", "error", "rewrite", "produce", "cards", "explain"];

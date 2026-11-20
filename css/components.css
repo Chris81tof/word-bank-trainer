@@ -156,3 +156,11 @@ details.all summary { list-style: none; }
 details.all summary::-webkit-details-marker { display: none; }
 details.all summary::before { content: "▸"; margin-right: 8px; color: var(--accent); }
 details.all[open] summary::before { content: "▾"; }
+
+/* Transfer */
+textarea.tall { min-height: 240px; }
+ul.ex select { margin-left: auto; min-height: 36px; font: 14px var(--sans); padding: 4px 6px; }
+.timer { font: 600 48px/1.2 var(--serif); text-align: center; margin: 12px 0 4px; font-variant-numeric: tabular-nums; }
+details.d { margin-top: 12px; font: 14px/1.5 var(--sans); color: var(--ink-2); }
+details.d summary { cursor: pointer; min-height: var(--tap); display: flex; align-items: center; }
+pre.pre { white-space: pre-wrap; font: 14px/1.5 var(--sans); background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; max-height: 320px; overflow: auto; }
