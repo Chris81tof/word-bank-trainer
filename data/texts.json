@@ -671,5 +671,215 @@
       ["r20", "sink"],
       ["g93", "marked"]
     ]
+  },
+  {
+    "id": "c49",
+    "kind": "Erinnerungen · Abschlussprüfung",
+    "title": "The summer I nearly failed",
+    "text": "At sixteen I spent more time {1} off school than in lessons, and my form tutor {2} me off almost every week. Two months before the exams, panic finally set in: I had to {3} down to some serious work and {4} up on three years of history. My best friend {5} through everything without opening a book, while I only just {6} through maths. Still, against all expectations, I passed.",
+    "gaps": [
+      ["s01", "bunking"],
+      ["r39", "told"],
+      ["r45", "knuckle"],
+      ["r47", "swot"],
+      ["r29", "sailed"],
+      ["p13", "scraped"]
+    ]
+  },
+  {
+    "id": "c50",
+    "kind": "Wirtschaftsbericht · Autoindustrie",
+    "title": "A carmaker fights back",
+    "text": "For a decade the company had been {1} behind its Asian rivals. Now it is finally beginning to {2} back market share. After months of talks, management and unions have {3} out a deal: profits will be {4} back into research, and the government is {5} money into a new battery plant next door. The factory already {6} out two hundred electric vans a week.",
+    "gaps": [
+      ["p17", "lagging"],
+      ["p03", "claw"],
+      ["p15", "hammered"],
+      ["p16", "ploughed"],
+      ["r23", "pumping"],
+      ["t31", "churns"]
+    ]
+  },
+  {
+    "id": "c51",
+    "kind": "Reiseblog · Camping",
+    "title": "Camping in the rain",
+    "text": "Every campsite near the lake was {1} up, so we ended up in a muddy field behind a farm. On the first morning it was {2} down, and we decided to {3} in until noon. The boat trip was {4} off, and with the mountain road {5} after a landslide, we {6} away the afternoon playing cards in the tent.",
+    "gaps": [
+      ["r12", "booked"],
+      ["r19", "pouring"],
+      ["r18", "lie"],
+      ["r16", "rained"],
+      ["g20", "impassable"],
+      ["p08", "whiled"]
+    ]
+  },
+  {
+    "id": "c52",
+    "kind": "Ratgeber · Schulden",
+    "title": "How to stay out of debt",
+    "text": "It is all too easy to {1} up a huge bill on a credit card. Before you {2} out on a new sofa, {3} around for the best price. When you go out with friends, {4} up with them on the night rather than letting small debts build up. And remember: banks rarely {5} off what you owe. A wedding where the parents {6} no expense can leave a young couple paying for years.",
+    "gaps": [
+      ["r32", "run"],
+      ["r37", "splash"],
+      ["p11", "shop"],
+      ["r40", "settle"],
+      ["r38", "write"],
+      ["f30", "spared"]
+    ]
+  },
+  {
+    "id": "c53",
+    "kind": "Zeitungsartikel · Bürgermeisterwahl",
+    "title": "An outspoken challenger",
+    "text": "Rumour has {1} that the mayor will not stand for re-election. Her challenger, who is known to {2} her mind, is on {3} as saying that the town's finances are a mess. Several councillors have {4} out against her plans, and her own party has been quick to {5} itself from her remarks. Still, nobody is willing to {6} out a surprise victory in May.",
+    "gaps": [
+      ["g26", "it"],
+      ["t05", "speak"],
+      ["g58", "record"],
+      ["r17", "come"],
+      ["t45", "dissociate"],
+      ["t29", "rule"]
+    ]
+  },
+  {
+    "id": "c54",
+    "kind": "Polizeibericht · Taschendiebstahl",
+    "title": "Pickpocket caught on camera",
+    "text": "A tourist {1} her bag snatched outside the cathedral on Saturday afternoon. According to a {2}-by, the thief {3} away with her purse and passport in a matter of seconds. Police have released an image of a man who {4} a striking resemblance to a well-known local pickpocket. His employer has offered to {5} for his character, but he will {6} trial next month.",
+    "gaps": [
+      ["g38", "had"],
+      ["g21", "passer"],
+      ["t24", "made"],
+      ["g63", "bears"],
+      ["t17", "vouch"],
+      ["g62", "stand"]
+    ]
+  },
+  {
+    "id": "c55",
+    "kind": "Ratgeber · Ruhestand",
+    "title": "Enjoying retirement",
+    "text": "Many people find it hard to {1} down after forty years of work. My father {2} up painting the day he retired, and the hobby has slowly {3} on my mother too. Each morning they {4} up with a short walk along the canal, and on {5} they sing in the village choir. Admittedly, he still {6} off in front of the evening news.",
+    "gaps": [
+      ["t16", "wind"],
+      ["r10", "took"],
+      ["t08", "grown"],
+      ["t34", "limber"],
+      ["g31", "occasion"],
+      ["f36", "nods"]
+    ]
+  },
+  {
+    "id": "c56",
+    "kind": "Bericht · Notaufnahme",
+    "title": "A night in A&E",
+    "text": "Shortly after midnight, a marathon runner {1} over just after the finish line. Paramedics had {2} life and limb to reach him through the crowd. It was of {3} importance to cool him down, and it took twenty minutes before he {4} round. A doctor tried to put his wife's {5} at rest, while a nurse in {6} clothing tested him for infection.",
+    "gaps": [
+      ["t12", "keeled"],
+      ["g32", "risked"],
+      ["g35", "vital"],
+      ["t14", "came"],
+      ["g48", "mind"],
+      ["g61", "protective"]
+    ]
+  },
+  {
+    "id": "c57",
+    "kind": "Bericht · Disziplinarverfahren",
+    "title": "An internal investigation",
+    "text": "After a {1} investigation, the board finally began {2} proceedings against the finance director. For months she had kept her colleagues in the {3} about the missing funds. When first confronted, she refused to {4} up to her mistakes; only later did she {5} clean about the whole affair. Her deputy says he does not {6} it against her personally.",
+    "gaps": [
+      ["f18", "lengthy"],
+      ["f10", "disciplinary"],
+      ["g29", "dark"],
+      ["r36", "own"],
+      ["r25", "come"],
+      ["g56", "hold"]
+    ]
+  },
+  {
+    "id": "c58",
+    "kind": "Wissenschaftsbericht · Archäologie",
+    "title": "Rethinking the Bronze Age",
+    "text": "For decades it was barely {1} that anyone would question the date of the settlement. Then a young researcher {2} on the idea of testing seeds from the ancient hearths. Her results {3} doubt on the accepted view, although they do not yet {4} it entirely. Critics say the study {5} on too few samples, but its {6} has grown as other laboratories confirm the findings.",
+    "gaps": [
+      ["g44", "conceivable"],
+      ["g52", "hit"],
+      ["f40", "cast"],
+      ["g42", "disprove"],
+      ["t42", "draws"],
+      ["g59", "credibility"]
+    ]
+  },
+  {
+    "id": "c59",
+    "kind": "Ratgeber · Einrichtung",
+    "title": "Small spaces, smart solutions",
+    "text": "Living within the {1} of a tiny flat requires a few {2} to your habits. Start with an {3} desk that can turn into a dining table, and keep only the {4} in the kitchen cupboards. A whole {5} of clever storage solutions is available online, but some careful {6} measuring will save you from expensive mistakes.",
+    "gaps": [
+      ["f21", "confines"],
+      ["f23", "adjustments"],
+      ["f24", "adjustable"],
+      ["f38", "essentials"],
+      ["g33", "host"],
+      ["g60", "preparatory"]
+    ]
+  },
+  {
+    "id": "c60",
+    "kind": "Erzählung · Pub",
+    "title": "Last orders",
+    "text": "Dave had been {1} for a fight all evening. He was clearly {2} out because nobody had remembered his birthday, and he {3} on at the barman about the price of beer. When Mike made a harmless joke, Dave {4} into him in front of everyone. His friends hoped it would all {5} over by the morning, but he went home and spent days {6} over the insult.",
+    "gaps": [
+      ["t39", "spoiling"],
+      ["r02", "put"],
+      ["t23", "kept"],
+      ["p14", "tore"],
+      ["t01", "blow"],
+      ["t46", "brooding"]
+    ]
+  },
+  {
+    "id": "c61",
+    "kind": "Gemeindebrief · Ehrenamt",
+    "title": "Thank you, volunteers",
+    "text": "We owe a huge debt of {1} to everyone who {2} in to repaint the village hall. If it hadn't been {3} you, the summer fair would never have taken place. Thanks to your efforts, the cake stall {4} in over £800, and Mrs Patel {5} out free lemonade to every child. Best of all, we are {6} good terms with the parish council once more.",
+    "gaps": [
+      ["g34", "gratitude"],
+      ["t26", "pitched"],
+      ["g36", "for"],
+      ["t20", "raked"],
+      ["r44", "dished"],
+      ["g37", "on"]
+    ]
+  },
+  {
+    "id": "c62",
+    "kind": "Naturreportage · Dürre",
+    "title": "When the rivers run dry",
+    "text": "After three hot summers in {1}, the region is on the verge {2} disaster. Village wells have {3} up, and the cracked mud of the reservoir {4} off a sour smell. Scientists warn that a {5} period of low rainfall could destroy the forests, especially as long dry spells now alternate {6} sudden floods.",
+    "gaps": [
+      ["g25", "succession"],
+      ["g27", "of"],
+      ["r07", "dried"],
+      ["r28", "gives"],
+      ["g50", "sustained"],
+      ["g64", "with"]
+    ]
+  },
+  {
+    "id": "c63",
+    "kind": "Kritik · Kabarett",
+    "title": "Laughing at the powerful",
+    "text": "The comedian's new show is remarkable {1} its fearlessness. She loves to {2} up politicians, and audiences are regularly {3} over by her impressions. Even long-standing fans were taken {4} by her final sketch. When a heckler {5} up in the second half, she dealt with him brilliantly. On no {6} should you miss it.",
+    "gaps": [
+      ["g65", "for"],
+      ["t19", "send"],
+      ["t22", "bowled"],
+      ["g28", "aback"],
+      ["r42", "cropped"],
+      ["g30", "account"]
+    ]
   }
 ]

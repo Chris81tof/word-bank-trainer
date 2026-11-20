@@ -105,7 +105,7 @@ Import des alten Formats (`format: 1`):
 6. **Sprachausgabe** mit automatischer Stimmenwahl und Auswahl. ✔
 7. **Design** „Wörterbuch“, iPhone-Feinschliff. ✔
 8. **Offline:** Web-App, Icons, Schriften. ✔
-9. **Textvorrat:** rund 45 neue Lückentexte, geprüft durch die Datentests.
+9. **Textvorrat:** rund 45 neue Lückentexte, geprüft durch die Datentests. ✔ (45 neue, zusammen 63; jede Karte kommt vor)
 10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage.
 
 ## Offene Punkte
