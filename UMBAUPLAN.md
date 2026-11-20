@@ -96,6 +96,8 @@ Import des alten Formats (`format: 1`):
 
 ## Schritte (je ein Commit)
 
+**Als Nächstes: Schritt 10 (Veröffentlichung).** Schritte 0 bis 9 sind fertig. Vor dem Anlegen des Repositorys und vor dem ersten Push nachfragen.
+
 0. Projektregeln, Plan, Git ✔
 1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests. ✔
 2. **Kern:** state, srs (6 Stufen), backup (Import alt und neu), match, mit Tests. ✔
