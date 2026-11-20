@@ -34,6 +34,15 @@ export function start(app, mode, ids) {
   app.go("practice");
 }
 
+// Von der Statistik aus: Auswahl auf problematische Karten stellen
+export function pickProblems(app) {
+  session = null;
+  if (MODES[pick.mode]?.text || pick.mode === "passive") pick.mode = "meaning";
+  pick.scope = "problem";
+  pick.cat = "all";
+  app.go("practice");
+}
+
 // Einen Lückentext öffnen (vom Tagesplan aus)
 export function startText(app, id) {
   pick.mode = "cloze";

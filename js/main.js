@@ -5,12 +5,13 @@ import { icon } from "./core/icons.js";
 import * as todayView from "./views/today.js";
 import * as practiceView from "./views/practice.js";
 import * as transferView from "./views/transfer.js";
+import * as statsView from "./views/stats.js";
 
 const TABS = [
   { id: "today", label: "Heute", view: todayView },
   { id: "practice", label: "Üben", view: practiceView },
   { id: "transfer", label: "Transfer", view: transferView },
-  { id: "stats", label: "Statistik" },
+  { id: "stats", label: "Statistik", view: statsView },
   { id: "library", label: "Sammlung" }
 ];
 
