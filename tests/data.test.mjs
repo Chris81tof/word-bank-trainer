@@ -83,6 +83,11 @@ test("Lückentexte: jede Lösung ergibt im Text die Wendung ihrer Karte", () => 
   }
 });
 
+test("Lückentexte: jede Karte kommt in mindestens einem Text vor", () => {
+  const covered = new Set(texts.flatMap((t) => t.gaps.map((g) => g[0])));
+  assert.deepEqual(cards.filter((c) => !covered.has(c.id)).map((c) => c.id), []);
+});
+
 test("Lückentexte: jeder Text hat ein eigenes Thema", () => {
   const topics = texts.map((t) => t.kind.split("·").pop().trim().toLowerCase());
   const dup = topics.filter((x, i) => topics.indexOf(x) !== i);

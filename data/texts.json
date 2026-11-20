@@ -461,5 +461,215 @@
       ["g15", "under"],
       ["f19", "longer"]
     ]
+  },
+  {
+    "id": "c34",
+    "kind": "Reportage · Bergdorf",
+    "title": "A village at the end of the road",
+    "text": "The village of Valtorta is {1} in by mountains on every side, and reaching it still involves an {2} journey along a single-track road. Above the church a great slab of rock {3} out over the valley, and visitors cannot help gazing {4} at it. The water from the old fountain, locals warn, is {5}, so bottled water is delivered every week. Despite its remoteness, the village attracts climbers because of its {6} to the glacier.",
+    "gaps": [
+      ["p01", "hemmed"],
+      ["s08", "arduous"],
+      ["t43", "juts"],
+      ["g12", "upwards"],
+      ["g01", "undrinkable"],
+      ["g14", "proximity"]
+    ]
+  },
+  {
+    "id": "c35",
+    "kind": "Zeitungsartikel · Rauchverbot",
+    "title": "Ten years without smoke",
+    "text": "Ten years ago, the ban on {1} in pubs {2} off a furious debate. Landlords feared that every {3} in the country would stay at home, and many argued that it was {4} to change the law during a recession. Yet those who remember the {5} bars of the past rarely miss them. Doctors say bar staff have benefited {6} the cleaner air, and fewer young people start smoking at all.",
+    "gaps": [
+      ["f33", "smoking"],
+      ["t21", "triggered"],
+      ["f34", "smoker"],
+      ["g95", "inadvisable"],
+      ["f32", "smoky"],
+      ["g40", "from"]
+    ]
+  },
+  {
+    "id": "c36",
+    "kind": "Porträt · Armee",
+    "title": "Like father, like son",
+    "text": "Sergeant Hughes was a strict {1} who ran his platoon like clockwork. His men were the most {2} in the regiment, partly because anyone who broke the rules was {3} to barracks for a week. Such periods of {4} were rare, however, because few soldiers dared to cross him. His son, now an officer himself, is a chip off the old {5}: equally demanding and, like his father, a lifelong {6} of military history.",
+    "gaps": [
+      ["f09", "disciplinarian"],
+      ["f11", "disciplined"],
+      ["f22", "confined"],
+      ["f20", "confinement"],
+      ["g08", "block"],
+      ["f13", "devotee"]
+    ]
+  },
+  {
+    "id": "c37",
+    "kind": "Interview · Auktionshaus",
+    "title": "Treasures under the hammer",
+    "text": "Interviewer: Why are the Ashworths auctioning {1} the family's art collection? Auctioneer: The estate needs urgent repairs, although Lady Ashworth refused to {2} with her grandmother's portrait. With the {3} of two minor sketches, every lot is genuine. One landscape is truly {4}, and interest has been {5} high. Interviewer: Who is bidding? Auctioneer: I'm afraid I can't say. Collectors at this level are notoriously {6}.",
+    "gaps": [
+      ["g98", "off"],
+      ["g03", "part"],
+      ["g05", "exception"],
+      ["g04", "exceptional"],
+      ["g06", "exceptionally"],
+      ["g53", "secretive"]
+    ]
+  },
+  {
+    "id": "c38",
+    "kind": "Pressemitteilung · Verlag",
+    "title": "A debut worth waiting for",
+    "text": "Harbour Press is delighted to announce the {1} of Amira Khan's first novel next spring. Ms Khan, who has rarely spoken {2} about her years as a refugee, writes {3} about loss and belonging. It is {4} a story about what home means. Booksellers say that early reviews are {5} if a debut is to succeed, so the press will also launch a {6} campaign in local newspapers.",
+    "gaps": [
+      ["f08", "publication"],
+      ["f06", "publicly"],
+      ["g45", "eloquently"],
+      ["f37", "essentially"],
+      ["f39", "essential"],
+      ["f07", "publicity"]
+    ]
+  },
+  {
+    "id": "c39",
+    "kind": "Kommentar · Tarifverhandlungen",
+    "title": "Talks on a knife-edge",
+    "text": "Negotiations between the rail unions and the operators {1} a crisis last night when both sides walked out. The unions want to reduce the pay {2} between drivers and station staff, and accuse management of double {3}: generous bonuses at the top, restraint for everyone else. Ministers are trying to head {4} a national strike, but they have little {5} for manoeuvre. Neither side, it seems, is ready to enter {6} a serious compromise.",
+    "gaps": [
+      ["t33", "reached"],
+      ["g55", "differentials"],
+      ["g84", "standards"],
+      ["g47", "off"],
+      ["g66", "room"],
+      ["g18", "into"]
+    ]
+  },
+  {
+    "id": "c40",
+    "kind": "Ratgeber · Prüfungsangst",
+    "title": "Surviving exam season",
+    "text": "Almost every student has a mental {1} at some point, staring blankly at a question they know perfectly well. Before an exam, go for a long walk to take your {2} off the pressure, and try to {3} up the courage to ask your teachers for help. When the results arrive, give the news time to {4} in. Many students are so exhausted afterwards that they simply {5} out for a whole weekend; others need a wild party to get the stress out of their {6}.",
+    "gaps": [
+      ["g09", "block"],
+      ["g83", "mind"],
+      ["p04", "summon"],
+      ["r20", "sink"],
+      ["f02", "crash"],
+      ["g22", "system"]
+    ]
+  },
+  {
+    "id": "c41",
+    "kind": "Erzählung · Geschwister",
+    "title": "Sisters",
+    "text": "For years, Clare kept quiet whenever her sister started {1} down her husband at family dinners. She never {2} a word to anyone about how much it hurt. When their mother fell ill, Anna promised to help and then {3} her down yet again. That evening Clare finally decided to {4} it out with her. Anna was clearly {5} up about it and apologised, but begged her not to keep {6} over the past.",
+    "gaps": [
+      ["t37", "running"],
+      ["t15", "breathed"],
+      ["f01", "let"],
+      ["t25", "have"],
+      ["t27", "cut"],
+      ["p06", "raking"]
+    ]
+  },
+  {
+    "id": "c42",
+    "kind": "Kolumne · Fernsehen",
+    "title": "Is anyone still watching?",
+    "text": "Screens have become so {1} that many of us watch television on three devices at once. Broadcasters have {2} social media into their programmes, and some shows are now fully {3}, letting viewers vote live from their sofas. Yet critics complain that the evening news has been {4} down to attract younger audiences, and the advert breaks are so {5} that most of us simply {6} forward through them.",
+    "gaps": [
+      ["g43", "ubiquitous"],
+      ["g46", "incorporated"],
+      ["g68", "interactive"],
+      ["t36", "dumbed"],
+      ["f41", "frequent"],
+      ["f04", "fast"]
+    ]
+  },
+  {
+    "id": "c43",
+    "kind": "Erzählung · Gastronomie",
+    "title": "Coffee and courage",
+    "text": "When Mia decided to {1} in with her brother and open a café, her friends warned her that she would be {2} with the debts if it failed. The two of them {3} up a former bakery the day it came on the market, and the opening went surprisingly {4}. The first winter was hard: they had to {5} on very little and {6} up with a leaking roof, but by spring the queue stretched round the corner.",
+    "gaps": [
+      ["t06", "go"],
+      ["p02", "saddled"],
+      ["t03", "snapped"],
+      ["f35", "smoothly"],
+      ["r05", "live"],
+      ["r33", "put"]
+    ]
+  },
+  {
+    "id": "c44",
+    "kind": "Ratgeber · Bewerbung",
+    "title": "Getting the job you want",
+    "text": "Finding a good job means you have to {1} yourself out there, even if it feels uncomfortable. Ask a former tutor to {2} in a good word for you, and never assume that an employer will {3} you with skills you haven't mentioned. A {4} degree certainly helps, but it is not everything. Explain what the letters after your name {5} for, and show how you intend to improve {6} your previous achievements.",
+    "gaps": [
+      ["r03", "put"],
+      ["r04", "put"],
+      ["t35", "credit"],
+      ["g51", "respectable"],
+      ["t32", "stand"],
+      ["f31", "on"]
+    ]
+  },
+  {
+    "id": "c45",
+    "kind": "E-Mail · Krankmeldung",
+    "title": "Sorry about Thursday",
+    "text": "Hi Tom, sorry to miss the meeting, but I've gone {1} with flu and can barely get out of bed. You're not off the {2} for the budget, I'm afraid – and, what's {3}, Sarah wants us to present it next week. Could you let me {4} on whatever was decided? That report has {5} over me for weeks. I promise I'll {6} up for it as soon as I'm back. Best wishes, Jo",
+    "gaps": [
+      ["g97", "down"],
+      ["f44", "hook"],
+      ["g16", "more"],
+      ["f16", "in"],
+      ["p18", "hung"],
+      ["r09", "make"]
+    ]
+  },
+  {
+    "id": "c46",
+    "kind": "Erzählung · Umzug",
+    "title": "Moving day",
+    "text": "The {1} van arrived at seven, and by noon the old house was empty except for a single {2} on the kitchen wall. It took us an hour to {3} the cat into her basket. Our ever-{4} neighbour noticed that we had forgotten the curtains, which I will now have to {5} for the taller windows in the new flat. I'll miss the street where I used to {6} around with my friends as a boy.",
+    "gaps": [
+      ["g92", "removal"],
+      ["f46", "hook"],
+      ["p10", "coax"],
+      ["g91", "observant"],
+      ["f17", "lengthen"],
+      ["r35", "knock"]
+    ]
+  },
+  {
+    "id": "c47",
+    "kind": "Ernährungsratgeber · Zucker",
+    "title": "The truth about sugar",
+    "text": "Many 'diet' products simply replace sugar with artificial {1}, and an {2} panel of doctors now warns that this may not help at all. We need to start {3} up to some {4} questions about what we eat on a regular {5}. Parents who fear their children will {6} them up by refusing vegetables at a dinner party should remember that good habits take years to form.",
+    "gaps": [
+      ["g24", "sweeteners"],
+      ["g96", "advisory"],
+      ["g19", "facing"],
+      ["g11", "weighty"],
+      ["f05", "basis"],
+      ["t11", "show"]
+    ]
+  },
+  {
+    "id": "c48",
+    "kind": "Bericht · Laientheater",
+    "title": "Opening night",
+    "text": "On opening night, the leading man had a complete mental {1} halfway through the second act. His understudy had to {2} up all her courage and step in, and she {3} to the challenge magnificently. After that, the performance went {4}, and it took a while for the audience's applause to {5} in. The company {6} the occasion with a party on the stage.",
+    "gaps": [
+      ["g09", "block"],
+      ["p04", "summon"],
+      ["s03", "rose"],
+      ["f35", "smoothly"],
+      ["r20", "sink"],
+      ["g93", "marked"]
+    ]
   }
 ]
