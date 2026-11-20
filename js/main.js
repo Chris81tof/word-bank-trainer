@@ -1,19 +1,20 @@
 // Start der App: Daten laden, Lernstand lesen, Reiter verwalten.
 import { $, esc } from "./core/dom.js";
 import { load, save, allCards } from "./core/state.js";
+import { icon } from "./core/icons.js";
 import * as todayView from "./views/today.js";
 import * as practiceView from "./views/practice.js";
 
 const TABS = [
-  { id: "today", label: "Heute", icon: "◉", view: todayView },
-  { id: "practice", label: "Üben", icon: "✎", view: practiceView },
-  { id: "transfer", label: "Transfer", icon: "⇄" },
-  { id: "stats", label: "Statistik", icon: "▤" },
-  { id: "library", label: "Sammlung", icon: "☰" }
+  { id: "today", label: "Heute", view: todayView },
+  { id: "practice", label: "Üben", view: practiceView },
+  { id: "transfer", label: "Transfer" },
+  { id: "stats", label: "Statistik" },
+  { id: "library", label: "Sammlung" }
 ];
 
 function placeholder(root, tab) {
-  root.innerHTML = `<h1>${esc(tab.label)}</h1><p class="hint">Dieser Bereich kommt in einem der nächsten Schritte.</p>`;
+  root.innerHTML = `<h1 class="withicon">${icon(tab.id)}${esc(tab.label)}</h1><p class="hint">Dieser Bereich kommt in einem der nächsten Schritte.</p>`;
 }
 
 async function boot() {
@@ -42,7 +43,7 @@ async function boot() {
 
   const nav = $("tabs");
   nav.innerHTML = TABS.map((t) =>
-    `<a href="#${t.id}" data-tab="${t.id}"><span class="ico" aria-hidden="true">${t.icon}</span><span>${esc(t.label)}</span></a>`
+    `<a href="#${t.id}" data-tab="${t.id}">${icon(t.id)}<span>${esc(t.label)}</span></a>`
   ).join("");
 
   function show() {

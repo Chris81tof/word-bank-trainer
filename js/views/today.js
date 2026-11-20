@@ -4,6 +4,8 @@ import { MODES, LEVELS } from "../core/modes.js";
 import { buildPlan, planKey } from "../core/plan.js";
 import { categoryOf, STATUS } from "../core/srs.js";
 import { today } from "../core/dates.js";
+import { icon } from "../core/icons.js";
+import { ART } from "../core/art.js";
 import { start } from "./practice.js";
 
 const BUDGETS = [20, 30, 40, 60, 90];
@@ -25,7 +27,7 @@ export function render(root, app) {
   const prog = (id) => state.progress[id];
   const doneToday = cards.filter((c) => prog(c.id) && prog(c.id).last === day).length;
 
-  let h = '<h1>Heute</h1><h2>Tagesplan</h2>' +
+  let h = ART.book + '<h1>Heute</h1><h2>Tagesplan</h2>' +
     `<p class="prompt">Geplant sind Aufgaben für etwa <strong>${plan.used} Minuten</strong> aus ${plan.pool} Kandidaten (fällige und neue Karten). Heute schon geübt: <strong>${doneToday}</strong> Karten.</p>` +
     '<div class="controls">' +
     `<label>Zeit <select id="bdSel">${options(BUDGETS, state.prefs.budget, " Minuten")}</select></label>` +
@@ -33,13 +35,13 @@ export function render(root, app) {
     '<button type="button" class="small" id="rePlan">Neu planen</button></div>';
 
   if (!plan.blocks.length) {
-    h += `<div class="summary"><p>Für heute ist nichts mehr fällig${plan.skippedNew ? ", und das Limit für neue Karten ist erreicht" : ""}. Du kannst unter „Üben“ selbst etwas wählen.</p></div>`;
+    h += `<div class="summary">${ART.hourglass}<p>Für heute ist nichts mehr fällig${plan.skippedNew ? ", und das Limit für neue Karten ist erreicht" : ""}. Du kannst unter „Üben“ selbst etwas wählen.</p></div>`;
   } else {
     plan.blocks.forEach((b, i) => {
       const done = b.ids.filter((id) => prog(id) && prog(id).last === day).length;
       const M = MODES[b.mode];
       const all = done >= b.ids.length;
-      h += `<div class="block"><div class="meta"><strong>${esc(M.label)}</strong><span>${b.ids.length} Karten · ca. ${b.mins} Min. · ${esc(LEVELS[M.lv])}${done ? " · " + done + " erledigt" : ""}</span></div>` +
+      h += `<div class="block">${icon(b.mode)}<div class="meta"><strong>${esc(M.label)}</strong><span>${b.ids.length} Karten · ca. ${b.mins} Min. · ${esc(LEVELS[M.lv])}${done ? " · " + done + " erledigt" : ""}</span></div>` +
         `<button type="button" class="small${all ? "" : " primary"}" data-blk="${i}">${all ? "Nochmal" : done ? "Fortsetzen" : "Start"}</button></div>`;
     });
     h += '<p class="hint">Die Reihenfolge geht von leicht zu schwer. Welche Übungsart eine Karte bekommt, hängt von ihrer Stufe ab: neue Karten starten mit Bedeutung, sichere Karten werden getippt, geprüft und angewendet.</p>';

@@ -4,6 +4,8 @@ import { MODES, LEVELS } from "../core/modes.js";
 import { record, categoryOf, isDue, MASTERED } from "../core/srs.js";
 import { progressOf } from "../core/state.js";
 import { today } from "../core/dates.js";
+import { icon } from "../core/icons.js";
+import { ART } from "../core/art.js";
 import * as meaning from "../exercises/meaning.js";
 import * as cards from "../exercises/cards.js";
 import * as explain from "../exercises/explain.js";
@@ -70,7 +72,7 @@ function renderPicker(root, app) {
   for (const lv of [1, 2, 3, 4]) {
     const ms = Object.entries(MODES).filter(([, M]) => M.lv === lv);
     h += `<h2 class="lvl">${esc(LEVELS[lv])}</h2><div class="modes">` + ms.map(([m, M]) =>
-      `<button type="button" class="mode${m === pick.mode ? " on" : ""}" data-mode="${m}" aria-pressed="${m === pick.mode}">${esc(M.label)}</button>`
+      `<button type="button" class="mode${m === pick.mode ? " on" : ""}" data-mode="${m}" aria-pressed="${m === pick.mode}">${icon(m)}<span>${esc(M.label)}</span></button>`
     ).join("") + "</div>";
   }
   h += `<p class="hint">${esc(MODES[pick.mode].desc)}</p>`;
@@ -96,7 +98,7 @@ function renderPicker(root, app) {
 function renderSession(root, app) {
   const s = session;
   const M = MODES[s.mode];
-  root.innerHTML = `<div class="sessionbar"><h1>${esc(M.label)}</h1><button type="button" class="small" id="stop">Runde beenden</button></div><div id="study" aria-live="polite"></div>`;
+  root.innerHTML = `<div class="sessionbar"><h1 class="withicon">${icon(s.mode)}${esc(M.label)}</h1><button type="button" class="small" id="stop">Runde beenden</button></div><div id="study" aria-live="polite"></div>`;
   root.querySelector("#stop").addEventListener("click", () => { session = null; render(root, app); });
   const box = root.querySelector("#study");
   const byId = new Map(app.cards().map((c) => [c.id, c]));
@@ -140,7 +142,8 @@ function renderSummary(box, root, app) {
       : "Für diese Auswahl gibt es keine passenden Karten.")
     : `Runde geschafft: ${s.right} richtig, ${s.wrong} zum Wiederholen.` +
       (s.avail > s.total ? ` In dieser Auswahl warten noch ${s.avail - s.total} weitere Karten.` : "");
-  box.innerHTML = `<div class="summary"><p>${esc(msg)}</p><div class="btnrow"><button type="button" class="primary" id="again">Neue Runde</button><button type="button" id="toPlan">Zum Tagesplan</button></div></div>`;
+  // Sanduhr: nichts zu tun; Tintenfass: Runde erledigt
+  box.innerHTML = `<div class="summary">${s.total === 0 ? ART.hourglass : ART.inkwell}<p>${esc(msg)}</p><div class="btnrow"><button type="button" class="primary" id="again">Neue Runde</button><button type="button" id="toPlan">Zum Tagesplan</button></div></div>`;
   box.querySelector("#again").addEventListener("click", () => { session = null; render(root, app); });
   box.querySelector("#toPlan").addEventListener("click", () => { session = null; app.go("today"); });
   box.querySelector("#again").focus();

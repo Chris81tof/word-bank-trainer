@@ -2,6 +2,7 @@
 // s ist die laufende Runde (views/practice.js): queue, right, wrong, result, ui, rerender(), next().
 import { esc } from "../core/dom.js";
 import { ans0 } from "../core/modes.js";
+import { icon, catIcon } from "../core/icons.js";
 
 export const REG = { i: "informell", n: "neutral", f: "formell / gehoben" };
 
@@ -16,7 +17,7 @@ export function progressHtml(s) {
 }
 
 export function chip(c, extra) {
-  return `<span class="chip">${esc(c.cat)}${extra ? " · " + esc(extra) : ""}</span>`;
+  return `<span class="chip">${icon(catIcon(c.cat))}<span>${esc(c.cat)}${extra ? " · " + esc(extra) : ""}</span></span>`;
 }
 
 export function cueParas(c) {
