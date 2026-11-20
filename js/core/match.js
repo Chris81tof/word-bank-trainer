@@ -30,7 +30,12 @@ const IRR = {
   lean: ["lean", "leans", "leaned", "leant", "leaning"],
   be: ["be", "is", "are", "was", "were", "been", "being", "am", "'m", "'s", "'re"],
   live: ["live", "lives", "lived", "living"], dry: ["dry", "dries", "dried", "drying"], cut: ["cut", "cuts", "cutting"],
-  rule: ["rule", "rules", "ruled", "ruling"], pay: ["pay", "pays", "paid", "paying"]
+  rule: ["rule", "rules", "ruled", "ruling"], pay: ["pay", "pays", "paid", "paying"],
+  keep: ["keep", "keeps", "kept", "keeping"], rise: ["rise", "rises", "rose", "risen", "rising"],
+  drive: ["drive", "drives", "drove", "driven", "driving"], bear: ["bear", "bears", "bore", "borne", "bearing"],
+  tie: ["tie", "ties", "tied", "tying"], leave: ["leave", "leaves", "left", "leaving"],
+  hold: ["hold", "holds", "held", "holding"], fall: ["fall", "falls", "fell", "fallen", "falling"],
+  bring: ["bring", "brings", "brought", "bringing"], think: ["think", "thinks", "thought", "thinking"]
 };
 
 // Mögliche Formen eines Wortes (regelmäßig und unregelmäßig)

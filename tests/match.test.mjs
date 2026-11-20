@@ -57,3 +57,11 @@ test("answerOk akzeptiert mehrere Lösungen", () => {
   assert.ok(answerOk({ answer: "clarity|clearness" }, " Clearness. "));
   assert.ok(!answerOk({ answer: "clarity|clearness" }, "clear"));
 });
+
+test("weitere unregelmäßige Formen", () => {
+  assert.ok(usesExpr("Wages have not kept pace with prices.", { term: "keep pace with" }));
+  assert.ok(usesExpr("She rose to the challenge.", { term: "rise to the challenge" }));
+  assert.ok(usesExpr("Buyers drove up prices.", { term: "drive up (prices/demand)" }));
+  assert.ok(usesExpr("He bore in mind what she had said.", { term: "bear in mind (that)" }));
+  assert.ok(usesExpr("She is tying herself down.", { term: "tie s.o. down (to sth.)" }));
+});

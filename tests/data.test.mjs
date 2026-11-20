@@ -2,6 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { usesExpr } from "../js/core/match.js";
 
 const load = (name) => JSON.parse(readFileSync(new URL("../data/" + name, import.meta.url), "utf8"));
 const cards = load("cards.json");
@@ -69,6 +70,23 @@ test("Lückentexte: jede Lücke zeigt auf eine vorhandene Karte", () => {
       assert.ok(typeof word === "string" && word.trim(), `${t.id}: leere Lösung für ${id}`);
     }
   }
+});
+
+test("Lückentexte: jede Lösung ergibt im Text die Wendung ihrer Karte", () => {
+  const byId = new Map(cards.map((c) => [c.id, c]));
+  for (const t of texts) {
+    const filled = t.text.replace(/\{(\d+)\}/g, (_, n) => t.gaps[n - 1][1].split("|")[0]);
+    const sentences = filled.split(/(?<=[.!?:;])\s+/);
+    for (const [id, word] of t.gaps) {
+      assert.ok(sentences.some((s) => usesExpr(s, byId.get(id))), `${t.id}: „${word}“ ergibt nicht „${byId.get(id).term}“`);
+    }
+  }
+});
+
+test("Lückentexte: jeder Text hat ein eigenes Thema", () => {
+  const topics = texts.map((t) => t.kind.split("·").pop().trim().toLowerCase());
+  const dup = topics.filter((x, i) => topics.indexOf(x) !== i);
+  assert.deepEqual(dup, [], "Thema doppelt");
 });
 
 test("Sprech- und Schreibaufgaben sind vollständig", () => {

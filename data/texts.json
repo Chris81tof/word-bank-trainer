@@ -93,7 +93,7 @@
       ["g26", "has"],
       ["g27", "verge"],
       ["g58", "record"],
-      ["g40", "cast|throw"],
+      ["f40", "cast|throw"],
       ["g29", "kept"],
       ["g36", "hadn't|had not"]
     ]
@@ -250,6 +250,216 @@
       ["f23", "adjustments"],
       ["f42", "infrequently"],
       ["f38", "essentials"]
+    ]
+  },
+  {
+    "id": "c19",
+    "kind": "Zeitungsartikel · Immobilien",
+    "title": "Locked out of the property market",
+    "text": "For a whole generation, getting a foot on the housing {1} has become a distant dream. In many coastal towns, young families are being {2} out of the neighbourhoods they grew up in, as wealthy buyers from the city {3} up prices and routinely {4} local residents at auction. Salaries have simply not kept {5} with the cost of a deposit, and the shortage has been further {6} by the conversion of family homes into holiday lets.",
+    "gaps": [
+      ["g73", "ladder"],
+      ["g74", "priced"],
+      ["g75", "drive"],
+      ["g80", "outbid"],
+      ["g76", "pace"],
+      ["g79", "exacerbated"]
+    ]
+  },
+  {
+    "id": "c20",
+    "kind": "Meinungsbeitrag · Pflegeberufe",
+    "title": "Who will care for the carers?",
+    "text": "It goes without {1} that a hospital cannot function without its nurses. Yet many of them now have to {2} out more than half of their income on rent, and even experienced staff struggle to make {3} meet. We should also {4} in mind that tired, overstretched nurses make more mistakes, so the shortage has serious {5}-on effects for patients. How the crisis {6} out over the next few years will depend on whether ministers are finally willing to act.",
+    "gaps": [
+      ["g81", "saying"],
+      ["g71", "fork"],
+      ["g72", "ends"],
+      ["g77", "bear"],
+      ["g78", "knock"],
+      ["g82", "plays"]
+    ]
+  },
+  {
+    "id": "c21",
+    "kind": "Vortrag · Evolution",
+    "title": "Darwin and the struggle for existence",
+    "text": "Long before Darwin, naturalists who {1} to the idea of fixed species struggled to explain the fossil record. Darwin noticed that, left unchecked, populations would grow {2}, yet the food supply could never keep up, so only a {3} of individuals would survive to reproduce. Over countless generations, small advantages accumulate and give {4} to entirely new species. Unlike {5} objects such as rocks, living things are constantly changing, and the odds are always {6} in favour of those best suited to their surroundings.",
+    "gaps": [
+      ["s06", "adhered"],
+      ["s18", "exponentially"],
+      ["s19", "fraction"],
+      ["s04", "rise"],
+      ["g13", "inanimate"],
+      ["g10", "weighted"]
+    ]
+  },
+  {
+    "id": "c22",
+    "kind": "Lokalnachrichten · Verkehr",
+    "title": "E-scooter crash on the high street",
+    "text": "The accident {1} a teenager on an e-scooter and a delivery van was the {2} of the town all week. Witnesses say a {3} lapse in concentration was to blame: the driver glanced at his phone and was {4} distracted. {5} the time the ambulance arrived, a large crowd had gathered on the pavement. In an unexpected {6} of events, the injured teenager later turned out to be the mayor's son.",
+    "gaps": [
+      ["s20", "involving"],
+      ["s05", "talk"],
+      ["g88", "momentary"],
+      ["g90", "momentarily"],
+      ["s21", "by"],
+      ["s15", "turn"]
+    ]
+  },
+  {
+    "id": "c23",
+    "kind": "Sportbericht · Fußball",
+    "title": "Proud in defeat",
+    "text": "Rovers had {1} up six straight wins before Saturday, but this time they suffered a {2} defeat, losing 2–1 in the final minute. The two sides were evenly {3}, and the visitors' young goalkeeper {4} to the challenge brilliantly. Even so, the club's most {5} supporters, who have followed the team {6} through three relegations, gave the players a standing ovation.",
+    "gaps": [
+      ["s02", "chalked"],
+      ["g17", "narrow"],
+      ["g99", "matched"],
+      ["s03", "rose"],
+      ["s07", "ardent"],
+      ["f14", "devotedly"]
+    ]
+  },
+  {
+    "id": "c24",
+    "kind": "Kurzgeschichte · Hochzeit",
+    "title": "The morning of the wedding",
+    "text": "By nine o'clock the farmhouse kitchen was {1} clean, and Aunt Rose, in her famous red and white {2} dress, was giving orders. Her nephew, once a {3} teenager and now a rather handsome groom, was told to {4} away the breakfast things. Everyone admired the {5} with which she had planned every detail, and in the evening the whole village {6} the occasion with fireworks.",
+    "gaps": [
+      ["s12", "spotlessly"],
+      ["s14", "spotted"],
+      ["s13", "spotty"],
+      ["f15", "clear"],
+      ["f12", "devotion"],
+      ["g93", "marked"]
+    ]
+  },
+  {
+    "id": "c25",
+    "kind": "Rundschreiben · Umbau",
+    "title": "Access arrangements during the refurbishment",
+    "text": "During the refurbishment, all visitors will need security {1} before entering the east wing. Last month it was {2} who was in {3} of the building site, so we have appointed a single site manager to ensure greater {4}. New staff passes will be {5} once your details have been confirmed, and any pass that shows more than six weeks of {6} will be cancelled automatically.",
+    "gaps": [
+      ["s10", "clearance"],
+      ["s11", "unclear"],
+      ["f03", "charge"],
+      ["s09", "clarity"],
+      ["g69", "activated"],
+      ["g67", "inactivity"]
+    ]
+  },
+  {
+    "id": "c26",
+    "kind": "Ortschronik · Wassermühle",
+    "title": "The old mill on the river",
+    "text": "Built around the {1} of the century, the old mill was once the heart of the village. Each spring a {2} of villagers carried flowers to its door, as it was {3} to give thanks for the harvest. After decades of neglect, the building was barely {4} when a young engineer {5} it from her great-uncle. Her decision to restore it rather than sell proved {6}: today the mill produces electricity for forty homes.",
+    "gaps": [
+      ["s17", "turn"],
+      ["g23", "procession"],
+      ["g86", "customary"],
+      ["g87", "habitable"],
+      ["g70", "inherited"],
+      ["g89", "momentous"]
+    ]
+  },
+  {
+    "id": "c27",
+    "kind": "Kolumne · Nachbarschaft",
+    "title": "Small kindnesses",
+    "text": "My neighbour Margaret believes in doing people a good {1} whenever she can. When a new family moved into the street, she {2} herself out for them and cooked their meals for a week. Years ago she {3} pity on a stray dog and kept it for eleven years. So {4} a thought for her this winter: she is recovering from a hip operation. If you can {5} the time to call round, by all {6} do – she would love the company.",
+    "gaps": [
+      ["s16", "turn"],
+      ["r01", "put"],
+      ["t44", "took"],
+      ["f28", "spare"],
+      ["f29", "spare"],
+      ["g94", "means"]
+    ]
+  },
+  {
+    "id": "c28",
+    "kind": "Protokoll · Tennisverein",
+    "title": "Minutes of the annual general meeting",
+    "text": "The chairman confirmed that he will {1} down at the end of the season after twelve years in office. Members were then asked to {2} attention on the proposed new clubhouse. After a short break to {3} notes, those {4} favour of the plans raised their hands, and the motion was carried. The committee then {5} down to business and agreed to {6} an end to the long-running dispute over court bookings.",
+    "gaps": [
+      ["t18", "stand"],
+      ["g07", "focus"],
+      ["f27", "compare"],
+      ["f26", "in"],
+      ["r34", "got"],
+      ["g02", "put"]
+    ]
+  },
+  {
+    "id": "c29",
+    "kind": "Erfahrungsbericht · Büroalltag",
+    "title": "A Friday in the office",
+    "text": "On Fridays we usually {1} off at four, but this week nothing went to plan. The printer was {2} up again, so I could only {3} through the quarterly report on screen. Then I had to {4} my laptop up to the projector for a client presentation that nobody had told me about. Business is only {5} over at the moment, which is why I spent the evening {6} through a pile of unpaid invoices.",
+    "gaps": [
+      ["p05", "knock"],
+      ["r26", "playing"],
+      ["r41", "flick"],
+      ["f45", "hook"],
+      ["r31", "ticking"],
+      ["t30", "ploughing"]
+    ]
+  },
+  {
+    "id": "c30",
+    "kind": "Elternblog · Zwillinge",
+    "title": "Life with twins",
+    "text": "Our twins are now six, and even their teachers find it hard to {1} them apart. After school we take them to the park to {2} off some energy, but by bedtime they are still {3} over with excitement. Sam loves to {4} on his sister whenever she breaks a rule, while Lily knows exactly how to {5} round her grandfather. On Saturday they were {6} off to their grandparents' so that we could finally have an evening to ourselves.",
+    "gaps": [
+      ["r15", "tell"],
+      ["r06", "burn"],
+      ["p12", "brimming"],
+      ["r11", "tell"],
+      ["r24", "get"],
+      ["p07", "bundled"]
+    ]
+  },
+  {
+    "id": "c31",
+    "kind": "Erfahrungsbericht · Auslandsjahr",
+    "title": "My year in Lisbon",
+    "text": "Being completely {1} to the slower pace of life, I found {2} to Lisbon far harder than I had expected. It took me months to {3} in at work, and as a pale northerner I never quite managed to {4} in with the locals on the beach. My first weeks were spent getting {5} with the city's trams, bakeries and steep hills. Still, I am glad I refused to {6} myself down to a permanent contract back home.",
+    "gaps": [
+      ["g85", "unaccustomed"],
+      ["f25", "adjusting"],
+      ["r21", "fit"],
+      ["r46", "blend"],
+      ["p09", "acquainted"],
+      ["t10", "tie"]
+    ]
+  },
+  {
+    "id": "c32",
+    "kind": "Zeitungsartikel · Betrug",
+    "title": "Charity boss jailed",
+    "text": "Hundreds of donors were {1} in by the charity's glossy website. Over five years its director {2} off almost £2 million into private accounts, {3} genuine causes out of the money they had been promised. When questioned, he tried to {4} out that the payments were legitimate expenses. His colleagues at first thought the journalists were {5} them on, but the story was never {6}: the auditors confirmed every detail.",
+    "gaps": [
+      ["t07", "taken"],
+      ["t41", "siphoned"],
+      ["t13", "doing"],
+      ["t04", "make"],
+      ["r43", "having"],
+      ["g41", "discredited"]
+    ]
+  },
+  {
+    "id": "c33",
+    "kind": "Reisetagebuch · Schottland",
+    "title": "Rain in the Highlands",
+    "text": "My sister came to the station to {1} me off, and by the time the train reached Inverness it had begun to {2} down. Buses in the glens are so {3} that we {4} away two hours in a café, playing cards and drinking tea. I was feeling slightly {5} the weather, so I couldn't face the planned hike any {6}, and we spent the evening by the fire instead.",
+    "gaps": [
+      ["r08", "see"],
+      ["r30", "pelt"],
+      ["f43", "infrequent"],
+      ["g57", "whiled"],
+      ["g15", "under"],
+      ["f19", "longer"]
     ]
   }
 ]
