@@ -178,3 +178,28 @@ table { width: 100%; border-collapse: collapse; font: 14px var(--sans); }
 th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
 th { color: var(--ink-2); font-weight: 600; }
 td:not(:first-child), th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Sammlung */
+.controls label.grow { flex: 1 1 200px; }
+input[type="search"] { width: 100%; min-height: var(--tap); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); padding: 8px 10px; font-size: 16px; }
+ul.lib li { align-items: flex-start; }
+ul.lib .sel { display: flex; align-items: center; min-height: 28px; }
+ul.lib .sel input { width: 20px; height: 20px; accent-color: var(--accent); }
+ul.lib .meta { flex: 1; }
+ul.lib .lvl { color: var(--accent); }
+ul.lib .catline { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+ul.lib .catline .picto { width: 15px; height: 15px; color: var(--accent); }
+ul.lib details.d { margin-top: 2px; }
+ul.lib details.d summary { min-height: 32px; }
+ul.lib details.d p { margin: 4px 0; }
+details.sec { border-top: 1px solid var(--line); margin-top: 20px; padding-top: 4px; }
+details.sec > summary { cursor: pointer; list-style: none; min-height: var(--tap); display: flex; align-items: center; font: 600 15px var(--serif); font-variant: small-caps; letter-spacing: .06em; text-transform: lowercase; color: var(--accent); }
+details.sec > summary::-webkit-details-marker { display: none; }
+details.sec > summary::before { content: "▸"; margin-right: 8px; }
+details.sec[open] > summary::before { content: "▾"; }
+h3 { font-size: 17px; margin: 20px 0 4px; }
+.form { display: grid; gap: 10px; }
+.form label { display: flex; flex-direction: column; gap: 4px; font: 14px var(--sans); color: var(--ink-2); }
+.form input, .form select { min-height: var(--tap); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); padding: 8px 10px; font-size: 16px; color: var(--ink); }
+input[type="file"] { font: 14px var(--sans); margin-top: 6px; }
+code { font-size: 14px; }

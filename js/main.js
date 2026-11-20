@@ -6,25 +6,23 @@ import * as todayView from "./views/today.js";
 import * as practiceView from "./views/practice.js";
 import * as transferView from "./views/transfer.js";
 import * as statsView from "./views/stats.js";
+import * as libraryView from "./views/library.js";
 
 const TABS = [
   { id: "today", label: "Heute", view: todayView },
   { id: "practice", label: "Üben", view: practiceView },
   { id: "transfer", label: "Transfer", view: transferView },
   { id: "stats", label: "Statistik", view: statsView },
-  { id: "library", label: "Sammlung" }
+  { id: "library", label: "Sammlung", view: libraryView }
 ];
-
-function placeholder(root, tab) {
-  root.innerHTML = `<h1 class="withicon">${icon(tab.id)}${esc(tab.label)}</h1><p class="hint">Dieser Bereich kommt in einem der nächsten Schritte.</p>`;
-}
 
 async function boot() {
   const view = $("view");
   let base;
   let baseTexts;
+  let levels;
   try {
-    [base, baseTexts] = await Promise.all(["data/cards.json", "data/texts.json"].map((f) => fetch(f).then((r) => r.json())));
+    [base, baseTexts, levels] = await Promise.all(["data/cards.json", "data/texts.json", "data/levels.json"].map((f) => fetch(f).then((r) => r.json())));
   } catch {
     view.innerHTML = '<p class="msg err">Die Karten konnten nicht geladen werden.</p>';
     return;
@@ -33,6 +31,7 @@ async function boot() {
   const app = {
     base,
     baseTexts,
+    levels,
     state: load(localStorage),
     plan: null,
     cards: () => allCards(app.base, app.state),
@@ -60,8 +59,7 @@ async function boot() {
       if (a.dataset.tab === tab.id) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
-    if (tab.view) tab.view.render(view, app);
-    else placeholder(view, tab);
+    tab.view.render(view, app);
     window.scrollTo(0, 0);
   }
 
