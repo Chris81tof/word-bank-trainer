@@ -1,0 +1,55 @@
+/* Grundlayout: Inhalt mittig, Reiterleiste unten; auf breiten Bildschirmen links. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.5 var(--serif);
+  min-height: 100vh;
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 12px) var(--gutter) calc(var(--nav-h) + env(safe-area-inset-bottom) + 24px);
+}
+
+h1 { font-size: 28px; margin: 8px 0 12px; font-weight: 600; }
+h2 { font-size: 15px; margin: 24px 0 8px; font-variant: small-caps; letter-spacing: .06em; color: var(--accent); font-weight: 600; text-transform: lowercase; }
+
+button, select, input, textarea { font: inherit; color: inherit; }
+
+#tabs {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  background: var(--paper-2);
+  border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 10;
+}
+#tabs a {
+  flex: 1;
+  min-height: var(--nav-h);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  color: var(--ink-2);
+  text-decoration: none;
+  font: 11px/1.2 var(--sans);
+}
+#tabs a .ico { font-size: 19px; line-height: 1; }
+#tabs a[aria-current="page"] { color: var(--accent); font-weight: 600; }
+
+@media (min-width: 900px) {
+  body { display: grid; grid-template-columns: 200px 1fr; }
+  #tabs {
+    position: sticky; top: 0; height: 100vh;
+    flex-direction: column; justify-content: flex-start;
+    border-top: 0; border-right: 1px solid var(--line);
+    padding: 24px 0;
+  }
+  #tabs a { flex: 0 0 auto; flex-direction: row; justify-content: flex-start; gap: 12px; padding: 0 24px; font-size: 15px; min-height: 48px; }
+  main { padding-bottom: 48px; margin: 0; width: 100%; max-width: 720px; padding-left: 40px; }
+}

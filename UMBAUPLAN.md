@@ -99,7 +99,7 @@ Import des alten Formats (`format: 1`):
 0. Projektregeln, Plan, Git ✔
 1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests. ✔
 2. **Kern:** state, srs (6 Stufen), backup (Import alt und neu), match, mit Tests. ✔
-3. **Grundgerüst und Navigation:** Reiter, Tagesplan, Übungen der Stufen 1 bis 4.
+3. **Grundgerüst und Navigation:** Reiter, Tagesplan, Übungen der Stufen 1 bis 4. ✔
 4. **Stufe 5:** Umformulieren, Satz schreiben, Texte mit Auswahl nach Lernstand, Prompt und Import.
 5. **Weitere Bereiche:** Transfer, Passiv, Statistik, Sammlung mit Formular und Karten-Prompt.
 6. **Sprachausgabe** mit automatischer Stimmenwahl und Auswahl.
