@@ -78,7 +78,7 @@ export function render(root, app) {
   const rerender = () => render(root, app);
   const { state } = app;
 
-  let h = `<h1 class="withicon">${icon("library")}Sammlung</h1>` +
+  let h = `<div class="sessionbar"><h1 class="withicon">${icon("library")}Sammlung</h1><a class="small btnlink iconbtn" href="#settings" aria-label="Einstellungen">${icon("settings")}</a></div>` +
     `<div class="controls"><label class="grow">Suche <input type="search" id="search" value="${esc(ui.q)}" placeholder="Wendung, Bedeutung, Satz" autocomplete="off" autocapitalize="none" spellcheck="false"></label>` +
     `<label>Filter <select id="lvl">${LEVEL_OPTS.map(([v, t]) => `<option value="${v}"${v === ui.level ? " selected" : ""}>${t}</option>`).join("")}</select></label></div>` +
     '<p class="hint">Der Leicht-Filter ist eine eigene Einschätzung, keine offizielle Einstufung. So findest du Karten, die für C2 zu leicht sein könnten.</p>' +

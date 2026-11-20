@@ -28,7 +28,7 @@ export function render(root, app) {
   const prog = (id) => state.progress[id];
   const doneToday = cards.filter((c) => prog(c.id) && prog(c.id).last === day).length;
 
-  let h = ART.book + '<h1>Heute</h1><h2>Tagesplan</h2>' +
+  let h = ART.book + `<div class="sessionbar"><h1>Heute</h1><a class="small btnlink iconbtn" href="#settings" aria-label="Einstellungen">${icon("settings")}</a></div><h2>Tagesplan</h2>` +
     `<p class="prompt">Geplant sind Aufgaben für etwa <strong>${plan.used} Minuten</strong> aus ${plan.pool} Kandidaten (fällige und neue Karten). Heute schon geübt: <strong>${doneToday}</strong> Karten.</p>` +
     '<div class="controls">' +
     `<label>Zeit <select id="bdSel">${options(BUDGETS, state.prefs.budget, " Minuten")}</select></label>` +

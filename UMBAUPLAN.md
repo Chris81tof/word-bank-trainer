@@ -102,7 +102,7 @@ Import des alten Formats (`format: 1`):
 3. **Grundgerüst und Navigation:** Reiter, Tagesplan, Übungen der Stufen 1 bis 4. ✔
 4. **Stufe 5:** Umformulieren, Satz schreiben, Texte mit Auswahl nach Lernstand, Prompt und Import. ✔
 5. **Weitere Bereiche:** Transfer, Passiv, Statistik, Sammlung mit Formular und Karten-Prompt. ✔
-6. **Sprachausgabe** mit automatischer Stimmenwahl und Auswahl.
+6. **Sprachausgabe** mit automatischer Stimmenwahl und Auswahl. ✔
 7. **Design** „Wörterbuch“, iPhone-Feinschliff.
 8. **Offline:** Web-App, Icons, Schriften.
 9. **Textvorrat:** rund 45 neue Lückentexte, geprüft durch die Datentests.

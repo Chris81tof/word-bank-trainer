@@ -203,3 +203,19 @@ h3 { font-size: 17px; margin: 20px 0 4px; }
 .form input, .form select { min-height: var(--tap); border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); padding: 8px 10px; font-size: 16px; color: var(--ink); }
 input[type="file"] { font: 14px var(--sans); margin-top: 6px; }
 code { font-size: 14px; }
+
+/* Einstellungen */
+a.btnlink { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink); text-decoration: none; font: 14px var(--sans); }
+a.iconbtn { min-width: var(--tap); min-height: var(--tap); padding: 0; }
+a.iconbtn .picto { width: 22px; height: 22px; color: var(--ink-2); }
+input[type="range"] { width: 100%; accent-color: var(--accent); min-height: var(--tap); }
+ul.voices label.pick { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; cursor: pointer; }
+ul.voices input[type="radio"] { width: 20px; height: 20px; accent-color: var(--accent); flex: none; }
+ol.steps { padding-left: 22px; font: 15px/1.5 var(--sans); }
+ol.steps li { margin: 4px 0; }
+.speakbtn { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; }
+.speakbtn .picto { width: 18px; height: 18px; }
+button.toggle[aria-pressed="false"] .picto { opacity: .4; }
+.sessionbar .acts { display: flex; gap: 8px; align-items: center; }
+button.iconbtn { min-width: var(--tap); padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+button.iconbtn .picto { width: 20px; height: 20px; color: var(--accent); }

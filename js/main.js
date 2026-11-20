@@ -7,6 +7,8 @@ import * as practiceView from "./views/practice.js";
 import * as transferView from "./views/transfer.js";
 import * as statsView from "./views/stats.js";
 import * as libraryView from "./views/library.js";
+import * as settingsView from "./views/settings.js";
+import { initVoices } from "./core/speech.js";
 
 const TABS = [
   { id: "today", label: "Heute", view: todayView },
@@ -15,6 +17,8 @@ const TABS = [
   { id: "stats", label: "Statistik", view: statsView },
   { id: "library", label: "Sammlung", view: libraryView }
 ];
+// Seiten ohne eigenen Reiter
+const PAGES = [{ id: "settings", view: settingsView }];
 
 async function boot() {
   const view = $("view");
@@ -52,7 +56,7 @@ async function boot() {
   let current = null;
   function show() {
     const id = location.hash.slice(1);
-    const tab = TABS.find((t) => t.id === id) || TABS[0];
+    const tab = [...TABS, ...PAGES].find((t) => t.id === id) || TABS[0];
     if (current && current !== tab) current.view?.leave?.();
     current = tab;
     nav.querySelectorAll("a").forEach((a) => {
@@ -63,6 +67,7 @@ async function boot() {
     window.scrollTo(0, 0);
   }
 
+  initVoices();
   window.addEventListener("hashchange", show);
   document.addEventListener("keydown", practiceView.onKey);
   show();

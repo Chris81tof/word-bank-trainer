@@ -17,6 +17,7 @@ import * as rewrite from "../exercises/rewrite.js";
 import * as produce from "../exercises/produce.js";
 import * as cloze from "../exercises/cloze.js";
 import * as passive from "./passive.js";
+import { canSpeak, say, stopSpeaking, spokenTerm, spokenSentence } from "../core/speech.js";
 
 const EX = { meaning, cards, explain, choice, gap, translate, error, rewrite, produce };
 const SCOPES = { due: "Heute fällig", open: "Alle nicht gemeisterten", problem: "Nur problematische", all: "Alle Karten" };
@@ -91,6 +92,44 @@ export function render(root, app) {
 // Beim Wechsel des Reiters: Vorlesen anhalten
 export function leave() {
   passive.stop();
+  stopSpeaking();
+  lastSpoken = "";
+}
+
+// Was in welcher Phase einer Übung vorgelesen wird (wie in der Originalversion).
+// k unterscheidet die Phasen, damit beim Neuzeichnen nichts doppelt gesprochen wird.
+function speechFor(mode, c, s) {
+  const t = spokenTerm(c);
+  const sn = spokenSentence(c);
+  const both = sn ? t + ". " + sn : t;
+  const judged = s.ui && s.ui.stage === "judge";
+  switch (mode) {
+    case "cards": return s.flipped ? { k: "b", t: both } : null;
+    case "meaning": return s.result ? { k: "r", t: sn } : { k: "q", t };
+    case "choice": case "gap": case "error": return s.result ? { k: "r", t: sn } : null;
+    case "translate": return s.result ? { k: "r", t: both } : null;
+    case "rewrite": case "produce": return judged ? { k: "j", t: sn } : { k: "w", t };
+    case "explain": return judged ? { k: "j", t: both } : { k: "w", t };
+  }
+  return null;
+}
+let lastSpoken = "";
+
+function speakCard(box, app, c, s) {
+  if (!canSpeak()) return;
+  const { prefs } = app.state;
+  const sp = speechFor(s.mode, c, s);
+  const k = sp && sp.t ? s.mode + c.id + sp.k : "";
+  if (k !== lastSpoken) {
+    lastSpoken = k;
+    stopSpeaking();
+    if (k) say(sp.t, prefs);
+  }
+  const card = box.querySelector(".card");
+  if (k && card && prefs.speak) {
+    card.insertAdjacentHTML("beforeend", `<button type="button" class="small speakbtn" id="replay">${icon("passive")}Anhören</button>`);
+    card.querySelector("#replay").addEventListener("click", (e) => { e.stopPropagation(); say(sp.t, prefs); });
+  }
 }
 
 const modeBtn = (m, label) =>
@@ -145,8 +184,20 @@ function bindModes(root, app) {
 function renderSession(root, app) {
   const s = session;
   const M = MODES[s.mode];
-  root.innerHTML = `<div class="sessionbar"><h1 class="withicon">${icon(s.mode)}${esc(M.label)}</h1><button type="button" class="small" id="stop">Runde beenden</button></div><div id="study" aria-live="polite"></div>`;
-  root.querySelector("#stop").addEventListener("click", () => { session = null; render(root, app); });
+  const { prefs } = app.state;
+  const speakBtn = canSpeak()
+    ? `<button type="button" class="small toggle iconbtn" id="spk" aria-pressed="${prefs.speak}" aria-label="Englisch vorlesen">${icon("passive")}</button>`
+    : "";
+  root.innerHTML = `<div class="sessionbar"><h1 class="withicon">${icon(s.mode)}${esc(M.label)}</h1>` +
+    `<div class="acts">${speakBtn}<button type="button" class="small" id="stop">Runde beenden</button></div></div><div id="study" aria-live="polite"></div>`;
+  root.querySelector("#stop").addEventListener("click", () => { session = null; leave(); render(root, app); });
+  root.querySelector("#spk")?.addEventListener("click", () => {
+    prefs.speak = !prefs.speak;
+    app.save();
+    if (!prefs.speak) stopSpeaking();
+    lastSpoken = "";
+    renderSession(root, app);
+  });
   const box = root.querySelector("#study");
   const byId = new Map(app.cards().map((c) => [c.id, c]));
 
@@ -169,6 +220,7 @@ function renderSession(root, app) {
   if (!c) { renderSummary(box, root, app); return; }
 
   EX[s.mode].render(box, c, s);
+  speakCard(box, app, c, s);
   box.insertAdjacentHTML("beforeend", '<p class="easyrow"><button type="button" id="easyBtn">Zu leicht – Karte aus dem Speicher entfernen</button></p>');
   armed(box.querySelector("#easyBtn"), `Sicher? „${c.term}“ endgültig entfernen`, () => {
     if (!app.state.deleted.includes(c.id)) app.state.deleted.push(c.id);
