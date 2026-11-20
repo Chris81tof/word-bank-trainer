@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App-Icons erzeugen</title>
+<!-- Erzeugt die App-Icons in icons/. Öffnen über den Entwicklungsserver:
+     http://localhost:8123/scripts/make-icons.html, dann jedes Bild mit dem Link darunter speichern. -->
+<style>
+  @font-face { font-family: "Source Serif 4"; font-weight: 400 700; src: url("../fonts/SourceSerif4-latin.woff2") format("woff2"); }
+  body { font: 15px system-ui, sans-serif; margin: 16px; background: #ddd; }
+  figure { display: inline-block; margin: 0 16px 16px 0; text-align: center; }
+  canvas { display: block; width: 180px; height: 180px; background: #fff; }
+</style>
+</head>
+<body>
+<h1>App-Icons</h1>
+<div id="out"></div>
+<script>
+// Papiergrund, „Wb“ in Tinte, darunter eine rote Doppellinie. scale < 1 lässt Rand für maskierbare Icons.
+function draw(size, scale) {
+  const c = document.createElement("canvas");
+  c.width = c.height = size;
+  const g = c.getContext("2d");
+  g.fillStyle = "#f7f1e3";
+  g.fillRect(0, 0, size, size);
+  const s = size * scale;
+  const o = (size - s) / 2;
+  g.fillStyle = "#1f1a17";
+  g.textAlign = "center";
+  g.textBaseline = "alphabetic";
+  g.font = `700 ${Math.round(s * 0.5)}px "Source Serif 4"`;
+  g.fillText("Wb", size / 2, o + s * 0.6);
+  g.fillStyle = "#a3201c";
+  const w = s * 0.56, x = (size - w) / 2, h = Math.max(2, s * 0.028);
+  g.fillRect(x, o + s * 0.7, w, h);
+  g.fillRect(x, o + s * 0.7 + h * 2, w, h);
+  return c;
+}
+
+const ICONS = [
+  ["apple-touch-icon.png", 180, 1],
+  ["icon-192.png", 192, 1],
+  ["icon-512.png", 512, 1],
+  ["icon-maskable-512.png", 512, 0.78],
+  ["favicon-32.png", 32, 1]
+];
+
+document.fonts.load('700 100px "Source Serif 4"').then(() => {
+  const out = document.getElementById("out");
+  window.icons = ICONS.map(([name, size, scale]) => {
+    const c = draw(size, scale);
+    const f = document.createElement("figure");
+    const a = document.createElement("a");
+    a.href = c.toDataURL("image/png");
+    a.download = name;
+    a.textContent = name;
+    f.append(c, a);
+    out.append(f);
+    return { name, data: a.href };
+  });
+});
+</script>
+</body>
+</html>

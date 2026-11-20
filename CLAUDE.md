@@ -22,7 +22,7 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
 - Die Karten-IDs (`s01`, `g12`, `p03` …) ändern sich nie, denn der Lernstand hängt daran. Neue Karten bekommen neue IDs, und keine ID wird wiederverwendet.
 - Der Lernstand liegt im `localStorage` unter dem Schlüssel `word-bank-trainer-v2`. Er enthält nur den Fortschritt je Karten-ID, eigene Karten, importierte Texte und die Einstellungen, nicht die Karten aus `data/`.
 - Der Import liest das neue Format und das alte Format (`"app": "word-bank-trainer"`, `"format": 1`, Schlüssel `kollokations-trainer-v1`).
-- Offline-Betrieb über `sw.js`. Bei jeder Änderung an ausgelieferten Dateien die Versionsnummer in `sw.js` erhöhen.
+- Offline-Betrieb über `sw.js`. Bei jeder Änderung an ausgelieferten Dateien die Versionsnummer in `sw.js` erhöhen. Neue Dateien in die Liste `FILES` in `sw.js` eintragen (ein Test prüft das). Auf `localhost` wird der Service Worker nur mit `?sw` registriert.
 - Schriften und Icons liegen im Projekt, es werden keine externen Ressourcen geladen.
 
 ## Lernlogik (nicht ohne Rückfrage ändern)

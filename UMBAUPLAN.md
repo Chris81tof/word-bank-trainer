@@ -104,7 +104,7 @@ Import des alten Formats (`format: 1`):
 5. **Weitere Bereiche:** Transfer, Passiv, Statistik, Sammlung mit Formular und Karten-Prompt. ✔
 6. **Sprachausgabe** mit automatischer Stimmenwahl und Auswahl. ✔
 7. **Design** „Wörterbuch“, iPhone-Feinschliff. ✔
-8. **Offline:** Web-App, Icons, Schriften.
+8. **Offline:** Web-App, Icons, Schriften. ✔
 9. **Textvorrat:** rund 45 neue Lückentexte, geprüft durch die Datentests.
 10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage.
 
@@ -113,4 +113,4 @@ Import des alten Formats (`format: 1`):
 - 112 Karten (p01–p19, r01–r47, t01–t46) haben keine englische Erklärung (`prompt`). Sie könnten zusammen mit Schritt 9 ergänzt werden.
 
 - Node.js für die Tests: Homebrew ist nicht installiert. Eine Lösung steht noch aus.
-- Die Schriften müssen heruntergeladen werden, zum Beispiel Source Serif 4 oder Newsreader von Google Fonts (SIL Open Font License). Das geschieht erst nach Zustimmung.
+- Schriften: Source Serif 4 (SIL Open Font License) liegt seit Schritt 8 in `fonts/`. ✔
