@@ -7,11 +7,13 @@ import { progressOf } from "../core/state.js";
 import { today } from "../core/dates.js";
 import { icon } from "../core/icons.js";
 import { suggestTexts, pickCards, textPrompt, parseTexts, KINDS } from "../core/texts.js";
+import { gapTarget, textGapOptions } from "../core/hints.js";
+import { newHint, hintHtml, bindHint } from "./common.js";
 
 const WORDS = [120, 180, 250];
 const GAPS = [6, 8, 10];
 
-// Geöffneter Text: { t, vals, res, checked, bank, order }
+// Geöffneter Text: { t, vals, res, checked, bank, order, hints (je Lücke), revealed (je Lücke), focus }
 let open = null;
 // Meldung nach dem Import, die das Neuzeichnen überlebt: { text, kind }
 let notice = null;
@@ -20,7 +22,7 @@ export const isOpen = () => !!open;
 
 export function openText(app, id) {
   const t = app.texts().find((x) => x.id === id);
-  open = t ? { t, vals: [], res: [], checked: false, bank: false, order: shuffle(t.gaps.map((g) => g[1].split("|")[0])) } : null;
+  open = t ? { t, vals: [], res: [], hints: t.gaps.map(newHint), revealed: [], focus: 0, checked: false, bank: false, order: shuffle(t.gaps.map((g) => g[1].split("|")[0])) } : null;
 }
 
 function lastDone(app, t, day) {
@@ -138,7 +140,7 @@ export function renderText(root, app, rerender) {
     `<p class="progress">${esc(t.kind)}</p><h2 class="ttl">${esc(t.title)}</h2><div class="passage">${body}</div>`;
   if (!open.checked) {
     if (open.bank) h += '<div class="bank" aria-label="Wortbank">' + open.order.map((w) => `<span>${esc(w)}</span>`).join("") + "</div>";
-    h += '<div class="btnrow"><button type="button" class="primary" id="clCheck">Prüfen</button>' +
+    h += '<div id="clHint" class="hintpanel"></div><div class="btnrow"><button type="button" class="primary" id="clCheck">Prüfen</button>' +
       `<button type="button" id="clBank">${open.bank ? "Wortbank ausblenden" : "Wortbank einblenden (leichter)"}</button></div>` +
       '<p class="hint">Die gesuchten Wendungen stehen in der richtigen Beugung. Ohne Wortbank ist es Stufe 5, mit Wortbank leichter.</p>';
   } else {
@@ -157,7 +159,7 @@ export function renderText(root, app, rerender) {
   root.querySelector("#clBack").addEventListener("click", () => { open = null; rerender(); });
   if (open.checked) {
     root.querySelector("#clAgain").addEventListener("click", () => {
-      Object.assign(open, { checked: false, vals: [], res: [], order: shuffle(open.order) });
+      Object.assign(open, { checked: false, vals: [], res: [], hints: t.gaps.map(newHint), revealed: [], order: shuffle(open.order) });
       rerender();
     });
     return;
@@ -167,9 +169,10 @@ export function renderText(root, app, rerender) {
     if (!open.vals.some((v) => v.trim())) { root.querySelector("#gi1").focus(); return; }
     const day = today();
     open.res = t.gaps.map(([id, ans], i) => {
-      const ok = ans.split("|").some((a) => norm(a) === norm(open.vals[i]));
+      // „Lösung zeigen“ zählt als falsch, richtig mit Hinweis hält die Karte auf ihrer Stufe.
+      const ok = !open.revealed[i] && ans.split("|").some((a) => norm(a) === norm(open.vals[i]));
       // Lücken zu entfernten Karten werden geprüft, aber nicht verbucht.
-      if (byId.has(id)) record(progressOf(app.state, id), ok, "cloze", day);
+      if (byId.has(id)) record(progressOf(app.state, id), ok, "cloze", day, ok && open.hints[i].level > 0);
       return ok;
     });
     open.checked = true;
@@ -180,8 +183,29 @@ export function renderText(root, app, rerender) {
   };
   root.querySelector("#clCheck").addEventListener("click", check);
   root.querySelector("#clBank").addEventListener("click", () => { snap(); open.bank = !open.bank; rerender(); });
+  // Hinweise gelten für die Lücke, in der du zuletzt warst
+  const panel = root.querySelector("#clHint");
+  const drawPanel = () => {
+    const i = open.focus;
+    const [id, ans] = t.gaps[i];
+    const c = byId.get(id);
+    const h = open.hints[i];
+    const card = { id, cat: c ? c.cat : "", hint: c ? c.hint : "" };
+    const spec = { c: card, target: gapTarget(ans), options: () => textGapOptions(c, app.cards(), ans, t.gaps.filter((_, k) => k !== i).map((g) => g[1].split("|")[0])) };
+    const input = root.querySelector("#gi" + (i + 1));
+    panel.innerHTML = `<p class="progress">Hinweis zu Lücke ${i + 1}</p>` + (open.revealed[i]
+      ? `<div class="feedback bad" role="status">Lösung: ${esc(ans.split("|").join(" / "))}. Das zählt als nicht gewusst.</div>`
+      : hintHtml(h, spec));
+    bindHint(panel, h, spec, {
+      redraw: drawPanel,
+      onRight: (text) => { input.value = text; drawPanel(); },
+      onReveal: () => { open.revealed[i] = true; drawPanel(); }
+    });
+  };
+  drawPanel();
   t.gaps.forEach((_, i) => {
     const el = root.querySelector("#gi" + (i + 1));
+    el.addEventListener("focus", () => { if (open.focus !== i) { open.focus = i; drawPanel(); } });
     el.addEventListener("keydown", (e) => {
       if (e.key !== "Enter") return;
       e.preventDefault();
@@ -189,5 +213,5 @@ export function renderText(root, app, rerender) {
       if (nx) nx.focus(); else check();
     });
   });
-  root.querySelector("#gi1")?.focus();
+  root.querySelector("#gi" + (open.focus + 1))?.focus();
 }

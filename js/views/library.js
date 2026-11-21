@@ -61,6 +61,8 @@ function itemHtml(app, c, day) {
     (REG[c.reg] ? `<p>Register (Einschätzung): ${esc(REG[c.reg])}</p>` : "") +
     (REGION[c.region] ? `<p>Regionaler Gebrauch: ${esc(REGION[c.region])}</p>` : "") +
     `<p>Übungen (richtig/gesamt): ${ms ? esc(ms) : "noch keine"}</p>` +
+    (p && p.hinted ? `<p>Mit Hinweis gelöst: ${p.hinted} Mal</p>` : "") +
+    (c.hint ? `<p>Eigener Hinweis: ${esc(c.hint)}</p>` : "") +
     (p && p.seen ? `<p>Nächste Wiederholung: ${p.due <= day ? "heute fällig" : "in " + (p.due - day) + " Tagen"}</p>` : "") +
     `<p class="hint">ID ${esc(c.id)}</p></details></div>` +
     `<div class="acts">${editBtn(c.id, "small")}<button type="button" class="small" data-del="${esc(c.id)}" aria-label="${esc(c.term)} entfernen">Entfernen</button></div></li>`;

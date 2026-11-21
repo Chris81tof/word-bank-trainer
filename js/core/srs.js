@@ -11,7 +11,7 @@ export const SOFT = new Set(["meaning", "choice"]);
 export const STATUS = { new: "Neu", developing: "Developing", problem: "Problematic", mastered: "Mastered" };
 
 export function newProgress() {
-  return { box: 0, due: 0, seen: 0, right: 0, wrong: 0, first: 0, last: 0, ms: {} };
+  return { box: 0, due: 0, seen: 0, right: 0, wrong: 0, hinted: 0, first: 0, last: 0, ms: {} };
 }
 
 export function capOf(mode) {
@@ -30,7 +30,9 @@ export function isDue(p, day) {
 }
 
 // Ergebnis einer Aufgabe verbuchen. Verändert p und gibt es zurück.
-export function record(p, ok, mode, day) {
+// hinted: richtig, aber mit Hinweis. Die Karte bleibt auf ihrer Stufe und ist morgen wieder fällig.
+// Ein gezeigter Lösungsweg („Lösung zeigen“) ist ein Fehler (ok = false).
+export function record(p, ok, mode, day, hinted = false) {
   const was = p.box;
   if (!p.seen) p.first = day;
   p.seen += 1;
@@ -39,6 +41,11 @@ export function record(p, ok, mode, day) {
   if (ok) {
     ms[0] += 1;
     p.right += 1;
+    if (hinted) {
+      p.hinted = (p.hinted || 0) + 1;
+      p.due = day + INTERVALS[1];
+      return p;
+    }
     const nb = Math.min(capOf(mode), was + 1, MAX_BOX);
     if (nb > was) {
       p.box = nb;

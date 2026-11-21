@@ -35,6 +35,10 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
 - Wenn eine Karte richtig beantwortet wird, ihre Stufe aber schon an der Grenze der Übung liegt, wird sie nach dem Abstand ihrer aktuellen Stufe wieder fällig.
 - Fehler: Die Karte fällt auf Stufe 0 zurück und ist heute wieder fällig. Bei Bedeutung und Auswahl fällt sie nur um eine Stufe.
 - Nur aktive Übungen verändern den Lernstand, der Passiv-Durchlauf nicht.
+- Gestufte Hinweise (Lückentext, Übersetzen, Umformulieren, Texte pro Lücke): Stufe 1 Kategorie und Gerüst, Stufe 2 Anfangsbuchstaben, Stufe 3 Auswahl aus 4 Optionen, danach „Lösung zeigen“. Vor Stufe 3 darf nichts die Lösung vollständig verraten; bei Varianten (`alt`) zählt die Hauptlösung.
+  - Richtig ohne Hinweis: Aufstieg wie bisher.
+  - Richtig mit Hinweis: Die Karte bleibt auf ihrer Stufe und ist morgen wieder fällig. Der Zähler `hinted` im Lernstand zählt solche Antworten.
+  - „Lösung zeigen“: gilt als falsch.
 
 ## Inhalte
 
@@ -46,6 +50,7 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
   - `answer` (mehrere Lösungen mit `|` getrennt),
   - `wrong` (3 falsche Optionen), `plain` (schlichte Fassung des Satzes), `reg` (Register: `i` informal, `f` formal, `n` neutral, `d` dated, `c` colloquial, `s` slang; Bezeichnungen auf Englisch).
   - `region` (regionaler Gebrauch, nur wenn die Wendung regional ist: `gb`, `us`, `au`, `ca`, `ie`, `nz`, `za`; fehlt sie, gilt die Wendung als allgemein gebräuchlich) ist optional.
+  - `hint` (eigener Hinweis, erscheint bei Hinweisstufe 1) ist optional und darf die Lösung nicht verraten (ein Test prüft das).
   - `note` und `alt` (Liste weiterer Schreibweisen der Wendung, damit sie in Texten erkannt wird) sind optional.
   - Eigene Karten aus der App haben IDs `u01`, `u02` …; sie brauchen `wrong`, `plain` und `reg` nicht, dann entfallen Auswahl, Fehlersuche und Umformulieren für sie.
 - Lückentexte: Platzhalter `{1}` bis `{n}` im Text, dazu `gaps` mit `[kartenId, lösung]` in derselben Reihenfolge. Jede Karten-ID muss existieren.

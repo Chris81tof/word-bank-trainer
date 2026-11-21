@@ -4,6 +4,7 @@ import { esc } from "../core/dom.js";
 import { ans0 } from "../core/modes.js";
 import { icon, catIcon } from "../core/icons.js";
 import { REG, REGION } from "../core/cards.js";
+import { hintLine, MAX_HINT } from "../core/hints.js";
 
 export { REG, REGION };
 
@@ -81,9 +82,10 @@ export function bindOpts(box, s) {
 }
 
 // Eingabezeile für Tippaufgaben
-export function answerRow(label) {
+// s.typed: bereits getippter Text, bleibt beim Neuzeichnen (z. B. nach einem Hinweis) erhalten
+export function answerRow(label, s) {
   return `<div class="answer"><label for="ans" class="chip">${esc(label)}</label>` +
-    '<input type="text" id="ans" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done">' +
+    `<input type="text" id="ans" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="done" value="${esc((s && s.typed) || "")}">` +
     '<button type="button" class="primary" id="check">Prüfen</button></div>';
 }
 
@@ -110,9 +112,57 @@ export function checkLine(ok, text, quote) {
 
 export function expectedHtml(s, expected) {
   const r = s.result;
+  const hinted = r.ok && s.hint && s.hint.level > 0;
   return `<div class="feedback ${r.ok ? "good" : "bad"}" role="status">` +
-    (r.ok ? "✓ Richtig." : "✗ Nicht ganz. Gesucht: " + esc(expected) + (r.given ? " (deine Antwort: " + esc(r.given) + ")" : "")) +
+    (r.ok ? "✓ Richtig." + (hinted ? " Mit Hinweis gelöst: Die Karte bleibt auf ihrer Stufe und kommt morgen wieder." : "")
+      : (r.revealed ? "✗ Lösung gezeigt, das zählt als nicht gewusst. Gesucht: " : "✗ Nicht ganz. Gesucht: ") + esc(expected) + (r.given ? " (deine Antwort: " + esc(r.given) + ")" : "")) +
     "</div>";
+}
+
+// Gestufte Hinweise (Stufe 1 bis 3, danach „Lösung zeigen“). Der Zustand h gehört zur Karte bzw. zur Lücke:
+// { level, wrong: [Indizes falscher Optionen], opts: [Optionen] | null, right: gefunden }.
+export const newHint = () => ({ level: 0, wrong: [], opts: null, right: false });
+
+export function hintState(s, c) {
+  if (!s.hint || s.hint.id !== c.id) s.hint = { id: c.id, ...newHint() };
+  return s.hint;
+}
+
+// spec: { c, target, options() }
+export function hintHtml(h, spec) {
+  let out = '<div class="hintbox">';
+  if (h.level >= 1) {
+    out += `<p class="scaffold" aria-label="Hinweis">${esc(hintLine(spec.c.cat, spec.target, h.level))}</p>` +
+      (spec.c.hint ? `<p class="note">Eigener Hinweis: ${esc(spec.c.hint)}</p>` : "");
+  }
+  if (h.level >= MAX_HINT && h.opts) {
+    out += '<div class="opts" role="group" aria-label="Welche Option passt?">' + h.opts.map((o, i) => {
+      const bad = h.wrong.includes(i);
+      const good = h.right && o === spec.target.text;
+      return `<button type="button" class="opt${bad ? " bad" : good ? " good" : ""}" data-hopt="${i}"${bad || h.right ? " disabled" : ""}><span class="k">${i + 1}</span><span>${esc(o)}${bad ? " ✗" : good ? " ✓" : ""}</span></button>`;
+    }).join("") + "</div>";
+  }
+  out += '<div class="btnrow">' + (h.level < MAX_HINT
+    ? `<button type="button" class="small" id="hintBtn">${h.level ? `Nächster Hinweis (${h.level + 1} von ${MAX_HINT})` : "Hinweis"}</button>`
+    : '<button type="button" class="small" id="revealBtn">Lösung zeigen</button>') + "</div></div>";
+  return out;
+}
+
+// hooks: save() sichert Eingaben vor dem Neuzeichnen, redraw() zeichnet neu,
+// onRight(text) wird bei der richtigen Option gerufen, onReveal() bei „Lösung zeigen“.
+export function bindHint(box, h, spec, hooks) {
+  box.querySelector("#hintBtn")?.addEventListener("click", () => {
+    hooks.save?.();
+    h.level++;
+    if (h.level >= MAX_HINT && !h.opts) h.opts = spec.options();
+    hooks.redraw();
+  });
+  box.querySelector("#revealBtn")?.addEventListener("click", () => { hooks.save?.(); hooks.onReveal(); });
+  box.querySelectorAll("button[data-hopt]").forEach((b) => b.addEventListener("click", () => {
+    const i = Number(b.dataset.hopt);
+    hooks.save?.();
+    if (h.opts[i] === spec.target.text) { h.right = true; hooks.onRight(h.opts[i]); } else { h.wrong.push(i); hooks.redraw(); }
+  }));
 }
 
 export { ans0 };

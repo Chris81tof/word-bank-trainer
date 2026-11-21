@@ -59,10 +59,10 @@ scripts/  extract-old.mjs (einmalig: Daten aus der alten Datei holen)
 ```json
 {
   "app": "word-bank-trainer", "format": 2, "exported": "…",
-  "progress": { "s01": { "box": 0, "due": 0, "seen": 0, "right": 0, "wrong": 0, "first": 0, "last": 0, "ms": {} } },
+  "progress": { "s01": { "box": 0, "due": 0, "seen": 0, "right": 0, "wrong": 0, "hinted": 0, "first": 0, "last": 0, "ms": {} } },
   "custom": [ /* eigene Karten, gleiches Format wie data/cards.json */ ],
   "deleted": [ "f33" ],
-  "fixes": { "s01": { "de": "…", "reg": "s", "region": "us", "level": "edge" } },
+  "fixes": { "s01": { "de": "…", "reg": "s", "region": "us", "hint": "…", "level": "edge" } },
   "texts": [ /* importierte Lückentexte */ ],
   "textLog": { "c1": 20410 },
   "drafts": {},
@@ -116,6 +116,9 @@ Import des alten Formats (`format: 1`):
     - Register: informal, formal, neutral, dated, colloquial, slang. Region (optional): British, American, Australian, Canadian, Irish, New Zealand, South African English; keine Angabe = allgemein gebräuchlich.
     - Prüfungen beim Speichern: genau eine Lücke `____`, Lösung vorhanden und ohne leere Teile, nicht zugleich falsche Option, Ausdruck nicht leer und nicht doppelt.
     - Speicherung: Korrektur pro Karten-ID in `fixes` (nur geänderte Felder), Kartendatei unverändert; eigene Karten werden direkt geändert. „Original wiederherstellen“, Filter „Bearbeitet“ und Markierung in der Sammlung. Korrekturen sind Teil der Sicherung.
+    - **Gestufte Hinweise** (zweite Funktion in diesem Schritt): Knopf „Hinweis“ bei Lückentext, Übersetzen, Umformulieren und in den Texten pro Lücke. Stufe 1 Kategorie und Gerüst (z. B. „Phrasal verb, 2 Wörter: _ _ _ _  _ _ _ _“) mit eigenem Hinweis, Stufe 2 Anfangsbuchstaben, Stufe 3 Auswahl aus 4 Optionen (Ablenker der Karte, sonst Ausdrücke derselben Kategorie), danach „Lösung zeigen“.
+    - Bewertung: richtig ohne Hinweis steigt auf wie bisher; richtig mit Hinweis bleibt auf der Stufe und ist morgen wieder fällig; „Lösung zeigen“ ist falsch. Die Statistik zeigt, wie oft Karten mit Hinweis gelöst wurden (`hinted`).
+    - Neues optionales Kartenfeld `hint` („Eigener Hinweis“), im Bearbeiten-Formular änderbar; ein Hinweis, der die Lösung verrät, wird beim Speichern abgelehnt.
     - Regel für die Übernahme in die Kartendatei: siehe CLAUDE.md. Offen: `plain` (schlichte Fassung) ist nicht bearbeitbar und kann nach einer Satzänderung veraltet sein.
 
 ## Offene Punkte

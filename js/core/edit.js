@@ -3,6 +3,7 @@
 // Eigene Karten (u01 …) werden direkt geändert. Die ID und der Lernstand bleiben immer erhalten.
 import { REG, REGION } from "./cards.js";
 import { cleanFix } from "./state.js";
+import { hintLeaks } from "./hints.js";
 
 export const LEVEL_NAMES = { "": "Keine Einschätzung", core: "Vorschlag: sicher A1–B1", edge: "Grenzfall B1/B2" };
 const str = (v) => (typeof v === "string" ? v.trim() : "");
@@ -24,7 +25,7 @@ export function formValues(levels, state, card) {
   return {
     term: card.term || "", alt: (card.alt || []).join("\n"), de: card.de || "", prompt: card.prompt || "",
     sentence: card.sentence || "", answer: card.answer || "", note: card.note || "", cat: card.cat || "",
-    reg: card.reg || "", region: card.region || "", level: levelOf(levels, state, card)
+    reg: card.reg || "", region: card.region || "", hint: card.hint || "", level: levelOf(levels, state, card)
   };
 }
 
@@ -34,7 +35,7 @@ export function checkEdit(card, form, others = []) {
   const errors = [];
   const f = {
     term: str(form.term), alt: lines(form.alt), de: str(form.de), prompt: str(form.prompt), sentence: str(form.sentence),
-    answer: str(form.answer), note: str(form.note), cat: str(form.cat), reg: str(form.reg), region: str(form.region), level: str(form.level)
+    answer: str(form.answer), note: str(form.note), cat: str(form.cat), reg: str(form.reg), region: str(form.region), hint: str(form.hint), level: str(form.level)
   };
   if (!f.term) errors.push("Der Ausdruck darf nicht leer sein.");
   else if (others.some((o) => o.id !== card.id && o.term.toLowerCase() === f.term.toLowerCase())) errors.push(`„${f.term}“ gibt es schon als andere Karte.`);
@@ -60,6 +61,7 @@ export function checkEdit(card, form, others = []) {
       f.answer = parts.join("|");
     }
   } else f.answer = "";
+  if (f.hint && hintLeaks({ hint: f.hint, answer: f.answer, term: f.term })) errors.push("Der eigene Hinweis verrät die Lösung. Formuliere ihn so, dass er nur in die Richtung zeigt.");
   return { fields: f, errors };
 }
 
@@ -68,7 +70,7 @@ const sameList = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]
 // Welche Felder weichen von der Originalkarte ab? Gibt eine Korrektur oder null zurück.
 export function diffFix(orig, origLevel, f) {
   const fix = {};
-  for (const k of ["cat", "term", "de", "prompt", "sentence", "answer", "note", "reg", "region"]) if (f[k] !== (orig[k] || "")) fix[k] = f[k];
+  for (const k of ["cat", "term", "de", "prompt", "sentence", "answer", "note", "reg", "region", "hint"]) if (f[k] !== (orig[k] || "")) fix[k] = f[k];
   if (!sameList(f.alt, orig.alt || [])) fix.alt = f.alt;
   if (f.level !== origLevel) fix.level = f.level;
   return cleanFix(fix);
@@ -85,7 +87,7 @@ export function saveEdit(state, base, levels, allCardsNow, id, form) {
     const i = state.custom.findIndex((c) => c.id === id);
     if (i < 0) return { errors: ["Diese Karte gibt es nicht mehr."] };
     const next = { ...state.custom[i], cat: f.cat, term: f.term, de: f.de, prompt: f.prompt, sentence: f.sentence, answer: f.answer };
-    for (const [k, v] of [["note", f.note], ["reg", f.reg], ["region", f.region], ["level", f.level]]) if (v) next[k] = v; else delete next[k];
+    for (const [k, v] of [["note", f.note], ["reg", f.reg], ["region", f.region], ["hint", f.hint], ["level", f.level]]) if (v) next[k] = v; else delete next[k];
     if (f.alt.length) next.alt = f.alt; else delete next.alt;
     state.custom[i] = next;
     return { ok: true };

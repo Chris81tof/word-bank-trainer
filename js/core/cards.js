@@ -40,6 +40,7 @@ export function checkCard(raw) {
   if (REGS.includes(raw.reg)) c.reg = raw.reg;
   if (raw.region in REGION) c.region = raw.region;
   if (str(raw.note)) c.note = str(raw.note);
+  if (str(raw.hint)) c.hint = str(raw.hint);
   const alt = Array.isArray(raw.alt) ? raw.alt.map(str).filter(Boolean) : [];
   if (alt.length) c.alt = alt;
   return { card: c, errors };
@@ -73,6 +74,7 @@ export function cardPrompt({ terms, cat, count }, existing) {
     "- reg: Register, \"i\" (informal), \"n\" (neutral), \"f\" (formal), \"d\" (dated), \"c\" (colloquial) oder \"s\" (slang)\n" +
     "- region: optional, nur wenn die Wendung regional ist: \"gb\" (British), \"us\" (American), \"au\" (Australian), \"ca\" (Canadian), \"ie\" (Irish), \"nz\" (New Zealand) oder \"za\" (South African)\n" +
     "- note: optional, ein Hinweis auf Deutsch (Gebrauch, Verwechslungsgefahr)\n" +
+    "- hint: optional, ein eigener Hinweis auf Deutsch für die Übung, der die Lösung nicht verrät\n" +
     "- alt: optional, Liste weiterer Schreibweisen der Wendung\n\n" +
     "Antworte nur mit einer JSON-Liste, ohne weiteren Text:\n" +
     '[{"cat": "…", "term": "…", "de": "…", "prompt": "…", "sentence": "… ____ …", "answer": "…", "wrong": ["…", "…", "…"], "plain": "…", "reg": "n", "note": "…"}]';

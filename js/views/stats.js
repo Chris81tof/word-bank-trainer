@@ -36,6 +36,8 @@ export function render(root, app) {
     `<button type="button" id="goProblem"${s.by.problem ? "" : " disabled"}>Problematische üben</button></div>`;
 
   const wd = (k) => (k === 0 ? "heute" : dayToDate(day + k).toLocaleDateString("de-DE", { weekday: "short" }));
+  if (s.hinted) h += `<p class="hint">Mit Hinweis gelöst: ${s.hinted} Mal bei ${s.hintedCards} Karten. Solche Antworten heben die Karte nicht in die nächste Stufe.</p>`;
+
   h += "<h2>Fällig in den nächsten 7 Tagen</h2>" + bars(s.forecast.map((n, k) => ({ n, label: wd(k) })), "Fällige Karten je Tag");
 
   h += "<h2>Geübte Karten nach Stufe</h2>" +

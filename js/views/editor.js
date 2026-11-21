@@ -31,6 +31,7 @@ export function openEditor(host, app, id, done) {
     `<label>Beispielsatz mit Lücke ____ <textarea name="sentence" class="mid" spellcheck="false">${esc(v.sentence)}</textarea></label>` +
     `<label>Lösung für die Lücke (mehrere mit | trennen) <input name="answer" value="${esc(v.answer)}" autocomplete="off" autocapitalize="none" spellcheck="false"></label>` +
     `<label>Notiz <textarea name="note" class="mid">${esc(v.note)}</textarea></label>` +
+    `<label>Eigener Hinweis (erscheint bei „Hinweis“ in den Übungen, ohne die Lösung) <textarea name="hint" class="mid">${esc(v.hint)}</textarea></label>` +
     `<label>Kategorie <select name="cat">${cats.map((c) => `<option${c === v.cat ? " selected" : ""}>${esc(c)}</option>`).join("")}</select></label>` +
     `<label>Register <select name="reg">${opts(REG, v.reg, "Keine Angabe")}</select></label>` +
     `<label>Regionaler Gebrauch <select name="region">${opts(REGION, v.region, "Keine Angabe (allgemein gebräuchlich)")}</select></label>` +

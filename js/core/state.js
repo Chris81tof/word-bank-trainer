@@ -17,7 +17,7 @@ const isObj = (v) => v && typeof v === "object" && !Array.isArray(v);
 export function cleanProgress(p) {
   const out = newProgress();
   if (!isObj(p)) return out;
-  for (const k of ["box", "due", "seen", "right", "wrong", "first", "last"]) out[k] = num(p[k]);
+  for (const k of ["box", "due", "seen", "right", "wrong", "hinted", "first", "last"]) out[k] = num(p[k]);
   if (isObj(p.ms)) {
     for (const [m, v] of Object.entries(p.ms)) {
       if (Array.isArray(v)) out.ms[m] = [num(v[0]), num(v[1])];
@@ -27,7 +27,7 @@ export function cleanProgress(p) {
 }
 
 // Korrektur einer Karte aus data/cards.json: nur die geänderten Felder. null, wenn nichts Gültiges darin steht.
-export const FIX_FIELDS = ["cat", "term", "alt", "de", "prompt", "sentence", "answer", "note", "reg", "region", "level"];
+export const FIX_FIELDS = ["cat", "term", "alt", "de", "prompt", "sentence", "answer", "note", "reg", "region", "hint", "level"];
 export function cleanFix(f) {
   if (!isObj(f)) return null;
   const out = {};
@@ -93,7 +93,7 @@ export function applyFix(card, fix) {
   const out = { ...card };
   for (const [k, v] of Object.entries(fix)) {
     if (k === "level") continue;
-    if (["alt", "note", "reg", "region"].includes(k) && (!v || !v.length)) delete out[k];
+    if (["alt", "note", "reg", "region", "hint"].includes(k) && (!v || !v.length)) delete out[k];
     else out[k] = v;
   }
   return out;

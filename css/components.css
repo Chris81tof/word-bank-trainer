@@ -245,3 +245,9 @@ ol.steps li { margin: 4px 0; }
 .form textarea { margin: 0; min-height: var(--tap); }
 .form textarea.mid { min-height: 72px; }
 .form .msg:empty { display: none; }
+
+/* 15 · Gestufte Hinweise */
+.hintbox, .hintpanel:not(:empty) { margin: 12px 0; padding: 10px 12px; border: 1px dashed var(--field); border-radius: var(--radius); }
+.hintbox .btnrow, .hintpanel .btnrow { margin-top: 8px; }
+.hintpanel > .hintbox { border: 0; padding: 0; margin: 0; }
+.scaffold { font: 600 17px/1.6 var(--serif); letter-spacing: .04em; white-space: pre-wrap; margin: 0 0 6px; overflow-wrap: anywhere; }

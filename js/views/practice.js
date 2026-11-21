@@ -202,12 +202,14 @@ function renderSession(root, app) {
   const box = root.querySelector("#study");
   const byId = new Map(app.cards().map((c) => [c.id, c]));
 
-  const reset = () => { s.result = null; s.ui = null; s.flipped = false; };
+  const reset = () => { s.result = null; s.ui = null; s.flipped = false; s.hint = null; s.typed = ""; };
   s.rerender = () => renderSession(root, app);
   // Ergebnis verbuchen; falsch beantwortete Karten kommen zwei Plätze später noch einmal.
+  // Mit Hinweis richtig gelöst: bleibt auf der Stufe, morgen wieder fällig (srs.js).
   s.answer = (ok) => {
     const id = s.queue.shift();
-    record(progressOf(app.state, id), ok, s.mode, today());
+    const hinted = ok && !!s.hint && s.hint.level > 0;
+    record(progressOf(app.state, id), ok, s.mode, today(), hinted);
     if (ok) s.right++;
     else { s.wrong++; s.queue.splice(Math.min(2, s.queue.length), 0, id); }
     app.save();
