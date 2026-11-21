@@ -2,7 +2,11 @@
 import { key } from "./match.js";
 
 export const CATS = ["Phrasal verb", "Collocation", "Word formation", "Idiom", "Verb + preposition", "Adjective + preposition", "Sonstiges"];
-const REGS = ["i", "n", "f"];
+// Register einer Wendung (Kürzel in den Daten → englische Bezeichnung)
+export const REG = { i: "informal", f: "formal", n: "neutral", d: "dated", c: "colloquial", s: "slang" };
+const REGS = Object.keys(REG);
+// Regionaler Gebrauch (optionales Feld „region“)
+export const REGION = { gb: "British English", us: "American English", au: "Australian English", ca: "Canadian English", ie: "Irish English", nz: "New Zealand English", za: "South African English" };
 const str = (v) => (typeof v === "string" ? v.trim() : "");
 
 // Prüft eine Karte und gibt sie bereinigt zurück: { card, errors }.
@@ -34,6 +38,7 @@ export function checkCard(raw) {
   }
   if (str(raw.plain)) c.plain = str(raw.plain);
   if (REGS.includes(raw.reg)) c.reg = raw.reg;
+  if (raw.region in REGION) c.region = raw.region;
   if (str(raw.note)) c.note = str(raw.note);
   const alt = Array.isArray(raw.alt) ? raw.alt.map(str).filter(Boolean) : [];
   if (alt.length) c.alt = alt;
@@ -65,7 +70,8 @@ export function cardPrompt({ terms, cat, count }, existing) {
     "- answer: das Wort für die Lücke; mehrere richtige Lösungen mit | trennen\n" +
     "- wrong: drei falsche, aber plausible Optionen für die Lücke (typische Lernerfehler), keine davon richtig\n" +
     "- plain: derselbe Satz schlicht formuliert, ohne die Wendung\n" +
-    "- reg: Register, \"i\" (informell), \"n\" (neutral) oder \"f\" (formell)\n" +
+    "- reg: Register, \"i\" (informal), \"n\" (neutral), \"f\" (formal), \"d\" (dated), \"c\" (colloquial) oder \"s\" (slang)\n" +
+    "- region: optional, nur wenn die Wendung regional ist: \"gb\" (British), \"us\" (American), \"au\" (Australian), \"ca\" (Canadian), \"ie\" (Irish), \"nz\" (New Zealand) oder \"za\" (South African)\n" +
     "- note: optional, ein Hinweis auf Deutsch (Gebrauch, Verwechslungsgefahr)\n" +
     "- alt: optional, Liste weiterer Schreibweisen der Wendung\n\n" +
     "Antworte nur mit einer JSON-Liste, ohne weiteren Text:\n" +

@@ -1,7 +1,7 @@
 // Offline-Betrieb: alle ausgelieferten Dateien beim Installieren zwischenspeichern, danach aus dem Speicher liefern.
 // Bei JEDER Änderung an einer dieser Dateien VERSION erhöhen, sonst bekommt das iPhone die neue Fassung nicht.
 // tests/sw.test.mjs prüft, dass FILES genau zu den Dateien im Projekt passt.
-const VERSION = "1";
+const VERSION = "2";
 const CACHE = "word-bank-trainer-" + VERSION;
 
 const FILES = [
@@ -17,6 +17,7 @@ const FILES = [
   "js/core/cards.js",
   "js/core/dates.js",
   "js/core/dom.js",
+  "js/core/edit.js",
   "js/core/icons.js",
   "js/core/match.js",
   "js/core/modes.js",
@@ -39,6 +40,7 @@ const FILES = [
   "js/exercises/produce.js",
   "js/exercises/rewrite.js",
   "js/exercises/translate.js",
+  "js/views/editor.js",
   "js/views/library.js",
   "js/views/passive.js",
   "js/views/practice.js",

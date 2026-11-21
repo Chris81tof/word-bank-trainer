@@ -4,11 +4,12 @@ import { esc, shuffle } from "../core/dom.js";
 import { icon } from "../core/icons.js";
 import { canSpeak, say, stopSpeaking, spokenTerm, spokenSentence } from "../core/speech.js";
 import { chip, sentenceHtml } from "../exercises/common.js";
+import { openEditor, editBtn, bindEdit } from "./editor.js";
 
 const TEMPI = [5, 8, 12];
 const opts = { cat: "all", order: "seq", tempo: 8 };
 // list, i, phase (0 = Wendung, 1 = Auflösung), playing, token (bricht alte Abläufe ab), timers
-const pass = { list: null, i: 0, phase: 0, playing: false, token: 0, timers: [] };
+const pass = { editing: null, list: null, i: 0, phase: 0, playing: false, token: 0, timers: [] };
 
 export const isRunning = () => !!pass.list;
 
@@ -55,10 +56,21 @@ export function render(root, app, onEnd) {
     }
     const c = pass.list[pass.i];
     const tap = !pass.playing && pass.phase === 0;
+    if (pass.editing) {
+      openEditor(root, app, pass.editing, () => {
+        const fresh = app.cards().find((x) => x.id === pass.editing);
+        if (fresh) pass.list[pass.i] = fresh;
+        else { pass.list.splice(pass.i, 1); pass.i = Math.min(pass.i, Math.max(0, pass.list.length - 1)); }
+        pass.editing = null;
+        pass.phase = 0;
+        draw();
+      });
+      return;
+    }
     let h = `<div class="sessionbar"><h1 class="withicon">${icon("passive")}Passiv</h1><button type="button" class="small" id="pEnd">Beenden</button></div>` +
       `<p class="progress">Karte ${pass.i + 1} von ${pass.list.length} · ${pass.playing ? "läuft" : "pausiert"}</p>` +
-      `<div class="card${tap ? " flip" : ""}" id="pcard"${tap ? ' role="button" tabindex="0" aria-label="Bedeutung aufdecken"' : ""}>` +
-      chip(c) + `<p class="term">${esc(c.term)}</p>`;
+      `<div class="card editable${tap ? " flip" : ""}" id="pcard"${tap ? ' role="button" tabindex="0" aria-label="Bedeutung aufdecken"' : ""}>` +
+      editBtn(c.id) + chip(c) + `<p class="term">${esc(c.term)}</p>`;
     h += pass.phase === 1
       ? (c.de ? `<p class="de">${esc(c.de)}</p>` : "") + (c.prompt ? `<p class="prompt">${esc(c.prompt)}</p>` : "") +
         (c.sentence ? `<p class="sentence">${sentenceHtml(c.sentence, c.answer)}</p>` : "") + (c.note ? `<p class="note">${esc(c.note)}</p>` : "")
@@ -73,11 +85,13 @@ export function render(root, app, onEnd) {
     root.querySelector("#pprev").addEventListener("click", () => move(-1));
     root.querySelector("#pnext").addEventListener("click", () => move(1));
     root.querySelector("#ptoggle").addEventListener("click", toggle);
+    // Bearbeiten hält den Durchlauf an
+    bindEdit(root, (id) => { stop(); pass.editing = id; draw(); });
     if (tap) {
       const pc = root.querySelector("#pcard");
       const open = () => { pass.phase = 1; draw("ptoggle"); };
       pc.addEventListener("click", open);
-      pc.addEventListener("keydown", (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); open(); } });
+      pc.addEventListener("keydown", (e) => { if (e.target === pc && (e.key === " " || e.key === "Enter")) { e.preventDefault(); open(); } });
     }
     if (focusId) root.querySelector("#" + focusId)?.focus();
   };
@@ -118,7 +132,7 @@ export function render(root, app, onEnd) {
     pass.phase = 0;
     if (was) { pass.playing = true; runCard(d > 0 ? "pnext" : "pprev"); } else draw(d > 0 ? "pnext" : "pprev");
   };
-  function end() { stop(); pass.list = null; onEnd(); }
+  function end() { stop(); pass.list = null; pass.editing = null; onEnd(); }
 
   draw();
 }

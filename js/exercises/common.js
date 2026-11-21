@@ -3,8 +3,9 @@
 import { esc } from "../core/dom.js";
 import { ans0 } from "../core/modes.js";
 import { icon, catIcon } from "../core/icons.js";
+import { REG, REGION } from "../core/cards.js";
 
-export const REG = { i: "informell", n: "neutral", f: "formell / gehoben" };
+export { REG, REGION };
 
 export function sentenceHtml(s, fill) {
   const out = esc(s);
@@ -26,7 +27,7 @@ export function cueParas(c) {
 
 // Auflösung: Wendung, Beispielsatz (abschaltbar), Hinweis, Register
 export function refHtml(c, withSentence = true) {
-  const rg = REG[c.reg];
+  const rg = [REG[c.reg], REGION[c.region]].filter(Boolean).join(" · ");
   return `<p class="term small">${esc(c.term)}</p>` +
     (withSentence && c.sentence ? `<p class="sentence">${sentenceHtml(c.sentence, c.answer)}</p>` : "") +
     (c.note ? `<p class="note">${esc(c.note)}</p>` : "") +

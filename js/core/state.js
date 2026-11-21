@@ -8,7 +8,7 @@ export const FORMAT = 2;
 export const DEFAULT_PREFS = { budget: 40, newPerDay: 10, speak: true, voice: "", rate: 0.92 };
 
 export function createState() {
-  return { progress: {}, custom: [], deleted: [], texts: [], textLog: {}, drafts: {}, prefs: { ...DEFAULT_PREFS } };
+  return { progress: {}, custom: [], deleted: [], fixes: {}, texts: [], textLog: {}, drafts: {}, prefs: { ...DEFAULT_PREFS } };
 }
 
 const num = (v, d = 0) => (typeof v === "number" && Number.isFinite(v) ? v : d);
@@ -26,6 +26,19 @@ export function cleanProgress(p) {
   return out;
 }
 
+// Korrektur einer Karte aus data/cards.json: nur die geänderten Felder. null, wenn nichts Gültiges darin steht.
+export const FIX_FIELDS = ["cat", "term", "alt", "de", "prompt", "sentence", "answer", "note", "reg", "region", "level"];
+export function cleanFix(f) {
+  if (!isObj(f)) return null;
+  const out = {};
+  for (const k of FIX_FIELDS) {
+    if (k === "alt") {
+      if (Array.isArray(f.alt)) out.alt = f.alt.filter((a) => typeof a === "string" && a.trim());
+    } else if (typeof f[k] === "string") out[k] = f[k];
+  }
+  return Object.keys(out).length ? out : null;
+}
+
 // Macht aus beliebigen (auch unvollständigen oder älteren) Daten einen gültigen Lernstand.
 export function normalize(raw) {
   const s = createState();
@@ -34,6 +47,12 @@ export function normalize(raw) {
     for (const [id, p] of Object.entries(raw.progress)) s.progress[id] = cleanProgress(p);
   }
   if (Array.isArray(raw.custom)) s.custom = raw.custom.filter((c) => isObj(c) && c.id && c.term);
+  if (isObj(raw.fixes)) {
+    for (const [id, f] of Object.entries(raw.fixes)) {
+      const fix = cleanFix(f);
+      if (fix) s.fixes[id] = fix;
+    }
+  }
   if (Array.isArray(raw.deleted)) s.deleted = raw.deleted.filter((id) => typeof id === "string");
   if (Array.isArray(raw.texts)) s.texts = raw.texts.filter((t) => isObj(t) && t.id && t.text && Array.isArray(t.gaps));
   if (isObj(raw.textLog)) {
@@ -68,10 +87,24 @@ export function save(storage, state) {
   }
 }
 
-// Alle Karten, die gerade gelten: Grunddaten ohne gelöschte, dazu eigene Karten.
+// Karte aus data/ mit ihrer Korrektur aus dem Gerätespeicher; „level“ gehört nicht zur Karte.
+export function applyFix(card, fix) {
+  if (!fix) return card;
+  const out = { ...card };
+  for (const [k, v] of Object.entries(fix)) {
+    if (k === "level") continue;
+    if (["alt", "note", "reg", "region"].includes(k) && (!v || !v.length)) delete out[k];
+    else out[k] = v;
+  }
+  return out;
+}
+
+// Alle Karten, die gerade gelten: Grunddaten mit Korrekturen, ohne gelöschte, dazu eigene Karten.
+// Korrekturen zu IDs, die es in der Kartendatei nicht (mehr) gibt, werden ignoriert.
 export function allCards(base, state) {
   const gone = new Set(state.deleted);
-  return [...base.filter((c) => !gone.has(c.id)), ...state.custom.filter((c) => !gone.has(c.id))];
+  const fixes = state.fixes || {};
+  return [...base.filter((c) => !gone.has(c.id)).map((c) => applyFix(c, fixes[c.id])), ...state.custom.filter((c) => !gone.has(c.id))];
 }
 
 // Fortschritt einer Karte; legt ihn bei Bedarf an.

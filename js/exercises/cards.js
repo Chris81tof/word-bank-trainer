@@ -13,7 +13,7 @@ export function render(box, c, s) {
     const f = box.querySelector("#flip");
     const flip = () => { s.flipped = true; s.rerender(); };
     f.addEventListener("click", flip);
-    f.addEventListener("keydown", (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); flip(); } });
+    f.addEventListener("keydown", (e) => { if (e.target === f && (e.key === " " || e.key === "Enter")) { e.preventDefault(); flip(); } });
     f.focus();
     return;
   }

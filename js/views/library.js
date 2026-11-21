@@ -9,26 +9,25 @@ import { norm } from "../core/match.js";
 import { today } from "../core/dates.js";
 import { icon, catIcon } from "../core/icons.js";
 import { CATS, checkCard, cardPrompt, parseCards } from "../core/cards.js";
-import { REG } from "../exercises/common.js";
+import { REG, REGION } from "../exercises/common.js";
+import { openEditor, editBtn } from "./editor.js";
+import { levelOf as levelOfCard, isEdited } from "../core/edit.js";
 
 const LABELS = { ...Object.fromEntries(Object.entries(MODES).map(([m, M]) => [m, M.label])), ...TRANSFER };
-const LEVEL_OPTS = [["all", "Alle Karten"], ["core", "Vorschlag: sicher A1–B1"], ["edge", "Grenzfall B1/B2"], ["both", "Beides (zu leicht?)"]];
+const LEVEL_OPTS = [["all", "Alle Karten"], ["core", "Vorschlag: sicher A1–B1"], ["edge", "Grenzfall B1/B2"], ["both", "Beides (zu leicht?)"], ["edited", "Bearbeitet"]];
 
-const ui = { q: "", level: "all", picked: new Set(), open: {} };
+const ui = { editing: null, scrollY: 0, q: "", level: "all", picked: new Set(), open: {} };
 // Meldungen, die ein Neuzeichnen überleben: { msgId: [text, kind] }
 let flash = {};
 
-function levelOf(app, id) {
-  if (app.levels.core.includes(id)) return "core";
-  if (app.levels.edge.includes(id)) return "edge";
-  return "";
-}
+const levelOf = (app, c) => levelOfCard(app.levels, app.state, c);
 
 function shown(app) {
   const q = norm(ui.q);
   return app.cards().filter((c) => {
     if (q && !norm([c.term, c.de, c.prompt, c.sentence].filter(Boolean).join(" ")).includes(q)) return false;
-    const l = levelOf(app, c.id);
+    const l = levelOf(app, c);
+    if (ui.level === "edited") return isEdited(app.state, c.id);
     if (ui.level === "core" || ui.level === "edge") return l === ui.level;
     if (ui.level === "both") return !!l;
     return true;
@@ -47,11 +46,12 @@ function removeCards(app, ids) {
 
 function itemHtml(app, c, day) {
   const p = app.state.progress[c.id];
-  const l = levelOf(app, c.id);
+  const l = levelOf(app, c);
   const status = STATUS[categoryOf(p)] + (p && p.seen ? ` · Stufe ${p.box} von ${MAX_BOX}` : "");
   const ms = Object.entries((p && p.ms) || {}).map(([m, [r, w]]) => `${LABELS[m] || m} ${r}/${r + w}`).join(", ");
   return `<li><label class="sel"><input type="checkbox" data-sel="${esc(c.id)}"${ui.picked.has(c.id) ? " checked" : ""} aria-label="${esc(c.term)} auswählen"></label>` +
     `<div class="meta"><strong>${esc(c.term)}</strong>` +
+    (isEdited(app.state, c.id) ? '<span class="edited">bearbeitet</span>' : "") +
     (l ? `<span class="lvl">${l === "core" ? "Vorschlag: A1–B1" : "Grenzfall B1/B2"}</span>` : "") +
     `<span class="catline">${icon(catIcon(c.cat))}${esc(c.cat)}${c.id.startsWith("u") ? " · eigene Karte" : ""} · ${esc(status)}</span>` +
     `<span>${esc(cue(c))}</span>` +
@@ -59,10 +59,11 @@ function itemHtml(app, c, day) {
     (c.sentence ? `<p>${esc(c.sentence.replace(/____/g, ans0(c)))}</p>` : "") +
     (c.note ? `<p>${esc(c.note)}</p>` : "") +
     (REG[c.reg] ? `<p>Register (Einschätzung): ${esc(REG[c.reg])}</p>` : "") +
+    (REGION[c.region] ? `<p>Regionaler Gebrauch: ${esc(REGION[c.region])}</p>` : "") +
     `<p>Übungen (richtig/gesamt): ${ms ? esc(ms) : "noch keine"}</p>` +
     (p && p.seen ? `<p>Nächste Wiederholung: ${p.due <= day ? "heute fällig" : "in " + (p.due - day) + " Tagen"}</p>` : "") +
     `<p class="hint">ID ${esc(c.id)}</p></details></div>` +
-    `<button type="button" class="small" data-del="${esc(c.id)}" aria-label="${esc(c.term)} entfernen">Entfernen</button></li>`;
+    `<div class="acts">${editBtn(c.id, "small")}<button type="button" class="small" data-del="${esc(c.id)}" aria-label="${esc(c.term)} entfernen">Entfernen</button></div></li>`;
 }
 
 // Abschnitt zum Auf- und Zuklappen; der Zustand bleibt beim Neuzeichnen erhalten.
@@ -77,6 +78,17 @@ const msg = (id) => {
 export function render(root, app) {
   const rerender = () => render(root, app);
   const { state } = app;
+  // Bearbeiten ersetzt die Seite, danach geht es zurück zur Liste
+  if (ui.editing) {
+    openEditor(root, app, ui.editing, (saved) => {
+      if (saved) flash.delMsg = ["Karte gespeichert.", "ok"];
+      ui.editing = null;
+      rerender();
+      window.scrollTo(0, ui.scrollY || 0);
+    });
+    window.scrollTo(0, 0);
+    return;
+  }
 
   let h = `<div class="sessionbar"><h1 class="withicon">${icon("library")}Sammlung</h1><a class="small btnlink iconbtn" href="#settings" aria-label="Einstellungen">${icon("settings")}</a></div>` +
     `<div class="controls"><label class="grow">Suche <input type="search" id="search" value="${esc(ui.q)}" placeholder="Wendung, Bedeutung, Satz" autocomplete="off" autocapitalize="none" spellcheck="false"></label>` +
@@ -145,6 +157,14 @@ export function render(root, app) {
     }));
   };
   drawList();
+  // Delegiert, denn die Liste wird beim Suchen neu gezeichnet
+  list.addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-edit]");
+    if (!b) return;
+    ui.scrollY = window.scrollY;
+    ui.editing = b.dataset.edit;
+    rerender();
+  });
   root.querySelector("#search").addEventListener("input", (e) => { ui.q = e.target.value; drawList(); });
   root.querySelector("#lvl").addEventListener("change", (e) => { ui.level = e.target.value; drawList(); });
   list.addEventListener("change", (e) => {

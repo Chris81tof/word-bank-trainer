@@ -235,3 +235,13 @@ ol.steps li { margin: 4px 0; }
 /* 14 · Hinweis auf neue Version */
 .toast { position: fixed; left: 16px; right: 16px; margin: 0 auto; bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 12px); z-index: 20; display: flex; align-items: center; gap: 12px; background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: 8px 8px 8px 14px; font: 14px var(--sans); box-shadow: 0 4px 16px rgba(0, 0, 0, .2); width: max-content; max-width: calc(100% - 32px); animation: appear .2s ease-out; }
 @media (min-width: 900px) { .toast { bottom: 24px; } }
+
+/* 14 · Karte bearbeiten: Stift auf der Karte, Markierung „bearbeitet“, Formular */
+.card.editable { position: relative; }
+.card.editable > .editbtn + .chip { min-height: 36px; margin-right: 44px; }
+.card .editbtn { position: absolute; top: 0; right: 0; border: 0; background: none; }
+.card .editbtn .picto { color: var(--ink-2); }
+.edited { font: 600 11px var(--sans); font-variant: small-caps; letter-spacing: .06em; color: var(--accent); }
+.form textarea { margin: 0; min-height: var(--tap); }
+.form textarea.mid { min-height: 72px; }
+.form .msg:empty { display: none; }

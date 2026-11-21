@@ -62,6 +62,7 @@ scripts/  extract-old.mjs (einmalig: Daten aus der alten Datei holen)
   "progress": { "s01": { "box": 0, "due": 0, "seen": 0, "right": 0, "wrong": 0, "first": 0, "last": 0, "ms": {} } },
   "custom": [ /* eigene Karten, gleiches Format wie data/cards.json */ ],
   "deleted": [ "f33" ],
+  "fixes": { "s01": { "de": "…", "reg": "s", "region": "us", "level": "edge" } },
   "texts": [ /* importierte Lückentexte */ ],
   "textLog": { "c1": 20410 },
   "drafts": {},
@@ -96,7 +97,7 @@ Import des alten Formats (`format: 1`):
 
 ## Schritte (je ein Commit)
 
-**Alle Schritte 0 bis 10 sind fertig.** Die App ist veröffentlicht.
+**Alle Schritte 0 bis 11 sind fertig.** Die App ist veröffentlicht.
 
 0. Projektregeln, Plan, Git ✔
 1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests. ✔
@@ -108,7 +109,14 @@ Import des alten Formats (`format: 1`):
 7. **Design** „Wörterbuch“, iPhone-Feinschliff. ✔
 8. **Offline:** Web-App, Icons, Schriften. ✔
 9. **Textvorrat:** rund 45 neue Lückentexte, geprüft durch die Datentests. ✔ (45 neue, zusammen 63; jede Karte kommt vor)
-10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage. (Workflow `.github/workflows/pages.yml` ist angelegt; veröffentlicht unter https://chris81tof.github.io/word-bank-trainer/.)
+10. **Veröffentlichung:** GitHub-Repository, Actions mit Tests, Pages. Nur nach Rückfrage. (Workflow `.github/workflows/pages.yml` ist angelegt; veröffentlicht unter https://chris81tof.github.io/word-bank-trainer/.) ✔
+11. **Karten bearbeiten:** ✔
+    - Stift-Symbol auf jeder Karte in allen Übungen, im Passiv-Durchlauf und in der Sammlung. Wer es vor der Antwort öffnet, überspringt die Karte (nichts wird verbucht); nach dem Speichern geht die Übung mit der korrigierten Karte weiter.
+    - Bearbeitbar: Ausdruck, weitere Schreibweisen (`alt`), Deutsch, englische Erklärung, Satz mit Lücke, Lösung, Notiz, Kategorie, Register, regionaler Gebrauch, Niveau-Einschätzung.
+    - Register: informal, formal, neutral, dated, colloquial, slang. Region (optional): British, American, Australian, Canadian, Irish, New Zealand, South African English; keine Angabe = allgemein gebräuchlich.
+    - Prüfungen beim Speichern: genau eine Lücke `____`, Lösung vorhanden und ohne leere Teile, nicht zugleich falsche Option, Ausdruck nicht leer und nicht doppelt.
+    - Speicherung: Korrektur pro Karten-ID in `fixes` (nur geänderte Felder), Kartendatei unverändert; eigene Karten werden direkt geändert. „Original wiederherstellen“, Filter „Bearbeitet“ und Markierung in der Sammlung. Korrekturen sind Teil der Sicherung.
+    - Regel für die Übernahme in die Kartendatei: siehe CLAUDE.md. Offen: `plain` (schlichte Fassung) ist nicht bearbeitbar und kann nach einer Satzänderung veraltet sein.
 
 ## Offene Punkte
 

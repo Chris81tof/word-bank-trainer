@@ -20,7 +20,7 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
   - `data/texts.json`: Lückentexte für Stufe 5.
   - `data/tasks.json`: Sprech- und Schreibaufgaben.
 - Die Karten-IDs (`s01`, `g12`, `p03` …) ändern sich nie, denn der Lernstand hängt daran. Neue Karten bekommen neue IDs, und keine ID wird wiederverwendet.
-- Der Lernstand liegt im `localStorage` unter dem Schlüssel `word-bank-trainer-v2`. Er enthält nur den Fortschritt je Karten-ID, eigene Karten, importierte Texte und die Einstellungen, nicht die Karten aus `data/`.
+- Der Lernstand liegt im `localStorage` unter dem Schlüssel `word-bank-trainer-v2`. Er enthält nur den Fortschritt je Karten-ID, eigene Karten, Korrekturen (`fixes`), importierte Texte und die Einstellungen, nicht die Karten aus `data/`.
 - Der Import liest das neue Format und das alte Format (`"app": "word-bank-trainer"`, `"format": 1`, Schlüssel `kollokations-trainer-v1`).
 - Offline-Betrieb über `sw.js`. Bei jeder Änderung an ausgelieferten Dateien die Versionsnummer in `sw.js` erhöhen. Neue Dateien in die Liste `FILES` in `sw.js` eintragen (ein Test prüft das). Auf `localhost` wird der Service Worker nur mit `?sw` registriert.
 - Schriften und Icons liegen im Projekt, es werden keine externen Ressourcen geladen.
@@ -44,11 +44,17 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
   - `prompt` (englische Erklärung; darf vorerst leer sein, bei 112 alten Karten fehlt sie noch),
   - `sentence` mit genau einer Lücke `____`,
   - `answer` (mehrere Lösungen mit `|` getrennt),
-  - `wrong` (3 falsche Optionen), `plain` (schlichte Fassung des Satzes), `reg` (`i`/`n`/`f`).
+  - `wrong` (3 falsche Optionen), `plain` (schlichte Fassung des Satzes), `reg` (Register: `i` informal, `f` formal, `n` neutral, `d` dated, `c` colloquial, `s` slang; Bezeichnungen auf Englisch).
+  - `region` (regionaler Gebrauch, nur wenn die Wendung regional ist: `gb`, `us`, `au`, `ca`, `ie`, `nz`, `za`; fehlt sie, gilt die Wendung als allgemein gebräuchlich) ist optional.
   - `note` und `alt` (Liste weiterer Schreibweisen der Wendung, damit sie in Texten erkannt wird) sind optional.
   - Eigene Karten aus der App haben IDs `u01`, `u02` …; sie brauchen `wrong`, `plain` und `reg` nicht, dann entfallen Auswahl, Fehlersuche und Umformulieren für sie.
 - Lückentexte: Platzhalter `{1}` bis `{n}` im Text, dazu `gaps` mit `[kartenId, lösung]` in derselben Reihenfolge. Jede Karten-ID muss existieren.
 - Nach jeder Datenänderung die Tests laufen lassen, denn sie prüfen genau diese Regeln.
+
+## Korrekturen an Karten
+
+- Die App kann jede Karte bearbeiten (Stift-Symbol). Änderungen an Karten aus `data/cards.json` liegen als Korrektur pro Karten-ID in `fixes` im Gerätespeicher (nur die geänderten Felder, dazu `level` für die Niveau-Einschätzung). Die Datei selbst bleibt unverändert, ID und Lernstand bleiben erhalten. Eigene Karten (`u…`) werden direkt geändert.
+- **Bei der Übernahme einer Sicherung werden die Korrekturen fest in die Kartendatei übernommen** (`data/cards.json`, und `data/levels.json` für `level`). Die IDs bleiben gleich. Danach werden die Korrekturen im Gerätespeicher gelöscht (Sicherung mit leerem `fixes` neu einspielen oder in der Sammlung „Original wiederherstellen“). Danach `sw.js` hochzählen und die Tests laufen lassen.
 
 ## Tests
 

@@ -3,6 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { usesExpr } from "../js/core/match.js";
+import { REG, REGION } from "../js/core/cards.js";
 
 const load = (name) => JSON.parse(readFileSync(new URL("../data/" + name, import.meta.url), "utf8"));
 const cards = load("cards.json");
@@ -27,7 +28,8 @@ test("jede Karte hat alle Pflichtfelder", () => {
       assert.ok(c[f].trim(), `${c.id}: ${f} ist leer`);
     }
     assert.ok(CATS.includes(c.cat), `${c.id}: unbekannte Kategorie ${c.cat}`);
-    assert.ok(["i", "n", "f"].includes(c.reg), `${c.id}: Register ${c.reg}`);
+    assert.ok(Object.keys(REG).includes(c.reg), `${c.id}: Register ${c.reg}`);
+    assert.ok(!c.region || c.region in REGION, `${c.id}: Region ${c.region}`);
     assert.equal(typeof c.prompt, "string", `${c.id}: prompt muss Text sein (darf leer sein)`);
     if ("note" in c) assert.equal(typeof c.note, "string", `${c.id}: note`);
     if ("alt" in c) assert.ok(Array.isArray(c.alt) && c.alt.every((a) => typeof a === "string" && a.trim()), `${c.id}: alt`);

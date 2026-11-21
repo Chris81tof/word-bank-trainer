@@ -15,6 +15,7 @@ const P = {
   library: '<path d="M3 20.5h18"/><rect x="5" y="6" width="3.2" height="14.5"/><rect x="9.2" y="4" width="3.2" height="16.5"/><path d="M13.6 7.6l3-.9 3.8 13-3 .9Z"/>' +
     fine("M5 9h3.2M5 17h3.2M9.2 7h3.2M9.2 17.5h3.2"),
 
+  edit: '<path d="M4.5 19.5l.9-4L16.2 4.7a2.1 2.1 0 0 1 3 3L8.4 18.6Z"/><path d="M14.5 6.5l3 3"/>' + fine("M6.2 15.6l2.2 2.2M5.4 19.5l1.5-.4"),
   settings: '<circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.9 1.9M16.6 16.6l1.9 1.9M5.5 18.5l1.9-1.9M16.6 7.4l1.9-1.9"/><circle cx="12" cy="12" r="6.5"/>',
 
   // Übungen

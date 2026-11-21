@@ -17,6 +17,7 @@ import * as rewrite from "../exercises/rewrite.js";
 import * as produce from "../exercises/produce.js";
 import * as cloze from "../exercises/cloze.js";
 import * as passive from "./passive.js";
+import { openEditor, editBtn, bindEdit } from "./editor.js";
 import { canSpeak, say, stopSpeaking, spokenTerm, spokenSentence } from "../core/speech.js";
 
 const EX = { meaning, cards, explain, choice, gap, translate, error, rewrite, produce };
@@ -219,8 +220,19 @@ function renderSession(root, app) {
   const c = byId.get(s.queue[0]);
   if (!c) { renderSummary(box, root, app); return; }
 
+  // Bearbeiten: nichts wird verbucht, die Karte gilt als übersprungen und kommt danach korrigiert wieder.
+  if (s.editing === c.id) {
+    openEditor(box, app, c.id, () => { s.editing = null; s.cards = app.cards(); s.rerender(); });
+    return;
+  }
   EX[s.mode].render(box, c, s);
   speakCard(box, app, c, s);
+  const card = box.querySelector(".card");
+  if (card) {
+    card.classList.add("editable");
+    card.insertAdjacentHTML("afterbegin", editBtn(c.id));
+    bindEdit(card, () => { stopSpeaking(); lastSpoken = ""; reset(); s.editing = c.id; s.rerender(); });
+  }
   box.insertAdjacentHTML("beforeend", '<p class="easyrow"><button type="button" id="easyBtn">Zu leicht – Karte aus dem Speicher entfernen</button></p>');
   armed(box.querySelector("#easyBtn"), `Sicher? „${c.term}“ endgültig entfernen`, () => {
     if (!app.state.deleted.includes(c.id)) app.state.deleted.push(c.id);
