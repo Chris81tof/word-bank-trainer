@@ -24,6 +24,7 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
 - Der Import liest das neue Format und das alte Format (`"app": "word-bank-trainer"`, `"format": 1`, Schlüssel `kollokations-trainer-v1`).
 - Offline-Betrieb über `sw.js`. Bei jeder Änderung an ausgelieferten Dateien die Versionsnummer in `sw.js` erhöhen. Neue Dateien in die Liste `FILES` in `sw.js` eintragen (ein Test prüft das). Auf `localhost` wird der Service Worker nur mit `?sw` registriert.
 - Schriften und Icons liegen im Projekt, es werden keine externen Ressourcen geladen.
+- Ansichten nur zeichnen lassen: Logik, die sich testen lässt (Filter, Auswahl, Nachladen), gehört in `js/core/`, nicht in `js/views/`. Alle Tippflächen mindestens 44 Pixel (`--tap`); neue Bereiche bei 320, 390 und im flachen Querformat (844 × 390) prüfen.
 
 ## Lernlogik (nicht ohne Rückfrage ändern)
 

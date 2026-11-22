@@ -97,7 +97,7 @@ Import des alten Formats (`format: 1`):
 
 ## Schritte (je ein Commit)
 
-**Alle Schritte 0 bis 11 sind fertig.** Die App ist veröffentlicht.
+**Alle Schritte 0 bis 12 sind fertig.** Die App ist veröffentlicht (Schritt 12 noch nicht hochgeladen).
 
 0. Projektregeln, Plan, Git ✔
 1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests. ✔
@@ -120,6 +120,16 @@ Import des alten Formats (`format: 1`):
     - Bewertung: richtig ohne Hinweis steigt auf wie bisher; richtig mit Hinweis bleibt auf der Stufe und ist morgen wieder fällig; „Lösung zeigen“ ist falsch. Die Statistik zeigt, wie oft Karten mit Hinweis gelöst wurden (`hinted`).
     - Neues optionales Kartenfeld `hint` („Eigener Hinweis“), im Bearbeiten-Formular änderbar; ein Hinweis, der die Lösung verrät, wird beim Speichern abgelehnt.
     - Regel für die Übernahme in die Kartendatei: siehe CLAUDE.md. Offen: `plain` (schlichte Fassung) ist nicht bearbeitbar und kann nach einer Satzänderung veraltet sein.
+
+12. **Sammlung übersichtlicher:** ✔
+    - **Werkzeuge** (Eigene Karte anlegen, Neue Karten von Claude, Sichern und Wiederherstellen, Zurücksetzen) stehen als zugeklappte Bereiche direkt unter dem Titel, oberhalb der Liste. Es ist immer nur einer offen. Zurücksetzen und Einspielen behalten die Zwei-Tipp-Sicherung.
+    - **Kartenliste:** eine Zeile pro Karte mit Kategoriesymbol, Ausdruck und Lernstand („Neu“, „Stufe 2“, „Problematic“, „Mastered“). Antippen klappt die Details auf (Bedeutung, Satz, Notiz, Register, Niveau, Fälligkeit, Bearbeiten, Entfernen); es ist immer nur eine Karte aufgeklappt, und nach dem Bearbeiten steht sie wieder aufgeklappt in der Liste.
+    - **Angepinnte Leiste** beim Scrollen: Suchfeld, Filter nach Kategorie, Filter nach Lernstand (Neu, Developing, Problematic, Mastered, Heute fällig; dazu die Einschätzungen A1–B1, B1/B2, „Beides“ und „Bearbeitet“) und die Anzahl. Im flachen Querformat steht alles in einer Zeile (60 Pixel) und die Seite nutzt die volle Breite.
+    - **Auswählen** ist ein eigener Modus (Knopf rechts neben der Suche): Kästchen erscheinen, darunter „Alle“, „Keine“ und „Entfernen“ (Zwei-Tipp). Außerhalb des Modus bleibt die Liste ruhig.
+    - **Nachladen:** 50 Karten pro Abschnitt, die nächsten laden beim Scrollen nach (IntersectionObserver), dazu der Knopf „50 weitere Karten laden“. Getestet mit 578 Karten: Neuzeichnen rund 10 ms.
+    - Alle Tippflächen mindestens 44 Pixel (geprüft bei 320, 390 und 844 Pixel Breite, kein seitliches Überlaufen).
+    - **Code:** Die Logik (Filter, Suche, Nachladen, Aufklappen) steht in `js/core/library.js` und ist getestet (`tests/library.test.mjs`, 17 Tests); `js/views/library.js` zeichnet nur. `sw.js` Version 4.
+    - Geändert gegenüber vorher: Der Leicht-Filter („Vorschlag: A1–B1“, „Grenzfall B1/B2“) liegt jetzt im Lernstand-Filter unter „Einschätzung“; der Hinweistext dazu steht in den Details der Karte. Die Kästchen zum Entfernen erscheinen nur im Auswahlmodus.
 
 ## Offene Punkte
 
