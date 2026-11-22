@@ -51,6 +51,6 @@ const out = (name, data) => {
 out("cards.json", cards);
 out("texts.json", texts);
 out("tasks.json", tasks);
-out("levels.json", { core: LEVEL_CORE, edge: LEVEL_EDGE });
+out("levels.json", { ...Object.fromEntries(LEVEL_CORE.map((id) => [id, "B1"])), ...Object.fromEntries(LEVEL_EDGE.map((id) => [id, "B2"])) });
 
 console.log(`${cards.length} Karten, ${texts.length} Texte, ${tasks.speak.length} Sprech- und ${tasks.write.length} Schreibaufgaben, ${LEVEL_CORE.length + LEVEL_EDGE.length} Level-Vorschläge`);

@@ -1,6 +1,7 @@
 // Lernstand (Format 2): nur Fortschritt je Karten-ID, eigene Karten, gelöschte IDs,
 // importierte Texte, Entwürfe und Einstellungen. Die Karten aus data/ stehen nicht darin.
 import { newProgress } from "./srs.js";
+import { normLevel } from "./levels.js";
 
 export const STORAGE_KEY = "word-bank-trainer-v2";
 export const FORMAT = 2;
@@ -34,9 +35,20 @@ export function cleanFix(f) {
   for (const k of FIX_FIELDS) {
     if (k === "alt") {
       if (Array.isArray(f.alt)) out.alt = f.alt.filter((a) => typeof a === "string" && a.trim());
+    } else if (k === "level") {
+      // "" bleibt erhalten: es heißt „keine Einschätzung“ trotz Eintrag in levels.json
+      if (typeof f.level === "string") out.level = normLevel(f.level);
     } else if (typeof f[k] === "string") out[k] = f[k];
   }
   return Object.keys(out).length ? out : null;
+}
+
+// Eigene Karte: frühere oder ungültige Niveau-Werte umrechnen; ohne Niveau gibt es kein Feld.
+function cleanLevel(c) {
+  if (!("level" in c)) return c;
+  const { level, ...rest } = c;
+  const l = normLevel(level);
+  return l ? { ...rest, level: l } : rest;
 }
 
 // Macht aus beliebigen (auch unvollständigen oder älteren) Daten einen gültigen Lernstand.
@@ -46,7 +58,7 @@ export function normalize(raw) {
   if (isObj(raw.progress)) {
     for (const [id, p] of Object.entries(raw.progress)) s.progress[id] = cleanProgress(p);
   }
-  if (Array.isArray(raw.custom)) s.custom = raw.custom.filter((c) => isObj(c) && c.id && c.term);
+  if (Array.isArray(raw.custom)) s.custom = raw.custom.filter((c) => isObj(c) && c.id && c.term).map(cleanLevel);
   if (isObj(raw.fixes)) {
     for (const [id, f] of Object.entries(raw.fixes)) {
       const fix = cleanFix(f);

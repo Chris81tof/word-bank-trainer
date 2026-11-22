@@ -10,7 +10,7 @@ import { checkCard } from "../js/core/cards.js";
 const read = (p) => JSON.parse(readFileSync(new URL(p, import.meta.url), "utf8"));
 const base = read("../data/cards.json");
 const levels = read("../data/levels.json");
-const id = base.find((c) => c.sentence && c.wrong && !levels.core.includes(c.id)).id;
+const id = base.find((c) => c.sentence && c.wrong && !levels[c.id]).id;
 const origCard = base.find((c) => c.id === id);
 const form = (extra = {}) => ({ ...formValues(levels, createState(), origCard), ...extra });
 const edit = (s, extra, b = base, cardId = id) => saveEdit(s, b, levels, allCards(b, s), cardId, form(extra));
@@ -33,12 +33,12 @@ test("Bearbeiten: Korrektur gilt, Datei und Lernstand bleiben unverändert", () 
 
 test("Bearbeiten: Weitere Schreibweisen, Register, Region und Niveau", () => {
   const s = createState();
-  assert.ok(edit(s, { alt: "foo bar\n\n baz ", reg: "s", region: "us", level: "edge" }).ok);
+  assert.ok(edit(s, { alt: "foo bar\n\n baz ", reg: "s", region: "us", level: "C1" }).ok);
   const c = allCards(base, s).find((x) => x.id === id);
   assert.deepEqual(c.alt, ["foo bar", "baz"]);
   assert.equal(c.reg, "s");
   assert.equal(c.region, "us");
-  assert.equal(levelOf(levels, s, c), "edge");
+  assert.equal(levelOf(levels, s, c), "C1");
   assert.ok(edit(s, { reg: "", region: "", alt: "", level: "" }).ok, "Angaben lassen sich wieder entfernen");
   const d = allCards(base, s).find((x) => x.id === id);
   assert.ok(!("reg" in d) && !("region" in d) && !("alt" in d));
@@ -73,13 +73,13 @@ test("Eigene Karten werden direkt geändert, ID und Lernstand bleiben", () => {
   const s = createState();
   s.custom.push({ id: "u01", cat: "Idiom", term: "pull the other one", de: "Das glaube ich nicht", prompt: "", sentence: "Oh, ____ the other one!", answer: "pull" });
   record(progressOf(s, "u01"), true, "gap", 20000);
-  const r = saveEdit(s, base, levels, allCards(base, s), "u01", { term: "pull the other one", alt: "", de: "Na klar", prompt: "", sentence: "Oh, ____ the other one!", answer: "pull", note: "", cat: "Idiom", reg: "c", region: "gb", level: "core" });
+  const r = saveEdit(s, base, levels, allCards(base, s), "u01", { term: "pull the other one", alt: "", de: "Na klar", prompt: "", sentence: "Oh, ____ the other one!", answer: "pull", note: "", cat: "Idiom", reg: "c", region: "gb", level: "B1" });
   assert.ok(r.ok);
   assert.equal(s.custom[0].id, "u01");
   assert.equal(s.custom[0].de, "Na klar");
   assert.equal(s.custom[0].reg, "c");
   assert.deepEqual(s.fixes, {}, "keine Korrektur-Einträge für eigene Karten");
-  assert.equal(levelOf(levels, s, s.custom[0]), "core");
+  assert.equal(levelOf(levels, s, s.custom[0]), "B1");
   assert.equal(s.progress.u01.seen, 1);
   assert.ok(!isEdited(s, "u01"));
 });
@@ -93,7 +93,7 @@ test("Eigene Karte ohne Satz darf ohne Satz bleiben", () => {
 
 test("Original wiederherstellen", () => {
   const s = createState();
-  edit(s, { de: "anders", level: "edge" });
+  edit(s, { de: "anders", level: "C1" });
   assert.ok(restoreOriginal(s, id));
   assert.deepEqual(allCards(base, s).find((x) => x.id === id), origCard);
   assert.ok(!isEdited(s, id));
@@ -103,13 +103,13 @@ test("Original wiederherstellen", () => {
 test("Korrektur übersteht Sicherung und Import", () => {
   const s = createState();
   record(progressOf(s, id), true, "gap", 20000);
-  edit(s, { de: "anders", reg: "d", region: "za", level: "edge" });
+  edit(s, { de: "anders", reg: "d", region: "za", level: "C1" });
   const back = parseBackup(JSON.stringify(exportData(s)), base);
   assert.deepEqual(back, s);
   const c = allCards(base, back).find((x) => x.id === id);
   assert.equal(c.de, "anders");
   assert.equal(c.reg, "d");
-  assert.equal(levelOf(levels, back, c), "edge");
+  assert.equal(levelOf(levels, back, c), "C1");
 });
 
 test("Alte Sicherungen ohne Korrekturen sind gültig, kaputte Korrekturen werden bereinigt", () => {

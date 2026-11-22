@@ -73,7 +73,7 @@ function detailHtml(app, c, day) {
     (c.note ? `<p>${esc(c.note)}</p>` : "") +
     (REG[c.reg] ? `<p>Register (Einschätzung): ${esc(REG[c.reg])}</p>` : "") +
     (REGION[c.region] ? `<p>Regionaler Gebrauch: ${esc(REGION[c.region])}</p>` : "") +
-    (l ? `<p>Niveau: ${l === "core" ? "Vorschlag sicher A1–B1" : "Grenzfall B1/B2"} (eigene Einschätzung, keine offizielle Einstufung)</p>` : "") +
+    (l ? `<p>Niveau: ${esc(l)} (eigene Einschätzung, keine offizielle Einstufung)</p>` : "") +
     `<p>Übungen (richtig/gesamt): ${ms ? esc(ms) : "noch keine"}</p>` +
     (p && p.hinted ? `<p>Mit Hinweis gelöst: ${p.hinted} Mal</p>` : "") +
     (c.hint ? `<p>Eigener Hinweis: ${esc(c.hint)}</p>` : "") +

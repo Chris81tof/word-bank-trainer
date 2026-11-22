@@ -62,7 +62,7 @@ scripts/  extract-old.mjs (einmalig: Daten aus der alten Datei holen)
   "progress": { "s01": { "box": 0, "due": 0, "seen": 0, "right": 0, "wrong": 0, "hinted": 0, "first": 0, "last": 0, "ms": {} } },
   "custom": [ /* eigene Karten, gleiches Format wie data/cards.json */ ],
   "deleted": [ "f33" ],
-  "fixes": { "s01": { "de": "…", "reg": "s", "region": "us", "hint": "…", "level": "edge" } },
+  "fixes": { "s01": { "de": "…", "reg": "s", "region": "us", "hint": "…", "level": "C1" } },
   "texts": [ /* importierte Lückentexte */ ],
   "textLog": { "c1": 20410 },
   "drafts": {},
@@ -97,7 +97,7 @@ Import des alten Formats (`format: 1`):
 
 ## Schritte (je ein Commit)
 
-**Alle Schritte 0 bis 12 sind fertig.** Die App ist veröffentlicht (Schritt 12 noch nicht hochgeladen).
+**Alle Schritte 0 bis 13 sind fertig.** Die App ist veröffentlicht (Schritt 13 noch nicht hochgeladen).
 
 0. Projektregeln, Plan, Git ✔
 1. **Daten auslagern:** Ein Skript holt SEED, EXTRA, PASSAGES, SPEAK, WRITE und die Level-Listen aus der alten Datei nach `data/`. Danach kommen die Datentests. ✔
@@ -130,6 +130,12 @@ Import des alten Formats (`format: 1`):
     - Alle Tippflächen mindestens 44 Pixel (geprüft bei 320, 390 und 844 Pixel Breite, kein seitliches Überlaufen).
     - **Code:** Die Logik (Filter, Suche, Nachladen, Aufklappen) steht in `js/core/library.js` und ist getestet (`tests/library.test.mjs`, 17 Tests); `js/views/library.js` zeichnet nur. `sw.js` Version 4.
     - Geändert gegenüber vorher: Der Leicht-Filter („Vorschlag: A1–B1“, „Grenzfall B1/B2“) liegt jetzt im Lernstand-Filter unter „Einschätzung“; der Hinweistext dazu steht in den Details der Karte. Die Kästchen zum Entfernen erscheinen nur im Auswahlmodus.
+
+13. **Niveau A1 bis C2:** ✔
+    - Statt „sicher A1–B1“ und „Grenzfall B1/B2“ gibt es die Skala **keine, A1, A2, B1, B2, C1, C2** (`js/core/levels.js`). Sie gilt im Formular „Karte bearbeiten“, in den Details der Sammlung und im Filter (eigene Gruppe „Niveau“: Niveau A1 bis C2, „Bis B1 (zu leicht?)“, „Ohne Niveau“; „Bearbeitet“ steht in der Gruppe „Karten“).
+    - `data/levels.json` hat ein neues Format: `{ "kartenId": "B1" }`. Umrechnung der 51 bisher markierten Karten (nach deiner Wahl): sicher A1–B1 (14) wurde **B1**, Grenzfall B1/B2 (37) wurde **B2**. Jede Karte wurde gegen die alte Datei abgeglichen.
+    - Alte Gerätespeicher und Sicherungen werden beim Laden umgerechnet (`core` wird B1, `edge` wird B2), für Korrekturen (`fixes`) und eigene Karten (`level`). Ein Lernstand geht dabei nicht verloren.
+    - 10 neue Tests (`tests/levels.test.mjs`), Datentest für `levels.json`, `sw.js` Version 5.
 
 ## Offene Punkte
 

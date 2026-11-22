@@ -2,13 +2,15 @@
 import { norm } from "./match.js";
 import { categoryOf } from "./srs.js";
 import { CATS } from "./cards.js";
+import { LEVELS, EASY } from "./levels.js";
 
 // So viele Karten werden auf einmal gezeichnet; der Rest lädt beim Scrollen nach.
 export const PAGE = 50;
 
 export const STAT_OPTS = [
   ["Lernstand", [["all", "Alle Lernstände"], ["new", "Neu"], ["developing", "Developing"], ["problem", "Problematic"], ["mastered", "Mastered"], ["due", "Heute fällig"]]],
-  ["Einschätzung", [["core", "Vorschlag: sicher A1–B1"], ["edge", "Grenzfall B1/B2"], ["both", "Beides (zu leicht?)"], ["edited", "Bearbeitet"]]]
+  ["Niveau", [...LEVELS.map((l) => [l, `Niveau ${l}`]), ["easy", "Bis B1 (zu leicht?)"], ["nolevel", "Ohne Niveau"]]],
+  ["Karten", [["edited", "Bearbeitet"]]]
 ];
 const STATS = STAT_OPTS.flatMap(([, items]) => items.map(([v]) => v));
 
@@ -22,8 +24,9 @@ export function matches(card, f, ctx) {
   const p = ctx.progress[card.id];
   if (s === "due") return !!(p && p.seen && p.due <= ctx.day);
   if (s === "edited") return ctx.isEdited(card.id);
-  if (s === "core" || s === "edge") return ctx.levelOf(card) === s;
-  if (s === "both") return !!ctx.levelOf(card);
+  if (LEVELS.includes(s)) return ctx.levelOf(card) === s;
+  if (s === "easy") return EASY.includes(ctx.levelOf(card));
+  if (s === "nolevel") return !ctx.levelOf(card);
   return categoryOf(p) === s;
 }
 

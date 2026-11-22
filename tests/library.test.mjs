@@ -86,13 +86,20 @@ test("Lernstand: neu, in Arbeit, problematisch, gemeistert, fällig", () => {
   assert.equal(by("problem").length + by("mastered").length + by("developing").length + by("new").length, cards.length, "jede Karte hat genau einen Lernstand");
 });
 
-test("Einschätzung: Vorschläge aus levels.json und Bearbeitet", () => {
-  const { ctx } = setup();
+test("Niveau: jede Stufe einzeln, „Bis B1“, „Ohne Niveau“ und Bearbeitet", () => {
+  const { state, ctx } = setup();
   const by = (stat) => ids(filterCards(cards, f({ stat }), ctx));
-  assert.equal(by("core").length, levels.core.length);
-  assert.equal(by("edge").length, levels.edge.length);
-  assert.equal(by("both").length, levels.core.length + levels.edge.length);
+  const inFile = (l) => Object.values(levels).filter((v) => v === l).length;
+  for (const l of ["A1", "A2", "B1", "B2", "C1", "C2"]) assert.equal(by(l).length, inFile(l), l);
+  assert.equal(by("easy").length, inFile("A1") + inFile("A2") + inFile("B1"));
+  assert.equal(by("nolevel").length, cards.length - Object.keys(levels).length);
   assert.deepEqual(by("edited"), ["s05"]);
+  // eine Korrektur ändert das Niveau einer Karte: erst Teil von B2, dann von C1, dann ohne Niveau
+  const b2 = by("B2")[0];
+  state.fixes[b2] = { level: "C1" };
+  assert.ok(!by("B2").includes(b2) && by("C1").includes(b2));
+  state.fixes[b2] = { level: "" };
+  assert.ok(by("nolevel").includes(b2) && !by("easy").includes(b2));
 });
 
 test("Filter wirken zusammen; unbekannter Lernstand zählt als „alle“", () => {
@@ -108,7 +115,8 @@ test("jeder Eintrag im Lernstand-Filter ist ein bekannter Wert", () => {
   const values = STAT_OPTS.flatMap(([, items]) => items.map(([v]) => v));
   assert.equal(new Set(values).size, values.length);
   assert.ok(values.includes("all"));
-  for (const v of ["new", "developing", "problem", "mastered", "due", "core", "edge", "both", "edited"]) assert.ok(values.includes(v), v);
+  for (const v of ["new", "developing", "problem", "mastered", "due", "A1", "A2", "B1", "B2", "C1", "C2", "easy", "nolevel", "edited"]) assert.ok(values.includes(v), v);
+  for (const v of ["core", "edge", "both"]) assert.ok(!values.includes(v), `${v} gibt es nicht mehr`);
 });
 
 test("Nachladen: 50 Karten pro Abschnitt, am Ende nichts mehr", () => {

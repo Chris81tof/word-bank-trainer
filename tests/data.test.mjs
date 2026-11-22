@@ -102,6 +102,10 @@ test("Sprech- und Schreibaufgaben sind vollständig", () => {
   for (const w of tasks.write) assert.ok(w.type && w.task, JSON.stringify(w));
 });
 
-test("Level-Vorschläge verweisen auf vorhandene Karten", () => {
-  for (const id of [...levels.core, ...levels.edge]) assert.ok(ids.has(id), `Level-Liste: ${id} fehlt`);
+test("levels.json: nur vorhandene Karten, nur gültige Niveaus von A1 bis C2", () => {
+  assert.ok(levels && typeof levels === "object" && !Array.isArray(levels));
+  for (const [id, l] of Object.entries(levels)) {
+    assert.ok(ids.has(id), `levels.json: Karte ${id} gibt es nicht`);
+    assert.ok(["A1", "A2", "B1", "B2", "C1", "C2"].includes(l), `levels.json: ${id} hat ungültiges Niveau „${l}“`);
+  }
 });

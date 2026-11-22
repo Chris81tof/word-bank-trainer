@@ -53,13 +53,14 @@ Der Umbauplan steht in `UMBAUPLAN.md`. Die Originalversion ist `alt-word-bank-tr
   - `region` (regionaler Gebrauch, nur wenn die Wendung regional ist: `gb`, `us`, `au`, `ca`, `ie`, `nz`, `za`; fehlt sie, gilt die Wendung als allgemein gebräuchlich) ist optional.
   - `hint` (eigener Hinweis, erscheint bei Hinweisstufe 1) ist optional und darf die Lösung nicht verraten (ein Test prüft das).
   - `note` und `alt` (Liste weiterer Schreibweisen der Wendung, damit sie in Texten erkannt wird) sind optional.
+  - Das Niveau (eigene Einschätzung, keine offizielle Einstufung) steht nicht in `cards.json`: Startkarten tragen es in `data/levels.json` (`{ "kartenId": "B2" }`, nur `A1` bis `C2`, fehlende Karten haben keins), eigene Karten im Feld `level`. Die Skala und die Umrechnung früherer Werte (`core` wurde B1, `edge` wurde B2) stehen in `js/core/levels.js`.
   - Eigene Karten aus der App haben IDs `u01`, `u02` …; sie brauchen `wrong`, `plain` und `reg` nicht, dann entfallen Auswahl, Fehlersuche und Umformulieren für sie.
 - Lückentexte: Platzhalter `{1}` bis `{n}` im Text, dazu `gaps` mit `[kartenId, lösung]` in derselben Reihenfolge. Jede Karten-ID muss existieren.
 - Nach jeder Datenänderung die Tests laufen lassen, denn sie prüfen genau diese Regeln.
 
 ## Korrekturen an Karten
 
-- Die App kann jede Karte bearbeiten (Stift-Symbol). Änderungen an Karten aus `data/cards.json` liegen als Korrektur pro Karten-ID in `fixes` im Gerätespeicher (nur die geänderten Felder, dazu `level` für die Niveau-Einschätzung). Die Datei selbst bleibt unverändert, ID und Lernstand bleiben erhalten. Eigene Karten (`u…`) werden direkt geändert.
+- Die App kann jede Karte bearbeiten (Stift-Symbol). Änderungen an Karten aus `data/cards.json` liegen als Korrektur pro Karten-ID in `fixes` im Gerätespeicher (nur die geänderten Felder, dazu `level` für die Niveau-Einschätzung; `""` heißt „keine“ trotz Eintrag in `levels.json`). Die Datei selbst bleibt unverändert, ID und Lernstand bleiben erhalten. Eigene Karten (`u…`) werden direkt geändert.
 - **Bei der Übernahme einer Sicherung werden die Korrekturen fest in die Kartendatei übernommen** (`data/cards.json`, und `data/levels.json` für `level`). Die IDs bleiben gleich. Danach werden die Korrekturen im Gerätespeicher gelöscht (Sicherung mit leerem `fixes` neu einspielen oder in der Sammlung „Original wiederherstellen“). Danach `sw.js` hochzählen und die Tests laufen lassen.
 
 ## Tests

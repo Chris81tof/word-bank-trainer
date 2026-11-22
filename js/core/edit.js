@@ -4,20 +4,20 @@
 import { REG, REGION } from "./cards.js";
 import { cleanFix } from "./state.js";
 import { hintLeaks } from "./hints.js";
+import { LEVEL_NAMES, normLevel, baseLevel } from "./levels.js";
 
-export const LEVEL_NAMES = { "": "Keine Einschätzung", core: "Vorschlag: sicher A1–B1", edge: "Grenzfall B1/B2" };
 const str = (v) => (typeof v === "string" ? v.trim() : "");
 const lines = (v) => (Array.isArray(v) ? v : String(v || "").split("\n")).map(str).filter(Boolean);
 
 export const isCustom = (id) => /^u\d+$/.test(id);
 export const isEdited = (state, id) => !!(state.fixes && state.fixes[id]);
 
-// Niveau-Einschätzung (core, edge oder ""): eigene Karten tragen sie selbst, Startkarten eine Korrektur oder levels.json.
+// Niveau-Einschätzung ("" oder A1 bis C2): eigene Karten tragen sie selbst, Startkarten eine Korrektur oder levels.json.
 export function levelOf(levels, state, card) {
-  if (isCustom(card.id)) return card.level || "";
+  if (isCustom(card.id)) return normLevel(card.level);
   const fix = state.fixes && state.fixes[card.id];
-  if (fix && "level" in fix) return fix.level;
-  return levels.core.includes(card.id) ? "core" : levels.edge.includes(card.id) ? "edge" : "";
+  if (fix && "level" in fix) return normLevel(fix.level);
+  return baseLevel(levels, card.id);
 }
 
 // Werte fürs Formular
@@ -94,8 +94,7 @@ export function saveEdit(state, base, levels, allCardsNow, id, form) {
   }
   const orig = base.find((c) => c.id === id);
   if (!orig) return { errors: ["Diese Karte gibt es nicht mehr."] };
-  const origLevel = levels.core.includes(id) ? "core" : levels.edge.includes(id) ? "edge" : "";
-  const fix = diffFix(orig, origLevel, f);
+  const fix = diffFix(orig, baseLevel(levels, id), f);
   if (!state.fixes) state.fixes = {};
   if (fix) state.fixes[id] = fix; else delete state.fixes[id];
   return { ok: true };

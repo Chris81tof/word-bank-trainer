@@ -2,7 +2,8 @@
 import { esc, setMsg, armed } from "../core/dom.js";
 import { icon } from "../core/icons.js";
 import { CATS, REG, REGION } from "../core/cards.js";
-import { LEVEL_NAMES, formValues, saveEdit, restoreOriginal, isEdited, isCustom } from "../core/edit.js";
+import { formValues, saveEdit, restoreOriginal, isEdited, isCustom } from "../core/edit.js";
+import { LEVEL_PICK, LEVEL_NONE } from "../core/levels.js";
 
 // Stift-Knopf; bindEdit hängt die Funktion an alle Stifte in root
 export const editBtn = (id, cls = "") =>
@@ -35,7 +36,7 @@ export function openEditor(host, app, id, done) {
     `<label>Kategorie <select name="cat">${cats.map((c) => `<option${c === v.cat ? " selected" : ""}>${esc(c)}</option>`).join("")}</select></label>` +
     `<label>Register <select name="reg">${opts(REG, v.reg, "Keine Angabe")}</select></label>` +
     `<label>Regionaler Gebrauch <select name="region">${opts(REGION, v.region, "Keine Angabe (allgemein gebräuchlich)")}</select></label>` +
-    `<label>Niveau-Einschätzung <select name="level">${opts({ core: LEVEL_NAMES.core, edge: LEVEL_NAMES.edge }, v.level, LEVEL_NAMES[""])}</select></label>` +
+    `<label>Niveau-Einschätzung <select name="level">${opts(LEVEL_PICK, v.level, LEVEL_NONE)}</select></label>` +
     '<p class="msg" id="editMsg" role="alert"></p>' +
     '<div class="btnrow"><button type="submit" class="primary">Speichern</button><button type="button" id="editCancel">Abbrechen</button></div>' +
     (canRestore ? '<div class="btnrow"><button type="button" id="editRestore">Original wiederherstellen</button></div>' : "") +
